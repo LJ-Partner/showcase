@@ -1,0 +1,55 @@
+@import '../../Less/Common/public.less';
+@import '../../Less/Common/mixins.less';
+.status{
+	background: #fff;
+	.status-header{
+		text-align: center;
+		h2{
+			padding: 20px 0 5px 0;
+			font-size: .61333rem;
+		}
+		p{
+	    	line-height: .53333rem;	
+	    	font-size: .32rem;
+		}
+	}
+	.status-list{
+		padding: 12px;	
+		.list-item{
+			margin:0 0 .26667rem 0;
+			box-shadow: 0 0.02667rem 0.13333rem #e3e2e5;
+			a{
+				display: block;
+				width: 100%;
+				.flex();
+				overflow: hidden;
+				height: 1.86667rem;
+				justify-content: flex-start;
+				align-items: center;
+				color: #595961;
+				font-size: .4rem;
+				text-decoration: none;
+				span{
+					width: 14.7%;
+					height: 1.46667rem;
+					margin-left: 4%;
+					flex: 0 0 14.7%;
+					img{
+						max-width: 100%;
+						display: block;
+					}
+				}
+				.item-info{
+					margin: 0 10px;
+					p{
+						margin: 0 0 5px 0;
+						color: #595961;
+					}
+				}
+			}
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,65 @@
+@import '../../Less/Common/public.less';
+@import '../../Less/Common/mixins.less';
+.product{
+	.product-header{
+		text-align: center;
+		h2{
+			margin: 20px 0 5px 0;	
+			font-size: .61333rem;
+			color: #333;
+		}
+		p{
+			line-height: 0.56rem;
+			color: #9797a1;
+		}
+	}
+	.product-cat{
+		margin-top: 10px;
+		padding: 0 10px;
+		.flex();
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		.cat-item{
+			width: 49%;
+			background: #fff;
+			margin: 0 0 0.26667rem 0;
+			a{
+				display: block;
+				width: 100%;
+				height: 100%;
+				padding: 0.1rem 0.1rem 0.1rem 0;
+				.flex();
+				align-items: center;
+				justify-content: space-between;	
+				box-sizing: border-box;
+				text-decoration: none;
+				.pic{
+					background: #2589ff url('../../images/weizhan.png') center no-repeat;
+					flex: 0 0 1.6rem;
+					height: 1.3333rem;
+					line-height: 1.3333rem;
+					text-align: center;
+					color: #fff;
+					i{
+						font-size: 30px;
+					}
+				}
+				p{
+					color: #595961;
+					padding: 0 0.2rem;
+					font-size: 0.5rem;
+					line-height: 0.70rem;
+					.flex-column();
+					span{
+						font-weight: 600;
+					}
+					i{
+						font-size: 0.25rem;
+						color: #717171;
+					}
+				}
+			}
+		}
+	}
+}
