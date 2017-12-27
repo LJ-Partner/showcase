@@ -4,28 +4,8 @@ import Carousel from '../../components/Carousel/Carousel';
 import Intro from '../../components/Intro/Intro';
 import Footer from '../../components/Footer/Footer';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
-const IndexMenuIcon = [
-	{
-		text:'资讯',
-		icon: 'icon-zixun2',
-		link:'/#/news'
-	},
-	{
-		text:'产品',
-		icon:'icon-chanpin1',
-		link:'/#/products/5'
-	},
-	{
-		text:'简介',
-		icon:'icon-jianjie',
-		link:'/#/about'
-	},
-	{
-		text:'首页',
-		icon: 'icon-shouye',
-		link: '/'
-	}
-]
+var api = require('../../mock/index.js');
+var aboutData,menuIconData;
 const IndexHeadCarousel = {
 	autoPlay: true,
 	showArrows: false,
@@ -38,18 +18,20 @@ export default class About extends React.Component {
 	static propTypes={
         flag:PropTypes.string
     }
-    constructor(props) {
-        super(props); 
+    constructor(props){
+    	super(props)
+		aboutData = api.aboutData(this.props.match.params.name);
+		menuIconData = api.menuIconData(this.props.match.params.name);
     }
     render() {
 		return (
-		    <div className="wrap">
+		    <div className="wrap w-about">
 		    	<div className="main">
-		    		<Carousel config={IndexHeadCarousel} />
-		    		<Intro />
+		    		<Carousel config={IndexHeadCarousel} bannerList={aboutData.banner}/>
+		    		<Intro detail={aboutData.detail} />
 		    	</div>
-				<Footer flag = {flag} />
-				<MenuIcon  config = {IndexMenuIcon}/>	
+				<Footer flag = {flag} name={this.props.match.params.name} />
+				<MenuIcon  config = {menuIconData.list}/>	
 			</div>
 		);
 	}

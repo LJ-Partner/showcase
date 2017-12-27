@@ -20,24 +20,16 @@ export default class DemoCarousel extends Component {
         config:PropTypes.object
     }
     constructor(props) {
-        super(props); 
+        super(props);
     }
     render() {
-        
         return (
             <Carousel {...this.props.config} > 
-                <div>
-                    <img src={require('../../images/banner1.png')} />
-                </div>
-                <div>
-                    <img src={require('../../images/banner2.png')} />
-                </div>
-                <div>
-                    <img src={require('../../images/banner3.png')} />
-                </div>
-                <div>
-                    <img src={require('../../images/banner4.png')} />
-                </div>
+                {this.props.bannerList.map((item,index) =>{
+                    return  <div key={index}>
+                            <img src={item} />
+                            </div>    
+                })}
             </Carousel>
         );
     }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Contact from '../../components/Contact/Contact';
 import './Custome.less'
 export default class Custome extends React.Component{
 	constructor(props) {
@@ -40,16 +39,14 @@ export default class Custome extends React.Component{
 	                    <div className="contact-box-cnt">
 	                        <dl>
 	                            <dt>
-	                                <img src={require('../../images/qrcode.png')} />
+	                                <img src={this.props.customeData.qrcode} />
 	                            </dt>
 	                            <dd>打开微信扫一扫</dd>
 	                        </dl>
 	                        <ul className="info">
-	                            <li>联系人：王经理</li>
-	                            <li>电话: <a href="tel:0513-88783291">0513-88783291</a></li>
-	                            <li>邮箱: <a href="mailto:ryanjs@126.com">ryanjs@126.com</a></li>
-	                            <li>QQ: 2913601790</li>
-	                            <li>地址：江苏海安黄海大道西229号</li>
+	                            <li>电话: <a href={"tel:"+this.props.customeData.tel}>{this.props.customeData.tel}</a></li>
+	                            <li>邮箱: <a href={"mailto:"+this.props.customeData.email}>{this.props.customeData.email}</a></li>
+	                            <li>地址：{this.props.customeData.address}</li>
 	                        </ul>
 	                        <span onClick={this.contactClose.bind(this)} className="btn-cancel">取消</span>
 	                    </div>    
@@ -60,7 +57,7 @@ export default class Custome extends React.Component{
 	        		<p className="ico-contact" onClick={this.handleChange.bind(this)}>
 	        			<i className="iconfont icon-lianxiwomen"></i>			
 	        		</p>
-	        		<a href="tel:0513-88783291">
+	        		<a href={"tel:"+this.props.customeData.tel}>
 	        			<i className="iconfont icon-hdianhua"></i>			
 	        		</a>
 	        	</div>

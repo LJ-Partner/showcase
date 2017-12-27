@@ -8,54 +8,23 @@ export default class Product extends Component {
         return (
             <div className="product">
             	<div className="product-header">
-            		<h2>江苏瑞恩电气 . 专业成就梦想</h2>
-            		<p>专业从事各种电力变压器和箱式变电站制造</p>
+            		<h2>{this.props.info.title}</h2>
+            		<p>{this.props.info.des}</p>
             	</div>	
             	<ul className="product-cat">
-            		<li className="cat-item">
-            			<a href="/#/about">
-            				<span className="pic">
-                                <i className="iconfont icon-gongsijianjie"></i>
-                            </span>
-            				<p>
-                                <span>介绍</span>
-                                <i>Introduce</i>
-                            </p>
-            			</a>
-            		</li>
-            		<li className="cat-item">
-            			<a href="/#/philosophy">
-            				<span className="pic">
-                                <i className="iconfont icon-linian"></i>
-                            </span>
-            				<p>        
-                                <span>理念</span>
-                                <i>Philosophy</i>
-                            </p>
-            			</a>
-            		</li>
-            		<li className="cat-item">
-            			<a href="/#/products/5">
-            				<span className="pic">	
-                                <i className="iconfont icon-chanpin"></i>
-            				</span>
-                            <p>
-                                <span>产品</span>
-                                <i>Product</i>
-                            </p>
-            			</a>
-            		</li>
-            		<li className="cat-item">
-            			<a href="/#/news/">
-            				<span className="pic">
-                                <i className="iconfont icon-zixun1"></i>
-                            </span>
-            				<p>
-                                <span>资讯</span>
-                                <i>Information</i>      
-                            </p>
-            			</a>
-            		</li>
+                    {this.props.info.menu.map((item,index) =>{
+                        return  <li key={index} className="cat-item">
+                                    <a href={item.link}>
+                                        <span className="pic">
+                                            <i className={item.icon + " " + "iconfont"}></i>
+                                        </span>
+                                        <p>
+                                            <span>{item.name}</span>
+                                            <i>{item.english_name}</i>
+                                        </p>
+                                    </a>
+                                </li>
+                    })}
             	</ul>												
             </div>    
         );

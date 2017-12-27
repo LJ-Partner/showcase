@@ -5,6 +5,8 @@ import Carousel from '../../components/Carousel/Carousel';
 import PhilosophyDetail from '../../components/PhilosophyDetail/PhilosophyDetail';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
 import Footer from '../../components/Footer/Footer';
+var api = require('../../mock/index.js');
+var philosophyData,menuIconData;
 const IndexHeadCarousel = {
 	autoPlay: true,
 	showArrows: false,
@@ -12,38 +14,21 @@ const IndexHeadCarousel = {
     showThumbs: false,
     infiniteLoop: true
 }
-const IndexMenuIcon = [
-	{
-		text:'资讯',
-		icon: 'icon-zixun2',
-		link:'/#/news'
-	},
-	{
-		text:'产品',
-		icon:'icon-chanpin1',
-		link:'/#/products/5'
-	},
-	{
-		text:'简介',
-		icon:'icon-jianjie',
-		link:'/#/about'
-	},
-	{
-		text:'首页',
-		icon: 'icon-shouye',
-		link: '/'
-	}
-]
 export default class Philosophy extends React.Component {
+	constructor(props){
+		super(props);
+		philosophyData = api.philosophyData(this.props.match.params.name);
+		menuIconData = api.menuIconData(this.props.match.params.name);
+	}
     render() {
 		return (
 		    <div className="wrap">
 		    	<div className="main philosophy-w">
-		    		<Carousel config={IndexHeadCarousel} />
-		    		<PhilosophyDetail />	
+		    		<Carousel config={IndexHeadCarousel} bannerList={philosophyData.banner} />
+		    		<PhilosophyDetail detail={philosophyData.detail} />	
 		    	</div>
-		    	<MenuIcon  config = {IndexMenuIcon}/>
-		    	<Footer />		
+		    	<MenuIcon  config = {menuIconData.list}/>
+		    	<Footer name={this.props.match.params.name}  />		
 			</div>
 		);
 	}

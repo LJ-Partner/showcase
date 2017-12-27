@@ -1,0 +1,371 @@
+{
+    "yikst": {
+        "banner":[
+            "/src/images/yikst/yikst_banner4.png",
+            "/src/images/yikst/yikst_banner1.png"
+        ],
+        "detail": [
+            {
+                "title": "FLY905-JM18-T6 锡膏",
+                "des": "亿铖达工业有限公司近年来通过同国内外知名 LED 生产厂家紧密合作，同时同国内著名高校建立稳定的产学研合作，共同开发，经过长达 2 年的研究与验证，公司推出一款具有导电导热性好，高触变性、焊接强度高、残留物少、空洞率低的LED固晶专用锡膏 —— FLY905-JM18-T6。",
+                "pic": "/src/images/yikst/ykist_product_6.jpg",
+                "params_pic": {
+                    "des": "晶片固晶是 LED 封装的重要环节，固晶材料的热传导性能对 LED 的散热能力有相当的影响；FLY905-JM18-T6 焊後导热系数为银胶的 2 倍以上，而且合金成份为 Sn-3.0Ag-0.5Cu，性价比最高。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_1.png"
+                }
+            },
+            {
+                "title": "FLY905-JM18-T6 锡膏",
+                "des": "亿铖达工业有限公司近年来通过同国内外知名 LED 生产厂家紧密合作，同时同国内著名高校建立稳定的产学研合作，共同开发，经过长达 2 年的研究与验证，公司推出一款具有导电导热性好，高触变性、焊接强度高、残留物少、空洞率低的LED固晶专用锡膏 —— FLY905-JM18-T6。",
+                "pic": "/src/images/yikst/ykist_product_6.jpg",
+                "params_pic": {
+                    "des": "晶片固晶是 LED 封装的重要环节，固晶材料的热传导性能对 LED 的散热能力有相当的影响；FLY905-JM18-T6 焊後导热系数为银胶的 2 倍以上，而且合金成份为 Sn-3.0Ag-0.5Cu，性价比最高。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_1.png"
+                }
+            },
+            {
+                "title": "FLY905-JM18-T6 锡膏",
+                "des": "亿铖达工业有限公司近年来通过同国内外知名 LED 生产厂家紧密合作，同时同国内著名高校建立稳定的产学研合作，共同开发，经过长达 2 年的研究与验证，公司推出一款具有导电导热性好，高触变性、焊接强度高、残留物少、空洞率低的LED固晶专用锡膏 —— FLY905-JM18-T6。",
+                "pic": "/src/images/yikst/ykist_product_6.jpg",
+                "params_pic": {
+                    "des": "晶片固晶是 LED 封装的重要环节，固晶材料的热传导性能对 LED 的散热能力有相当的影响；FLY905-JM18-T6 焊後导热系数为银胶的 2 倍以上，而且合金成份为 Sn-3.0Ag-0.5Cu，性价比最高。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_1.png"
+                }
+            },
+            {
+                "title": "FLY905-CQ-4(M) 无铅锡膏",
+                "des": "FLY905-CQ-4(M) 属於无铅无卤免洗焊锡膏。特别设计以满足焊後免清洗，且焊後残留物无色透明不会发生分解。此产品有着很大的可选择工艺参数范围，从而使之能适应於不同环境丶不同设备及不同应用工艺，同时可保证优异的连续性印刷丶抗坍塌能力丶表面绝缘阻抗性能。焊後较低的残留物可以保证ICT测试的通过。FLY905-CQ-4(M) 有着优异的抗乾能力，在连续印刷条件下仍能保证八小时以上焊膏有着良好的粘着力。",
+                "pic": "/src/images/yikst/ykist_product_16.jpg",
+                "params_pic": {
+                    "des": "特别配方，免清洗锡膏，残留物少丶无色透明；流动性佳。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_3.png"
+                }
+            },
+            {
+                "title": "SUPER105-JA04 无铅锡膏",
+                "des": "SUPER105-JA04 属於无铅免洗焊锡膏。粘度安定性良好，运输丶保管丶使用方便；良好的细间距印刷性能，印刷形状精细；预防预热时的塌陷，有效防止桥连及锡球的发生；活性好，适用面广。",
+                "pic": "/src/images/yikst/ykist_product_16.jpg",
+                "params_pic": {
+                    "des": "亿铖达公司推介，最高性价比无铅锡膏用合金成份：Sn-1.0Ag-0.5Cu。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_4.png"
+                }
+            },
+            {
+                "title": "SUPER105-JA70 无铅锡膏",
+                "des": "SUPER105-JA70 属於无铅免洗焊锡膏。粘度安定性良好，运输丶保管丶使用方便；良好的细间距印刷性能，印刷形状精细；预防预热时的塌陷，有效防止桥连及锡球的发生；活性好，适用面广",
+                "pic": "/src/images/yikst/ykist_product_16.jpg",
+                "params_pic": {
+                    "des": "亿铖达公司推介，最高性价比无铅锡膏用合金成份：Sn-1.0Ag-0.5Cu。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_5.png"
+                }
+            },
+            {
+                "title": "M100 无铅锡条",
+                "des": "M100 可应用於环保要求严格的手工烙铁焊接。由於使用高纯度原材料精制造而成，并配合相应的助焊剂成份，焊接流动性好，烟雾小，飞溅少；在环保型电子装联工业中有广泛应用。",
+                "pic": "/src/images/yikst/ykist_product_18.jpg",
+                "params_pic": {
+                    "des": "高纯度原材料精制。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_6.png"
+                }
+            },
+            {
+                "title": "M305 无铅锡条",
+                "des": "M100 可应用於环保要求严格的手工烙铁焊接。由於使用高纯度原材料精制造而成，并配合相应的助焊剂成份，焊接流动性好，烟雾小，飞溅少；在环保",
+                "pic": "/src/images/yikst/ykist_product_18.jpg",
+                "params_pic": {
+                    "des": "亿铖达公司专利配方。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_7.png"
+                }
+            },
+            {
+                "title": "M507 无铅锡条",
+                "des": "M507 适用於对环保要求严格的波峰焊及浸焊工艺。连接性价比极高，由於采用高纯度原材料精制而成，焊接时流动性好，与本公司提供的GOLF 系列助焊剂配套使用，可大幅度减小桥连，锡尖等工艺问题，在环保型电子装联工业中有着广泛应用范围。",
+                "pic": "/src/images/yikst/ykist_product_18.jpg",
+                "params_pic": {
+                    "des": "亿铖达公司专利配方。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_8.png"
+                }
+            },
+            {
+                "title": "M507 无铅锡綫",
+                "des": "M507 适用於对环保要求严格的波峰焊及浸焊工艺。连接性价比极高，由於采用高纯度原材料精制而成，焊接时流动性好，与本公司提供的GOLF 系列助焊剂配套使用，可大幅度减小桥连，锡尖等工艺问题，在环保型电子装联工业中有着广泛应用范围。",
+                "pic": "/src/images/yikst/ykist_product_17.jpg",
+                "params_pic": {
+                    "des": "亿铖达公司专利配方，可配合用家所需做成不同粗幼，最小可至0.15mm。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_9.png"
+                }
+            },
+            {
+                "title": "M100 无铅锡綫",
+                "des": "M507 适用於对环保要求严格的波峰焊及浸焊工艺。连接性价比极高，由於采用高纯度原材料精制而成，焊接时流动性好，与本公司提供的GOLF 系列助焊剂",
+                "pic": "/src/images/yikst/ykist_product_19.jpg",
+                "params_pic": {
+                    "des": "高纯度原材料精制；可配合用家所需做成不同粗幼，最小可至0.15mm。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_10.png"
+                }
+            },
+            {
+                "title": "GOLF3000 水溶性助焊剂",
+                "des": "GOLF3000属於电子元器件管脚无铅上锡时的专用助焊剂。助焊剂中合适的固体含量及其内部活性机理确保了上锡光亮饱满。GOLF3000有着很大的可选择工艺参数范围， 从而使之能适应於不同环境丶不同设备及不同应用工艺。助焊剂体系的活性经过特别设计， 即使是可焊性一般的元器件亦可得到良好的焊接效果。",
+                "pic": "/src/images/yikst/ykist_product_19.jpg",
+                "params_pic": {
+                    "des": "GOLF3000 为不含松香型助焊剂，用後焊点表面光亮丶高润湿性；焊後需用水清洗。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_11.png"
+                }    
+            },
+            {
+                "title": "GOLF-812 无卤素助焊剂",
+                "des": "GOLF3000属於电子元器件管脚无铅上锡时的专用助焊剂。助焊剂中合适的固体含量及其内部活性机理确保了上锡光亮饱满。GOLF3000有着很大的可选择工艺参数范围， 从而使之能",
+                "pic": "/src/images/yikst/ykist_product_19.jpg",
+                "params_pic": {
+                    "des": "GOLF-812 用後焊点表面光亮。其润湿性高丶无腐蚀性，且残留物极少，焊後可免清洗。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_12.png"
+                }    
+            },
+            {
+                "title": "WB200 免清洗助焊剂",
+                "des": "WB200 属於低 VOC丶水基型免清洗助焊剂，不含任何松香/树脂成分，仅含有极少量的 VOC 成分。WB200 适用性极为广泛，在无铅焊接和有铅焊接的应用領域均有极为优異的表现。助焊剂体系的活性经过特别设计，即使是可焊性一般的印刷电路板亦可得到良好的焊接效果。助焊剂中合适的固体含量及其内部活性机理保证了电路板焊後残留物极少，而且电路板表面乾燥丶乾净。在无特殊需求条件下，可免除清洗工序，进而节约制造商的生产费用。",
+                "pic": "/src/images/yikst/ykist_product_19.jpg",
+                "params_pic": {
+                    "des": "WB200 为环保型丶低 VOC 助焊剂，高润湿性丶无腐蚀性；残留物极少，焊後可免清洗，高表面绝缘电阻。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_13.png"
+                }    
+            },
+            {
+                "title": "ECO Cleaner 100A 环保型清洗剂",
+                "des": "ECO CLEANER 200 属於环保型清洗剂，为高纯度碳氢化合物，是专为范本/错印板的清洗而配制的高性能清洗剂。ECO CLEANER 200 不仅可以用於去除范本印刷/错印板上的各种未固化的SMD粘合剂和未回流的焊锡膏，而且也可以有效去除印刷电路板上的松香及助焊剂残留物，以及丙烯酸丶矽酮保形涂层和高温胶带的残留。ECO CLEANER 200 清洗剂适用於手洗丶机洗和大多數相容IPA的范本清洗和去焊设备。",
+                "pic": "/src/images/yikst/ykist_product_19.jpg",
+                "params_pic": {
+                    "des": "ECO CLEANER 200 清洗剂建议用於手工擦拭或者沉浸应用，主要应用領域如下：",
+                    "pic": "/src/images/yikst/ykist_product_parameter_14.png"
+                }    
+            },
+            {
+                "title": "ECO Cleaner 100A 环保型清洗剂",
+                "des": "ECO CLEANER 100A 属於环保型清洗剂，为高精细碳氢化合物和环保型有机溶剂的混合物，是专为范本/错印板的清洗而配制的高性能清洗剂。ECO CLEANER 100A 不仅可以用於去除范本印刷/错印板上的各种未固化的 SMD 粘合剂和未回流的焊锡膏，而且也可以有效去除印刷电路板上的松香及助焊剂残留物，以及丙烯酸丶矽酮保形涂层和高温胶带的残留。ECO CLEANER 100A 清洗剂适用於手洗丶机洗和大多數相容IPA的范本清洗和去焊设备。",
+                "pic": "/src/images/yikst/ykist_product_19.jpg",
+                "params_pic": {
+                    "des": "ECO CLEANER 100A 清洗剂建议用於手工擦拭或者沉浸应用，主要应用領域如下：",
+                    "pic": "/src/images/yikst/ykist_product_parameter_15.png"
+                }    
+            },
+            {
+                "title": "ECO Cleaner 100 环保型清洗剂",
+                "des": "ECO CLEANER 100 属於环保型清洗剂，为碳氢化合物和环保型有机溶剂的混合物，是专为范本/印刷钢网的清洗而配制的高性能清洗剂。ECO CLEANER 100 不仅可以用於去除范本印刷/错印板上的各种未固化的SMD粘合剂和未回流的焊锡膏，而且也可以有效去除印刷电路板上的松香及助焊剂残留物，以及丙烯酸丶矽酮保形涂层和高温胶带的残留。适用於手洗丶机洗和大多數相容IPA的范本清洗和去焊设备。",
+                "pic": "/src/images/yikst/ykist_product_19.jpg",
+                "params_pic": {
+                    "des": "ECO CLEANER 100 清洗剂建议用於手工擦拭或者沉浸应用，主要应用領域如下：",
+                    "pic": "/src/images/yikst/ykist_product_parameter_16.png"
+                }    
+            },
+            {
+                "title": "PU 1030-WB 水性聚氨酯三防漆",
+                "des": "PU 1030-WB产品是我司自主研发和生产的一款不含有机溶剂的环保敷型涂覆材料。PU 1030-WB除保留了传统溶剂型聚氨酯的优良性能——耐磨、耐化学性、耐高低温，耐湿热，耐盐雾等外,其突出优势是以水为稀释剂，不含有机溶剂，具有安全环保、不燃不爆、无毒无害无污染、施工方便和明显改善车间作业环境等特点。适用于各种环境下、不同电子电气产品线路板的防腐，符合国家安全环保政策的要求。水性三防漆是电子PCB防腐发展的必然趋势，我司重点向您推荐该产品。",
+                "pic": "/src/images/yikst/ykist_product_1.png",
+                "params_pic": {
+                    "des": "",
+                    "pic": "/src/images/yikst/ykist_product_parameter_17.png"
+                }    
+            },
+            {
+                "title": "PU 1030系列 改性聚氨酯三防漆",
+                "des": "亿铖达PU 1030系列是一款基于聚氨酯改性的单组分室温固化敷型涂覆材料。不含二甲苯，甲苯等芳香族溶剂，气味小，表干时间短，固化后的漆膜光亮，附着力好，耐磨、耐化学性，耐高低温，耐湿热，耐盐雾性能优异，可应用于不同使用环境下电子电气产品线路板的防腐，特别适用于3C产品、智能家电、电源、汽车控制等高稳定防腐要求的领域。",
+                "pic": "/src/images/yikst/ykist_product_2.jpg",
+                "params_pic": {
+                    "des": "",
+                    "pic": "/src/images/yikst/ykist_product_parameter_18.png"
+                }    
+            },
+            {
+                "title": "AR 205X系列 改性丙烯酸三防漆",
+                "des": "亿铖达AR205X系列是一款无色透明的环氧改性丙烯酸树脂清漆。不含任何重金属,溶剂不含甲苯、二甲苯、乙苯等芳香族溶剂以及丙酮。环境友好、气味小，非常适合工人现场操作，配有环保稀释剂，可满足不同工艺的粘度要求，良好的附着力，耐化学腐蚀、耐盐雾、耐黄变性能优异，可应用于不同使用环境下电子电气产品线路板的防腐，特别适用于对光学及气味要求敏感的领域。",
+                "pic": "/src/images/yikst/ykist_product_3.jpg",
+                "params_pic": {
+                    "des": "",
+                    "pic": "/src/images/yikst/ykist_product_parameter_19.png"
+                }    
+            },
+            {
+                "title": "湿气固化聚氨酯热熔胶 （PUR）",
+                "des": "湿气固化聚氨酯热熔胶 （PUR）是一款无溶剂无毒，高效，安全环保的粘接胶，广泛用于电子电气玻璃面板的粘接。PUR胶分子的异氰酸酯与空气和基材表面水分子发生反应，形成不可逆的胶联结构，胶层稳固耐久，具有非常高的粘接强度、耐热性、耐寒性以及耐老化等特性。粘接工艺简单，自动化程度高。",
+                "pic": "/src/images/yikst/ykist_product_4.jpg",
+                "params_pic": {
+                    "des": "",
+                    "pic": "/src/images/yikst/ykist_product_parameter_20.png"
+                }    
+            },
+            {
+                "title": "水性聚氨酯三防漆 PU1030-WB",
+                "des": "水性聚氨酯三防漆首创者。水基型，更环保，更安全，水性三防漆是电子PCB防腐发展的必然趋势。应用：电子电气产品PCBA的防腐保护；如智能家电、汽车电子、电源变频、工控、通讯、军工、仪器仪表等。",
+                "pic": "/src/images/yikst/ykist_product_5.jpg",
+                "params_pic": {
+                    "des": "无味无VOCs2, 防腐性能优异,健康安全环保,不燃不爆。",
+                    "pic": "/src/images/yikst/ykist_product_parameter_21.png"
+                }    
+            },
+            {
+                "title": "水性聚氨酯厚层涂覆三防漆 PU1030-50S-WB",
+                "des": "高防腐领域：军工/充电桩/户外精密设备/通讯基站等，特殊元器件：针脚/引脚；风扇口，恶劣环境：汽车电子/风力/海边等。",
+                "pic": "/src/images/yikst/ykist_product_6.jpg",
+                "params_pic": {
+                    "des": "1. 安全环保，无VOCs无味；表干/固化快，彻底解决水性厚层难于固化的难题；漆膜均匀光亮，无气泡；聚氨酯高可靠性材质，电性能、热性能及防腐性能优异；",
+                    "pic": "/src/images/yikst/ykist_product_parameter_21.png"
+                }    
+            }
+        ]
+    },
+    "zzkeneng": {
+        "banner": [
+            "/src/images/yikst/yikst_banner1.png",
+            "/src/images/yikst/yikst_banner2.png",
+            "/src/images/yikst/yikst_banner3.png",
+            "/src/images/yikst/yikst_banner4.png"
+        ],
+        "detail":[
+            {
+                "title": "铟粉",
+                "des":"纯度：4N5,性状：银白色金属，质软。包装：1公斤/瓶，铝箔袋真空包装。包装：每锭净重约500g\\1000g\\3000g\\5000g；、塑料袋真空封装，每箱净重约20或25公斤；可根据客用户要求定制。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_1.png",
+                "params_pic": {
+                    "des": "主要用于电子浆料、焊接合金、涂料等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_1.jpg"
+                }    
+            },
+            {
+                "title": "铟锭",
+                "des":"纯度：4N-5N,性状：银灰色粉末呈银灰色，球型，粒径20~50微米。包装：1公斤/瓶，铝箔袋真空包装。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_2.png",
+                "params_pic": {
+                    "des": "主要用作透明电极（ITO膜）、电子工业焊料、低熔合金、高性能发动机的轴承、低温和真空领域作密封件等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_2.jpg"
+                }    
+            },
+            {
+                "title": "铟丝",
+                "des":"纯度：4N-5N,性状：银白色丝状，质软，直径l.0mm\\1.5mm\\2.0mm等。包装：250克/卷，真空包装；亦可根据用户要求定制。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_3.png",
+                "params_pic": {
+                    "des": "主要用于电子行业，密封材料等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_3.jpg"
+                }    
+            },
+            {
+                "title": "铟箔",
+                "des":"纯度：4N-5N,性状：银白色箔状，质软。包装：规格：100×100×0.1 (mm) 真空包装；可根据用户要求定制。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_4.jpg",
+                "params_pic": {
+                    "des": "主要用于电子行业，密封材料等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_4.jpg"
+                }    
+            },
+            {
+                "title": "铟珠",
+                "des":"纯度：4N-5N,性状：银白色珠状，质软，直径3~5mm。包装：塑料袋密封真空包装。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_5.png",
+                "params_pic": {
+                    "des": "主要用于电子行业，密封材料等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_5.jpg"
+                }    
+            },
+            {
+                "title": "铟棒",
+                "des":"纯度：4N-5N,性状：银白色棒状，质软。包装：100-500克/条，真空塑料袋封装；可根据用户要求定制。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_6.jpg",
+                "params_pic": {
+                    "des": "主要用作透明电极（ITO膜）、高纯合金、核辐射安全监控、密封件等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_6.jpg"
+                }    
+            },
+            {
+                "title": "氢氧化铟",
+                "des":"纯度：4N,性状：白色固体粉末。包装：塑料袋密封包装或塑料瓶包装。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_7.jpg",
+                "params_pic": {
+                    "des": "主要用于电池，玻璃，陶瓷化学试剂等；亦可用于制备铟的氧化物，半导体材料。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_7.jpg"
+                }    
+            },
+            {
+                "title": "铋粉",
+                "des":"纯度：4N,性状：浅灰色粉末；粒径100目、200目、325目、-200目、-325目。包装：1公斤/袋或1公斤/瓶；可根据用户要求定制。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_8.png",
+                "params_pic": {
+                    "des": "广泛应用于各种铋合金产品、低温焊料、冶金添加剂、石油勘探等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_8.jpg"
+                }    
+            },
+            {
+                "title": "铋锭",
+                "des":"纯度：4N,性状：银白色带玫瑰色金属，有金属光泽，呈长方形和长方梯形。包装：每锭净重约16公斤，纤维板箱包装，一箱约一吨。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_9.png",
+                "params_pic": {
+                    "des": "主要用于医药、化工、冶金添加剂及低熔点合金等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_9.jpg"
+                }    
+            },
+            {
+                "title": "氧化铋",
+                "des":"纯度：2N5-4N,性状：亮黄色至橙色粉末。包装：纸袋包装，每袋净重25公斤。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_10.jpg",
+                "params_pic": {
+                    "des": "广泛用于电子、军工、医药、超导体、半导体行业。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_10.jpg"
+                }    
+            },
+            {
+                "title": "铋针",
+                "des":"纯度：4N,性状：银白色针状，性脆。包装：20公斤/袋；可根据用户要求定制。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_11.png",
+                "params_pic": {
+                    "des": "主要除用于医药行业外，也广泛应用于半导体、超导体、阻燃剂、颜料、化妆品、化学试剂、电子陶瓷等领域。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_11.jpg"
+                }    
+            },
+            {
+                "title": "铋珠",
+                "des":"纯度：4N,性状：银白色带玫瑰色球状，性脆；直径10mm、20mm。包装：5公斤或25公斤/袋。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_12.png",
+                "params_pic": {
+                    "des": "主要用于制取铋的化合物、铋制品，医药、化学试剂、化工颜料。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_12.jpg"
+                }    
+            },
+            {
+                "title": "镉锭",
+                "des":"性状：含量Cd≥99.95%或99.99%或99.995%,固体镉表面呈深灰色，长方梯形。包装：每锭净重约6～8公斤，木箱或托盘包装。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_20.jpg",
+                "params_pic": {
+                    "des": "广泛应用于化学、金属合金、电镀和蓄电池等。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_13.jpg"
+                }    
+            },
+            {
+                "title": "锗",
+                "des":"性状：含量Ge≥99.999%，电阻率≥50Ω•cm (20±0.5 ℃)。银灰色金属光泽，呈长方体形棒状，既硬又脆，熔点是937.4℃，沸点是2800℃，密度为5.325g/cm3。包装：每锭长约100～500mm,每锭密封于聚乙烯薄膜袋中，再装入聚苯乙烯盒内，外木箱包装，每箱净重约为25公斤。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_21.jpg",
+                "params_pic": {
+                    "des": "广泛应用于半导体和探测器，红外光学工业，也用作各种单晶锗原料。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_14.jpg"
+                }    
+            },
+            {
+                "title": "金属钴",
+                "des":"性状：片状，金属光泽。包装：250公斤/铁桶，打托。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_22.jpg",
+                "params_pic": {
+                    "des": "纯钴用于制造X射线管阴极和一些特殊制品，钴几乎都用于制造合金、热强合金、硬质合金、焊接合金，以及各种含钴合金钢。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_15.jpg"
+                }    
+            },
+            {
+                "title": "草酸钴",
+                "des":"性状：浅粉红色结晶粉末，溶于氨水，微溶于水和酸。包装：25公斤/编织袋。",
+                "pic": "/src/images/zzkeneng/zzkeneng_pro_23.jpg",
+                "params_pic": {
+                    "des": "用于制造金属钴粉及其他钴盐原料。",
+                    "pic": "/src/images/zzkeneng/zzkeneng_product_parameter_16.jpg"
+                }    
+            }
+        ]
+    }
+}

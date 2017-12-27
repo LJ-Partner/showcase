@@ -147,7 +147,8 @@ var config = {
 	devServer: {
         contentBase: path.join(__dirname),
         port: 3333,
-        compress:true
+        compress:true,
+        historyApiFallback:true
     }
 }
 

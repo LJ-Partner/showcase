@@ -14,29 +14,7 @@ import Custome from '../../components/Custome/Custome';
 import Pop from '../../components/Pop/Pop';
 import Footer from '../../components/Footer/Footer';
 var api = require('../../mock/index.js');
-console.log(api.getdata());
-const IndexMenuIcon = [
-	{
-		text:'资讯',
-		icon: 'icon-zixun2',
-		link:'/#/news'
-	},
-	{
-		text:'产品',
-		icon:'icon-chanpin1',
-		link:'/#/products/5'
-	},
-	{
-		text:'简介',
-		icon:'icon-jianjie',
-		link:'/#/about'
-	},
-	{
-		text:'首页',
-		icon: 'icon-shouye',
-		link: '/'
-	}
-]
+var indexData,menuIconData,customeData,popData;
 const IndexHeadCarousel = {
 	autoPlay: true,
 	showArrows: false,
@@ -47,26 +25,34 @@ const IndexHeadCarousel = {
 const flag = 'home';
 export default class Home extends React.Component {
 	constructor(props){
-		super(props)
+		super(props);
+		this.state = {
+			componentShow: true,
+			type: ''	
+		}
+		indexData = api.IndexData(this.props.match.params.name);
+		menuIconData = api.menuIconData(this.props.match.params.name);
+		customeData = api.customeData(this.props.match.params.name);
+		popData = api.popData(this.props.match.params.name);
+		if(this.props.match.params.name == 'ningde'){
+			this.state.componentShow = false	
+		}
 	}
 	render() {
 		return (
 		    <div className="wrap">
 		    	<div className="main home">
-		    		<Carousel config={IndexHeadCarousel} />
-					<Product />
-					<Solve />
-					<Service />
-					<Status />	
+		    		<Carousel config={IndexHeadCarousel} bannerList={indexData.banner}/>
+					<Product info={indexData.info} name={this.props.match.params.name} />
+					<Solve product = {indexData.product} />
+					<Service information = {indexData.information} />
+					<Status message={indexData.message} name={this.props.match.params.name} />	
 					<Support />
 		    	</div>
-		    	<Footer flag={flag} />
-		    	<div className="pop-w">
-		    		<Pop />				
-		    	</div>
-		    	<Custome />
-				
-				<MenuIcon  config = {IndexMenuIcon}/>
+		    	<Footer flag={flag} name={this.props.match.params.name} />
+		    	{ this.state.componentShow ? <Custome customeData={customeData} /> : '' }
+		    	{ this.state.componentShow ? <Pop popData={popData} /> : '' }
+		    	{ this.state.componentShow ? <MenuIcon  config = {menuIconData.list}/> : '' }
 			</div>
 		);
 	}

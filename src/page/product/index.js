@@ -5,28 +5,8 @@ import ProductList from '../../components/ProductList/ProductList';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
 import Footer from '../../components/Footer/Footer';
 import './index.less';
-const IndexMenuIcon = [
-	{
-		text:'资讯',
-		icon: 'icon-zixun2',
-		link:'/#/news'
-	},
-	{
-		text:'产品',
-		icon:'icon-chanpin1',
-		link:'/#/products/5'
-	},
-	{
-		text:'简介',
-		icon:'icon-jianjie',
-		link:'/#/about'
-	},
-	{
-		text:'首页',
-		icon: 'icon-shouye',
-		link: '/'
-	}
-]
+var api = require('../../mock/index.js');
+var productData,menuIconData;
 const IndexHeadCarousel = {
 	autoPlay: true,
 	showArrows: false,
@@ -40,19 +20,21 @@ export default class Products extends React.Component {
         flag:PropTypes.string
     }
     constructor(props) {
-        super(props); 
+        super(props);
+		productData = api.productData(this.props.match.params.name,(parseInt(this.props.match.params.id)-1));
+		menuIconData = api.menuIconData(this.props.match.params.name);
     }
     render() {
 		return (
 		    <div className="wrap">
 		    	<div className="main">
 		    		<div className="products">
-			    		<Carousel config={IndexHeadCarousel} />
-			    		<ProductList id={this.props.match.params.id} />	
+			    		<Carousel config={IndexHeadCarousel} bannerList={productData[0]}/>
+			    		<ProductList list={productData[1][(parseInt(this.props.match.params.id)-1)]} name={this.props.match.params.name} id={this.props.match.params.id} />	
 			    	</div>	
 		    	</div>
-		    	<MenuIcon  config = {IndexMenuIcon}/>
-				<Footer flag = {flag} />
+		    	<MenuIcon  config = {menuIconData.list}/>
+				<Footer flag = {flag} name={this.props.match.params.name} />
 			</div>
 		);
 	}

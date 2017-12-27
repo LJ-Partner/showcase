@@ -29,7 +29,6 @@ export default class GoTop extends React.Component{
 	componentWillMount(){
         this.init();        
     }
-    //组件将被卸载  
     componentWillUnmount(){  
         this.setState = (state,callback)=>{
         	return;

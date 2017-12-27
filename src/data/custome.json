@@ -1,0 +1,20 @@
+{
+	"yikst":{
+		"qrcode":"../src/images/yikst/qrcode.jpg",
+		"tel":"0755-2747 3328",
+		"email":"yikst@yikst.com",
+		"address":"深圳市宝安区宝城76区前进二路38号亿铖达大厦"		
+	},
+	"zzkeneng":{
+		"qrcode":"../src/images/zzkeneng/qrcode.jpg",
+		"tel":"0731-22498117",
+		"email":"zzkeyu@zzkeneng.com",
+		"address":"湖南省株洲市荷塘区金山科技工业园（株洲市东区向阳广场）"		
+	},
+	"ruien":{
+		"qrcode":"../src/images/ruien/qrcode.png",
+		"tel":"0513-88783291",
+		"email":"ryanjs@126.com",
+		"address":"江苏海安黄海大道西229号"		
+	}
+}

@@ -5,28 +5,8 @@ import Carousel from '../../components/Carousel/Carousel';
 import NewsDetail from '../../components/NewsDetail/NewsDetail';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
 import Footer from '../../components/Footer/Footer';
-const IndexMenuIcon = [
-	{
-		text:'资讯',
-		icon: 'icon-zixun2',
-		link:'/#/news'
-	},
-	{
-		text:'产品',
-		icon:'icon-chanpin1',
-		link:'/#/products/5'
-	},
-	{
-		text:'简介',
-		icon:'icon-jianjie',
-		link:'/#/about'
-	},
-	{
-		text:'首页',
-		icon: 'icon-shouye',
-		link: '/'
-	}
-]
+var api = require('../../mock/index.js');
+var newsDetailData,menuIconData;
 const IndexHeadCarousel = {
 	autoPlay: true,
 	showArrows: false,
@@ -35,23 +15,25 @@ const IndexHeadCarousel = {
     infiniteLoop: true
 }
 const flag = 'news';
-export default class Home extends React.Component {
+export default class Detail extends React.Component {
 	static propTypes={
         flag:PropTypes.string
     }
     constructor(props) {
-        super(props); 
+        super(props);
+        newsDetailData = api.newsDetailData(this.props.match.params.name,(parseInt(this.props.match.params.id)-1));
+        menuIconData = api.menuIconData(this.props.match.params.name);
     }
     render() {
 		return (
 		    <div className="wrap">
 		    	<div className="main">
-		    		<Carousel config={IndexHeadCarousel}/>
-		    		<NewsDetail id={this.props.match.params.id} />	
+		    		<Carousel config={IndexHeadCarousel} bannerList = {newsDetailData[0]} />
+		    		<NewsDetail id={this.props.match.params.id} newsDetailData={newsDetailData[1][(parseInt(this.props.match.params.id)-1)]} />	
 		    	</div>
 		    	<GoTop />
-		    	<MenuIcon  config = {IndexMenuIcon}/>
-		    	<Footer />
+		    	<MenuIcon  config = {menuIconData.list}/>
+		    	<Footer name={this.props.match.params.name} />
 			</div>
 		);
 	}

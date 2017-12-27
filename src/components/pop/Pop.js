@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Pop.less';
 export default class Pop extends React.Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
 			popShow: false
 		}
@@ -29,16 +29,18 @@ export default class Pop extends React.Component{
     }  
     render(){
         return(
-        	<div className={this.state.popShow?"pop":"pop hide"}>
-        		<img className="pop-server-img" src={require('../../images/server.png')} />
-        		<div className="pop-cnt">
-        			<p>您好，瑞恩客服为您提供帮助!</p>	
-        			<div className="btn-group">
-        				<a onClick={this.closePop.bind(this)}>现在咨询</a>
-        				<a onClick={this.closePop.bind(this)}>稍候再说</a>
-        			</div>
-        		</div>
-        	</div>     
+            <div className="pop-w">
+            	<div className={this.state.popShow?"pop":"pop hide"}>
+            		<img className="pop-server-img" src={require('../../images/server.png')} />
+            		<div className="pop-cnt">
+            			<p>{this.props.popData.title}</p>	
+            			<div className="btn-group">
+            				<a onClick={this.closePop.bind(this)}>现在咨询</a>
+            				<a onClick={this.closePop.bind(this)}>稍候再说</a>
+            			</div>
+            		</div>
+            	</div>  
+            </div>   
         );
     }
 }
