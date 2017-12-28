@@ -36,21 +36,16 @@ export default class Home extends React.Component {
 		menuIconData = api.menuIconData(this.props.match.params.name);
 		customeData = api.customeData(this.props.match.params.name);
 		popData = api.popData(this.props.match.params.name);
+		if(this.props.match.params.name == 'ningde'){
+			this.setState({componentShow: false});
+		}
 	}
 	componentDidMount() {
 		axios.get('../../src/data/index.json')
 		.then(res => {
 			//console.log(res.data.yikst)
 		});
-		if(this.props.match.params.name == 'ningde'){
-			this.setState({componentShow: false});
-		}
 	}
-	componentWillUnmount(){  
-        this.setState = (state,callback)=>{
-        	return;
-        };  
-    }
 	render() {
 		return (
 		    <div className="wrap">

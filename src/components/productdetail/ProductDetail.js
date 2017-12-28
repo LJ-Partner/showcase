@@ -4,7 +4,6 @@ import './ProductDetail.less';
 export default class ProDetail extends React.Component{
     constructor(props) {
         super(props);
-        console.log(props)
     }
     renderInfo(){
         return (

@@ -12,6 +12,11 @@ import { default as Philosophy } from './page/Philosophy/index.js';
 import { default as News } from './page/News/index.js';
 import { default as NewsDetail } from './page/News/detail.js';
 const dest = document.getElementById("root");
+import axios from 'axios';
+axios.get('../../src/data/index.json')
+.then(res => {
+    console.log(res)
+});
 //import getRoutes from './routes.js';
 ReactDOM.render(
 	<Router >
