@@ -4,7 +4,6 @@ import './ProductList.less';
 export default class ProductList extends Component {
     constructor(props){
         super(props);
-        console.log(props)
     }
     renderList(){
         if(this.props.list && this.props.list.length > 0){

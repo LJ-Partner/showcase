@@ -11,7 +11,7 @@ export default class Home extends React.Component {
 	}
 	getCardInfo(){
 		let _this = this;
-  		Api.card.tpl1.home(this.props.match.params.item_id)
+  		Api.card.tpl1.home(this.props.match.params.name_id)
   		.then((res) =>{
   			_this.setState({ 
                 getCardData: res.data.content

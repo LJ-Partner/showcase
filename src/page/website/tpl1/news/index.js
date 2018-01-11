@@ -4,9 +4,9 @@ import Carousel from '../../../../components/Carousel/Carousel';
 import NewsList from '../../../../components/NewsList/NewsList';
 import MenuIcon from '../../../../components/MenuIcon/MenuIcon';
 import Footer from '../../../../components/Footer/Footer';
+import Loading from '../../../../components/Loading/Loading';
 import Empty from '../../../../components/Empty/Empty';
 import Api from '../../../../api/index';
-// import axios from 'axios';
 const IndexHeadCarousel = {
 	autoPlay: true,
 	showArrows: false,
@@ -22,17 +22,28 @@ export default class Products extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        	newsData: {}
+        	newsData: {},
+            loading: true,
+            emptyCnt: false
         }
     }
     getNewsList(){
         let _this = this;
         Api.website.tpl1.news(this.props.match.params.name_id)
         .then((res)=>{
-            _this.setState({ 
-                newsData: res.data.content 
-            });
-        }).catch(function (res) {
+            if(res.data.code && res.data.code == 200){
+                _this.setState({ 
+                    newsData: res.data.content,
+                    loading: false 
+                });    
+            }else{
+                _this.setState({ 
+                    emptyCnt: true,
+                    loading: false 
+                });
+            }
+        }).catch((res) =>{
+            console.log(res)
         });
     }
     componentDidMount(){
@@ -41,25 +52,35 @@ export default class Products extends React.Component {
     render() {
     	var data = this.state.newsData;
         var _data = {};
-    	if(Object.keys(data).length > 0 && data.constructor === Object){
-            _data = {
-                banner: data.banners,
-                list: data.news     
-            }
-    		return (
-			    <div className="wrap w-news">
-                    <div className="main">
-                        <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
-                        <NewsList newsList={_data.list} name={"/"+ this.props.match.params.name_id + "/website/" + this.props.match.params.item_id} /> 
-                    </div>
-                    <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website/" + this.props.match.params.item_id} />
+        if(this.state.loading){
+            return (
+                <div className="wrap">
+                    <Loading /> 
                 </div>
-			);	
-    	}else{
-    		return (
-    			<Empty content="暂无相关数据" />
-    		)
-    	}
+            )  
+        }else{
+            if(!this.state.emptyCnt){
+                if(Object.keys(data).length > 0 && data.constructor === Object){
+                    _data = {
+                        banner: data.banners,
+                        list: data.news     
+                    }
+                    return (
+                        <div className="wrap w-news">
+                            <div className="main">
+                                <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
+                                <NewsList newsList={_data.list} name={"/"+ this.props.match.params.name_id + "/website"} /> 
+                            </div>
+                            <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website" } />
+                        </div>
+                    );  
+                }    
+            }else{
+                return (
+                    <Empty content="暂无相关数据" />
+                )    
+            }
+        }
 	}
 }
 

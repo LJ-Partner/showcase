@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Carousel from '../../../../components/Carousel/Carousel';
 import Intro from '../../../../components/Intro/Intro';
 import Footer from '../../../../components/Footer/Footer';
-import axios from 'axios';
+import Loading from '../../../../components/Loading/Loading';
+import Empty from '../../../../components/Empty/Empty';
 import Api from '../../../../api/index';
 const IndexHeadCarousel = {
     autoPlay: true,
@@ -20,16 +21,26 @@ export default class About extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            aboutData: {}
+            aboutData: {},
+            loading: true,
+            emptyCnt: false
         }
     }
     getAboutData(){
         let _this = this;
-        Api.website.tpl1.about(11)
+        Api.website.tpl1.about(this.props.match.params.name_id)
         .then((res)=>{
-            _this.setState({ 
-                aboutData: res.data.content 
-             });
+            if(res.data.code && res.data.code == 200){
+                _this.setState({ 
+                    aboutData: res.data.content,
+                    loading: false 
+                });    
+            }else{
+                _this.setState({
+                    loading: false,
+                    emptyCnt: true
+                })
+            }
         }).catch(function (res) {
         });     
     }
@@ -38,20 +49,33 @@ export default class About extends React.Component {
     }
     render() {
         var data = this.state.aboutData;
-        if(Object.keys(data).length > 0 && data.constructor === Object){
-            return(
-                <div className="wrap w-about">
-                    <div className="main">
-                        <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
-                        <Intro detail={data.introduce} />
-                    </div>
-                    <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website/" + this.props.match.params.item_id} />
+        if(this.state.loading){
+            return (
+                <div className="wrap">
+                    <Loading /> 
                 </div>
             )    
         }else{
-            return (
-                <div className="empty">暂无相关页面</div>
-            )
+            if(!this.state.emptyCnt){
+                if(Object.keys(data).length > 0 && data.constructor === Object){
+                    return(
+                        <div className="wrap w-about">
+                            
+                            <div className="main">
+                                <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
+                                <Intro detail={data.introduce} />
+                            </div>
+                            <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website" } />
+                        </div>
+                    )    
+                }    
+            }else{
+                return (
+                    <div className="wrap">
+                        <Empty content = "内容为空" />} 
+                    </div>
+                )
+            }    
         }
     }
 }

@@ -18,7 +18,7 @@ if(category_name){
             axios.get('http://192.168.0.103:1024/Api/V1/'+company_id)
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
-                    _url = '/:name_id/website/:item_id';
+                    _url = '/:name_id/website';
                     if(res.data.content.website_tmp == 1){
                         ReactDOM.render(
                             <Router>
@@ -29,6 +29,7 @@ if(category_name){
                                     <Route path={_url+'/products/:series_id'} component={type.website.tpl1.product()} />
                                     <Route path={_url+'/products/'} component={type.website.tpl1.product()} />
                                     <Route path={_url+'/about'} component={type.website.tpl1.about()} />
+                                    <Route path={_url+'/concept'} component={type.website.tpl1.concept()} />
                                     <Route path={_url} component={type.website.tpl1.home()} />
                                     <Route component={type.website.tpl1.error()} />
                                 </Switch>
@@ -50,7 +51,7 @@ if(category_name){
             axios.get('http://192.168.0.103:1024/Api/V1/'+company_id)
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
-                    _url = '/:name_id/card/:item_id';           
+                    _url = '/:name_id/card';           
                     if(res.data.content.website_tmp == 1){
                         ReactDOM.render(
                             <Router>
@@ -71,6 +72,33 @@ if(category_name){
                 console.log(error)
             });    
         }    
+    }else if(category_name == 'sign'){ //签到
+        if(company_id){
+            axios.get('http://192.168.0.103:1024/Api/V1/'+company_id)
+            .then((res) => {
+                if(res.data.code && res.data.code == 200){
+                    _url = '/:name_id/sign';           
+                    if(res.data.content.website_tmp == 1){
+                        ReactDOM.render(
+                            <Router>
+                                <Switch>
+                                    <Route path={_url+'/apply/:sign_id'} component={type.sign.tpl1.apply()} />
+                                    <Route path={_url} component={type.sign.tpl1.home()} />
+                                    <Route component={type.sign.tpl1.error()} />
+                                </Switch>
+                            </Router>
+                            ,
+                            dest    
+                        )  
+                    }
+                }else{
+                    console.log('暂无数据')
+                }
+            })
+            .catch((error) =>{
+                console.log(error)
+            });    
+        }        
     }else{
         console.log('bbb')
     }    
