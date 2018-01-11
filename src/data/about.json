@@ -1,8 +1,8 @@
 {
     "yikst": {
         "banner":[
-            "../src/images/yikst/yikst_banner4.png",
-            "../src/images/yikst/yikst_banner1.png"
+            "../../../src/images/yikst/yikst_banner4.png",
+            "../../../src/images/yikst/yikst_banner1.png"
         ],
         "detail": {
             "title": "公司简介",
@@ -11,10 +11,10 @@
     },
     "zzkeneng": {
         "banner": [
-            "../src/images/zzkeneng/zzkeneng_banner1.png",
-            "../src/images/zzkeneng/zzkeneng_banner2.png",
-            "../src/images/zzkeneng/zzkeneng_banner3.png",
-            "../src/images/zzkeneng/zzkeneng_banner4.png"
+            "../../src/images/zzkeneng/zzkeneng_banner1.png",
+            "../../src/images/zzkeneng/zzkeneng_banner2.png",
+            "../../src/images/zzkeneng/zzkeneng_banner3.png",
+            "../../src/images/zzkeneng/zzkeneng_banner4.png"
         ],
         "detail": {
             "title": "公司简介",
@@ -23,10 +23,10 @@
     },
     "ruien": {
         "banner": [
-            "../src/images/yikst/yikst_banner1.png",
-            "../src/images/yikst/yikst_banner2.png",
-            "../src/images/yikst/yikst_banner3.png",
-            "../src/images/yikst/yikst_banner4.png"
+            "../../src/images/yikst/yikst_banner1.png",
+            "../../src/images/yikst/yikst_banner2.png",
+            "../../src/images/yikst/yikst_banner3.png",
+            "../../src/images/yikst/yikst_banner4.png"
         ],
         "detail": {
             "title": "公司简介",

@@ -1,27 +1,27 @@
 {
 	"yikst":{
 		"banner":[
-			"../src/images/yikst/yikst_banner4.png",
-			"../src/images/yikst/yikst_banner1.png"
+			"../../../src/images/yikst/yikst_banner4.png",
+			"../../../src/images/yikst/yikst_banner1.png"
 		],
 		"list":[
 			{	
 				"id":1,
-				"thumb":"../src/images/yikst/yikst_news_small3.png",
+				"thumb":"../../../src/images/yikst/yikst_news_small3.png",
 				"title":"新能源领域传佳音——热烈庆祝亿铖达荣获“2017中国充电桩行业最佳创新技术奖”",
 				"des":"为推动新能源汽车和充电桩产业发展，以国际化的视角呈现和挖掘充电桩领域最具影响力品牌企业，中国充电桩协会特与中国充电桩网联合主办“2017中国充电桩行业最具影响力品牌评选活动”",
 				"time":"2017-12-12"
 			},
 			{
 				"id":2,
-				"thumb":"../src/images/yikst/yikst_news_small1.png",
+				"thumb":"../../../src/images/yikst/yikst_news_small1.png",
 				"title":"创新、致远——亿铖达邀您共聚2017苏州中国电子智能制造论坛",
 				"des":"2017CEIA中国电子智能制造系列论坛之·江苏(苏州)先进智能制造与可靠性工程技术研讨会将于11月10日在苏州白金汉爵大酒店召开",
 				"time":"2017-11-01"
 			},
 			{
 				"id":3,
-				"thumb":"../src/images/yikst/yikst_news_small2.png",
+				"thumb":"../../../src/images/yikst/yikst_news_small2.png",
 				"title":"东方之珠 金秋有约——香港国际电子展亿铖达与您不见不散",
 				"des":"由中国香港贸易发展局举办的第二十一届香港国际电子组件及生产技术展览会将于2017年10月13日-16日在中国香港会展中心举行。",
 				"time":"2017-09-27"

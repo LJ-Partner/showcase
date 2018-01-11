@@ -14,9 +14,9 @@ export default class Product extends Component {
             	</div>	
             	<ul className="solve-list">
                     {this.props.product.list.map((item,index) =>{
-                        return  <li key={index} className="list-item" style={{background: 'url('+item.bg+') center no-repeat',backgroundSize: "100% 100%"}}>
-                                    <a href={item.link}>
-                                       <h3>{item.name}</h3>
+                        return  <li key={index} className="list-item" style={{background: 'url('+item.PictureURL+') center no-repeat',backgroundSize: "100% 100%"}}>
+                                    <a href={this.props.name+'/products/'+(index+1)}>
+                                       <h3>{item.ProductSeries}</h3>
                                     </a>
                                 </li>
                     })}

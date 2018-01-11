@@ -1,8 +1,8 @@
 {
 	"yikst":{
 		"banner":[
-			"../src/images/yikst/yikst_banner4.png",
-			"../src/images/yikst/yikst_banner1.png"
+			"../../../src/images/yikst/yikst_banner4.png",
+			"../../../src/images/yikst/yikst_banner1.png"
 		],
 		"info":{
 			"title":"亿铖达工业 . 广东制造企业500强",
@@ -40,22 +40,22 @@
 			"list":[
 				{
 					"name":"锡膏",
-					"bg":"../src/images/yikst/yikst_xigao.png",
+					"bg":"../../src/images/yikst/yikst_xigao.png",
 					"link":"/yikst/products/1"	
 				},
 				{
 					"name":"助焊剂",
-					"bg":"../src/images/yikst/yikst_zhuhanji.png",
+					"bg":"../../src/images/yikst/yikst_zhuhanji.png",
 					"link":"/yikst/products/2"	
 				},
 				{
 					"name":"清洗剂",
-					"bg":"../src/images/yikst/yikst_yuchengxinhanpian.png",
+					"bg":"../../src/images/yikst/yikst_yuchengxinhanpian.png",
 					"link":"/yikst/products/4"	
 				},
 				{
 					"name":"胶黏剂",
-					"bg":"../src/images/yikst/yikst_nianjieji.png",
+					"bg":"../../src/images/yikst/yikst_nianjieji.png",
 					"link":"/yikst/products/3"	
 				}
 			]
@@ -65,17 +65,17 @@
 			"des":"最新亿铖达动态新闻，实时了解公司发展",
 			"banner":[
 				{
-					"pic_url":"../src/images/yikst/yikst_news_pic1.png",
+					"pic_url":"../../src/images/yikst/yikst_news_pic1.png",
 					"title":"火热深马 快乐奔跑——亿铖达勇往直前一马当先！",
 					"link":"/yikst/news/detail/1"		
 				},
 				{
-					"pic_url":"../src/images/yikst/yikst_news_pic2.png",
+					"pic_url":"../../src/images/yikst/yikst_news_pic2.png",
 					"title":"团结拼搏，砥砺奋进——亿铖达隆重参加宝安区百强会”ASM先进杯”首届羽毛球团体赛",
 					"link":"/yikst/news/detail/2"		
 				},
 				{
-					"pic_url":"../src/images/yikst/yikst_news_pic3.png",
+					"pic_url":"../../src/images/yikst/yikst_news_pic3.png",
 					"title":"中国电源协会第二十二届学术年会于上海隆重举办 亿铖达工业莅临参会",
 					"link":"/yikst/news/detail/3"		
 				}
@@ -84,19 +84,19 @@
 		"message":[
 			{
 				"id":1,
-				"thumb":"../src/images/yikst/yikst_news_small3.png",
+				"thumb":"../../src/images/yikst/yikst_news_small3.png",
 				"title":"新能源领域传佳音——热烈庆祝亿铖达荣获“2017中国充电桩行业最佳创新技术奖",
 				"time":"2017-12-12"
 			},
 			{
 				"id":2,
-				"thumb":"../src/images/yikst/yikst_news_small1.png",
+				"thumb":"../../src/images/yikst/yikst_news_small1.png",
 				"title":"创新、致远——亿铖达邀您共聚2017苏州中国电子智能制造论坛",
 				"time":"2017-11-01"
 			},
 			{
 				"id":3,
-				"thumb":"../src/images/yikst/yikst_news_small2.png",
+				"thumb":"../../src/images/yikst/yikst_news_small2.png",
 				"title":"东方之珠 金秋有约——香港国际电子展亿铖达与您不见不散",
 				"time":"2017-09-27"
 			}
@@ -104,10 +104,10 @@
 	},
 	"zzkeneng":{
 		"banner":[
-			"../src/images/zzkeneng/zzkeneng_banner1.png",
-			"../src/images/zzkeneng/zzkeneng_banner2.png",
-			"../src/images/zzkeneng/zzkeneng_banner3.png",
-			"../src/images/zzkeneng/zzkeneng_banner4.png"
+			"../../src/images/zzkeneng/zzkeneng_banner1.png",
+			"../../src/images/zzkeneng/zzkeneng_banner2.png",
+			"../../src/images/zzkeneng/zzkeneng_banner3.png",
+			"../../src/images/zzkeneng/zzkeneng_banner4.png"
 		],
 		"info":{
 			"title":"株洲科能 . 诚信为本 . 开拓创新",
@@ -145,12 +145,12 @@
 			"list":[
 				{
 					"name":"生产产品",
-					"bg":"../src/images/zzkeneng/zzkeneng_sc.png",
+					"bg":"../../src/images/zzkeneng/zzkeneng_sc.png",
 					"link":"/zzkeneng/products/1"	
 				},
 				{
 					"name":"贸易产品",
-					"bg":"../src/images/zzkeneng/zzkeneng_my.png",
+					"bg":"../../src/images/zzkeneng/zzkeneng_my.png",
 					"link":"/zzkeneng/products/2"	
 				}
 			]
@@ -160,17 +160,17 @@
 			"des":"株洲科能最新动态新闻，实时了解公司发展",
 			"banner":[
 				{
-					"pic_url":"../src/images/zzkeneng/zzkeneng_news_pic1.jpg",
+					"pic_url":"../../src/images/zzkeneng/zzkeneng_news_pic1.jpg",
 					"title":"提供分析测试服务",
 					"link":"/zzkeneng/news/detail/1"		
 				},
 				{
-					"pic_url":"../src/images/yikst/yikst_news_pic2.png",
+					"pic_url":"../../src/images/yikst/yikst_news_pic2.png",
 					"title":"招贤纳士",
 					"link":"/zzkeneng/news/detail/2"		
 				},
 				{
-					"pic_url":"../src/images/yikst/yikst_news_pic3.png",
+					"pic_url":"../../src/images/yikst/yikst_news_pic3.png",
 					"title":"2000t/a电极材料建设项目环境影响评价公示",
 					"link":"/zzkeneng/news/detail/3"		
 				}
@@ -179,19 +179,19 @@
 		"message":[
 			{
 				"id":1,
-				"thumb":"../src/images/yikst/yikst_news_small3.png",
+				"thumb":"../../src/images/yikst/yikst_news_small3.png",
 				"title":"商务部关于公布2016年第二批工业品出口配额的通知",
 				"time":"2016-11-1"
 			},
 			{
 				"id":2,
-				"thumb":"../src/images/yikst/yikst_news_small1.png",
+				"thumb":"../../src/images/yikst/yikst_news_small1.png",
 				"title":"商务部关于公布2013年第一批有色金属出口配额的通知",
 				"time":"2012-12-26"
 			},
 			{
 				"id":3,
-				"thumb":"../src/images/yikst/yikst_news_small2.png",
+				"thumb":"../../src/images/yikst/yikst_news_small2.png",
 				"title":"符合铟、钼出口许可证申领补充标准企业名单的公示",
 				"time":"2011-04-28"
 			}
@@ -199,10 +199,10 @@
 	},
 	"ruien":{
 		"banner":[
-			"../src/images/ruien/banner1.png",
-			"../src/images/ruien/banner2.png",
-			"../src/images/ruien/banner3.png",
-			"../src/images/ruien/banner4.png"
+			"../../src/images/ruien/banner1.png",
+			"../../src/images/ruien/banner2.png",
+			"../../src/images/ruien/banner3.png",
+			"../../src/images/ruien/banner4.png"
 		],
 		"info":{
 			"title":"江苏瑞恩电气 . 专业成就梦想",
@@ -240,22 +240,22 @@
 			"list":[
 				{
 					"name":"干式变压器系列",
-					"bg":"../src/images/ruien/p_01.png",
+					"bg":"../../src/images/ruien/p_01.png",
 					"link":"/ruien/products/1"	
 				},
 				{
 					"name":"油浸式变压器系列",
-					"bg":"../src/images/ruien/p_02.png",
+					"bg":"../../src/images/ruien/p_02.png",
 					"link":"/ruien/products/2"	
 				},
 				{
 					"name":"变电站系列",
-					"bg":"../src/images/ruien/p_03.png",
+					"bg":"../../src/images/ruien/p_03.png",
 					"link":"/ruien/products/3"	
 				},
 				{
 					"name":"其他产品",
-					"bg":"../src/images/ruien/p_04.png",
+					"bg":"../../src/images/ruien/p_04.png",
 					"link":"/ruien/products/4"	
 				}
 			]
@@ -265,17 +265,17 @@
 			"des":"最新瑞恩动态新闻，实时了解公司发展",
 			"banner":[
 				{
-					"pic_url":"../src/images/ruien/s_01.jpg",
+					"pic_url":"../../src/images/ruien/s_01.jpg",
 					"title":"拼搏大会隆重召开",
 					"link":"/ruien/news/detail/1"		
 				},
 				{
-					"pic_url":"../src/images/ruien/detail_1.jpg",
+					"pic_url":"../../src/images/ruien/detail_1.jpg",
 					"title":"环境影响报告表公示",
 					"link":"/ruien/news/detail/2"		
 				},
 				{
-					"pic_url":"../src/images/ruien/detail_2.jpg",
+					"pic_url":"../../src/images/ruien/detail_2.jpg",
 					"title":"国家安全标准化示范企业评审专家检查",
 					"link":"/ruien/news/detail/3"		
 				}
@@ -284,19 +284,19 @@
 		"message":[
 			{
 				"id":1,
-				"thumb":"../src/images/ruien/s_d_1.jpg",
+				"thumb":"../../src/images/ruien/s_d_1.jpg",
 				"title":"江苏瑞恩电气股份有限公司第三季度营销总结暨四季度拼搏大会隆重召开",
 				"time":"2017-08-01"
 			},
 			{
 				"id":2,
-				"thumb":"../src/images/ruien/i-se-bg.png",
+				"thumb":"../../src/images/ruien/i-se-bg.png",
 				"title":"江苏瑞恩电气股份有限公司变压器生产建设项目环境影响报告表",
 				"time":"2017-11-20"
 			},
 			{
 				"id":3,
-				"thumb":"../src/images/ruien/s_d_3.jpg",
+				"thumb":"../../src/images/ruien/s_d_3.jpg",
 				"title":"瑞恩电气通过国家安全标准化示范企业检查验收",
 				"time":"2017-11-20"
 			}
@@ -304,10 +304,10 @@
 	},
 	"ningde":{
 		"banner":[
-			"../src/images/ningde/ningde_banner1.png",
-			"../src/images/ningde/ningde_banner1.png",
-			"../src/images/ningde/ningde_banner1.png",
-			"../src/images/ningde/ningde_banner1.png"
+			"../../src/images/ningde/ningde_banner1.png",
+			"../../src/images/ningde/ningde_banner1.png",
+			"../../src/images/ningde/ningde_banner1.png",
+			"../../src/images/ningde/ningde_banner1.png"
 		],
 		"info":{
 			"title":"宁德时代 . 崛起的中国锂电力量",
@@ -345,17 +345,17 @@
 			"list":[
 				{
 					"name":"绿色交通",
-					"bg":"../src/images/ningde/ningde_cat_1.png",
+					"bg":"../../src/images/ningde/ningde_cat_1.png",
 					"link":"/ningde/products/1"	
 				},
 				{
 					"name":"能源存储",
-					"bg":"../src/images/ningde/ningde_cat_2.png",
+					"bg":"../../src/images/ningde/ningde_cat_2.png",
 					"link":"/ningde/products/2"	
 				},
 				{
 					"name":"LCC运赢宝",
-					"bg":"../src/images/ningde/ningde_cat_3.png",
+					"bg":"../../src/images/ningde/ningde_cat_3.png",
 					"link":"/ningde/products/3"	
 				}
 			]
@@ -365,17 +365,17 @@
 			"des":"最新宁德时代动态新闻，实时了解公司发展",
 			"banner":[
 				{
-					"pic_url":"../src/images/ningde/ningde_news_pic1.jpg",
+					"pic_url":"../../src/images/ningde/ningde_news_pic1.jpg",
 					"title":"宁德时代首次提出动力电池“五大黄金法则”",
 					"link":"/ruien/news/detail/1"		
 				},
 				{
-					"pic_url":"../src/images/ningde/ningde_news_pic1.jpg",
+					"pic_url":"../../src/images/ningde/ningde_news_pic1.jpg",
 					"title":"宁德时代首次提出动力电池“五大黄金法则”",
 					"link":"/ruien/news/detail/2"		
 				},
 				{
-					"pic_url":"../src/images/ningde/ningde_news_pic1.jpg",
+					"pic_url":"../../src/images/ningde/ningde_news_pic1.jpg",
 					"title":"宁德时代首次提出动力电池“五大黄金法则”",
 					"link":"/ruien/news/detail/3"		
 				}
@@ -384,19 +384,19 @@
 		"message":[
 			{
 				"id":1,
-				"thumb":"../src/images/ningde/ningde_small_1.png",
+				"thumb":"../../src/images/ningde/ningde_small_1.png",
 				"title":"宁德时代在欧洲电池展首次提出动力电池“五 大黄金法则”",
 				"time":"2017-04-21"
 			},
 			{
 				"id":2,
-				"thumb":"../src/images/ningde/ningde_small_2.png",
+				"thumb":"../../src/images/ningde/ningde_small_2.png",
 				"title":"宁德时代百亿锂离子电池长三角生产基地落 户溧阳",
 				"time":"2017-04-27"
 			},
 			{
 				"id":3,
-				"thumb":"../src/images/ningde/ningde_small_3.png",
+				"thumb":"../../src/images/ningde/ningde_small_3.png",
 				"title":"出海记｜外媒：宁德时代助力国际车企电动 化征程",
 				"time":"2017-09-28"
 			}

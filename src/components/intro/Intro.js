@@ -9,10 +9,10 @@ export default class Intro extends React.Component{
         return(
             <div className="about">
                 <h2 className="about-tit">
-                    <span>{this.props.detail.title}</span>
+                    <span>公司简介</span>
                 </h2>
                 <div className="about-cnt">
-                    {Parser(this.props.detail.content)}
+                    {Parser(this.props.detail)}
                 </div>
             </div>    
         );

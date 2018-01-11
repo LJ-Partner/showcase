@@ -26,11 +26,11 @@ export default class Service extends Component {
             	</div>	
                 <div className="service-con">
                     <Carousel {...carouselConfig} className="service-slide-box">
-                        {this.props.information.banner.map((item,index) =>{
+                        {(this.props.information.list).slice(0,3).map((item,index) =>{
                             return  <div key={index} className="slide-box-item">
-                                        <a href={item.link}>
-                                            <img src={item.pic_url} />
-                                            <p>{item.title}</p>    
+                                        <a href={this.props.name+'/news/detail/'+(item.ID)}>
+                                            <img src={item.Cover} />
+                                            <p>{item.Title}</p>    
                                         </a>
                                     </div>    
                         })}         

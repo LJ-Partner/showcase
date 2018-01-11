@@ -13,25 +13,25 @@ export default class DemoCarousel extends Component {
             <footer className="footer">
             	<ul>
             		<li>
-            			<a href={'/'+this.props.name} className={this.props.flag == 'home'?'active':''}>
+            			<a href={this.props.name} className={this.props.flag == 'home'?'active':''}>
             				<i className="iconfont icon-shouye"></i>
             				<p>首页</p>
             			</a>
             		</li>
             		<li>
-            			<a href={'/'+this.props.name+'/about'} className={this.props.flag == 'about'?'active':''}>
+            			<a href={this.props.name+'/about'} className={this.props.flag == 'about'?'active':''}>
             				<i className="iconfont icon-jianjie"></i>
             				<p>简介</p>
             			</a>
             		</li>
             		<li>
-            			<a href={'/'+this.props.name+'/products/1'} className={this.props.flag == 'products'?'active':''}>
+            			<a href={this.props.name+'/products'} className={this.props.flag == 'products'?'active':''}>
             				<i className="iconfont icon-chanpin1"></i>
             				<p>产品</p>
             			</a>
             		</li>
             		<li>
-            			<a href={'/'+this.props.name+'/news'} className={this.props.flag == 'news'?'active':''}>
+            			<a href={this.props.name+'/news'} className={this.props.flag == 'news'?'active':''}>
             				<i className="iconfont icon-zixun2"></i>
             				<p>资讯</p>
             			</a>
