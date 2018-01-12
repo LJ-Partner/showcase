@@ -30,9 +30,9 @@ module.exports = {
 			return axios.get('http://192.168.0.103:1024/Api/V1/'+id+'/website/series/'+series_id+'/product/'+product_id);
 		}
 	},
-	news(id){
+	news(id,page){
 		if(id){
-			return  axios.get('http://192.168.0.103:1024/Api/V1/'+id+'/website/news/');
+			return  axios.get('http://192.168.0.103:1024/Api/V1/'+id+'/website/news/'+page);
 		}
 	},
 	newsDetail(id,news_id){

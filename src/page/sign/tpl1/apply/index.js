@@ -21,10 +21,11 @@ export default class Home extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 	handleChange(event) {
-		var newState={};
-        newState[event.target.name]=event.target.value;
-        this.setState(newState);
-        console.log(newState)
+		this.setState({
+			params:{
+				SignerGender: event.target.value	
+			}
+		})
 	}
 	getCardInfo(){
 		
@@ -34,24 +35,23 @@ export default class Home extends React.Component {
 	}
 	toApply(e){
 		e.preventDefault();
-		var id = this.props.match.params.sign_id;
-		console.log(id)
+		var id = this.props.match.params.name_id;
 		var Signer = this.refs.Signer.value.trim();
 		var SignerMobile = this.refs.SignerMobile.value.trim();
 		var SignerCompany = this.refs.SignerCompany.value.trim();
 		var SignerNumber = this.refs.SignerNumber.value.trim();
+		var params = {};
 		if(!Signer || !SignerMobile || SignerCompany || !SignerNumber){
 			return;
 		}
 		
-		
 		axios.post('http://192.168.0.103:1024/Api/V1/'+id+'/signs/signin',{
-			SignID: '', 					//签到活动的id
-			Signer: '',						//签到人姓名
-			SignerMobile: '',				//签到人电话
-			SignerGender: '',				//签到人性别 1.男，2.女
-			SignerCompany: '',				//签到人公司名称
-			SignerNumber:''					//与会人数
+			SignID: this.props.match.params.sign_id, 					//签到活动的id
+			Signer: Signer,												//签到人姓名
+			SignerMobile: SignerMobile,									//签到人电话
+			SignerGender: this.state.params.SignerGender,				//签到人性别 1.男，2.女
+			SignerCompany: SignerCompany,											//签到人公司名称
+			SignerNumber:SignerNumber												//与会人数
 		});
 	}
 	render() {

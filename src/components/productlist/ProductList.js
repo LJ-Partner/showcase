@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PullUp from '../pullup/Pullup';
 import './ProductList.less';
 
 export default class ProductList extends Component {
@@ -40,8 +41,9 @@ export default class ProductList extends Component {
     }
     render() {
         return (
-            <div className="list-w">
-                {this.renderList()}                             
+            <div className="list-w" ref="listW">
+                {this.renderList()}  
+                <PullUp content={this.props.pullUpTitle} />                       
             </div>    
         );
     }
