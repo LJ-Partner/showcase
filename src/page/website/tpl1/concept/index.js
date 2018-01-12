@@ -25,7 +25,7 @@ export default class Concept extends React.Component {
 	}
 	getConceptData(){
         let _this = this;
-        Api.website.tpl1.home(this.props.match.params.item_id)
+        Api.website.tpl1.home(this.props.match.params.name_id)
         .then((res)=>{
         	console.log(res)
             if(res.data.code && res.data.code == 200){

@@ -11,6 +11,7 @@ export default class Home extends React.Component {
 			value:'',
 			checked : true,
 			params: {
+				SignID: '',					//签到活动ID
 				Signer: '',					//签到人姓名
 				SignerMobile: '',			//签到人电话	
 				SignerGender: '1',			//签到人性别 1.男，2.女
@@ -27,11 +28,32 @@ export default class Home extends React.Component {
 			}
 		})
 	}
+	//是否签到
+	isSign(){
+		let _this = this;
+  		Api.sign.tpl1.apply(this.props.match.params.name_id)
+  		.then((res) =>{
+  			if(res.data.code && res.data.code == 200){
+  				this.setState({
+  					params:{
+  						SignID: res.data.content.signs.ID
+  					}
+  				})
+  				console.log(this.state.params.SignID)
+  			}else{
+  				console.log(res.data.msg)
+  			}
+  		})
+  		.catch((res) => {
+  			console.log(res)
+  		})
+	}
 	getCardInfo(){
 		
 	}
 	componentDidMount() {
 		this.getCardInfo();		
+		this.isSign();
 	}
 	toApply(e){
 		e.preventDefault();
@@ -41,17 +63,22 @@ export default class Home extends React.Component {
 		var SignerCompany = this.refs.SignerCompany.value.trim();
 		var SignerNumber = this.refs.SignerNumber.value.trim();
 		var params = {};
-		if(!Signer || !SignerMobile || SignerCompany || !SignerNumber){
-			return;
-		}
-		
+		// if(!Signer || !SignerMobile || SignerCompany || !SignerNumber){
+		// 	return;
+		// }
 		axios.post('http://192.168.0.103:1024/Api/V1/'+id+'/signs/signin',{
-			SignID: this.props.match.params.sign_id, 					//签到活动的id
+			SignID: this.state.params.SignID, 							//签到活动的id
 			Signer: Signer,												//签到人姓名
 			SignerMobile: SignerMobile,									//签到人电话
 			SignerGender: this.state.params.SignerGender,				//签到人性别 1.男，2.女
-			SignerCompany: SignerCompany,											//签到人公司名称
-			SignerNumber:SignerNumber												//与会人数
+			SignerCompany: SignerCompany,								//签到人公司名称
+			SignerNumber:SignerNumber									//与会人数
+		})
+		.then((res) =>{
+			console.log(res)
+		})
+		.catch((res) =>{
+			console.log(res)
 		});
 	}
 	render() {

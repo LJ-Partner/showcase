@@ -82,7 +82,7 @@ if(category_name){
                         ReactDOM.render(
                             <Router>
                                 <Switch>
-                                    <Route path={_url+'/apply/:sign_id'} component={type.sign.tpl1.apply()} />
+                                    <Route path={_url+'/apply'} component={type.sign.tpl1.apply()} />
                                     <Route path={_url} component={type.sign.tpl1.home()} />
                                     <Route component={type.sign.tpl1.error()} />
                                 </Switch>

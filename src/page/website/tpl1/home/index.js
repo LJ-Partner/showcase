@@ -33,7 +33,8 @@ export default class Home extends React.Component {
 			newsData:{},
 			seriesData:{},
 			loading: true,
-			emptyCnt: false
+			emptyCnt: false,
+			qrUrl: ''
 		}
 	}
 	getData(){ 
@@ -45,6 +46,7 @@ export default class Home extends React.Component {
 	                indexData: res.data.content.index,
 	                newsData: res.data.content.news,
 	                seriesData: res.data.content.series,
+	                qrUrl: res.data.content.qr,
 	                loading: false
 	            });
   			}else{
@@ -136,7 +138,7 @@ export default class Home extends React.Component {
 									}	
 								],
 						customeData:{
-							qrcode:"http://h.maicai360.cn/src/images/zzkeneng/qrcode.jpg",
+							qrcode:this.state.qrUrl,
 							tel:data.Telephone,
 							email:data.Mail,
 							address:data.Address	
