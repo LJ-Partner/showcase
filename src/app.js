@@ -8,6 +8,7 @@ import axios from 'axios';
 var name = window.location.pathname;
 var company_id = name.split('/')[1];
 var category_name = name.split('/')[2];
+import Api from './api/index.js' 
 if(category_name){
     //company_id 公司id
     //category_name 类别名字 微官网:website 分享名片:card
@@ -15,7 +16,7 @@ if(category_name){
     var _url;
     if(category_name == 'website'){ //微官网
         if(company_id){
-            axios.get('http://192.168.0.103:1024/Api/V1/'+company_id)
+            axios.get(Api.api_prefix+company_id)
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
                     _url = '/:name_id/website';
@@ -48,7 +49,7 @@ if(category_name){
         }
     }else if(category_name == 'card'){ //名片
         if(company_id){
-            axios.get('http://192.168.0.103:1024/Api/V1/'+company_id)
+            axios.get(Api.api_prefix+company_id)
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
                     _url = '/:name_id/card';           
@@ -74,7 +75,7 @@ if(category_name){
         }    
     }else if(category_name == 'sign'){ //签到
         if(company_id){
-            axios.get('http://192.168.0.103:1024/Api/V1/'+company_id)
+            axios.get(Api.api_prefix+company_id)
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
                     _url = '/:name_id/sign';           

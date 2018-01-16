@@ -1,20 +1,14 @@
 import axios from 'axios'
+import Api from '../../index.js'
 module.exports = {
-	home(id){
-		if(id){
-			return  axios.post('http://192.168.0.103:1024/Api/V1/'+id+'/signs/signin',{
-						SignID: '', 					//签到活动的id
-						Signer: '',						//签到人姓名
-						SignerMobile: '',				//签到人电话
-						SignerGender: '',				//签到人性别 1.男，2.女
-						SignerCompany: '',				//签到人公司名称
-						SignerNumber:''					//与会人数
-					});
+	pushdata(id,obj){
+		if(id && obj){
+			return  axios.post(Api.api_prefix+id+'/signs/signin',obj);
 		}
 	},
 	apply(id){
 		if(id){
-			return  axios.get('http://192.168.0.103:1024/Api/V1/'+id+'/signs')
+			return  axios.get(Api.api_prefix+id+'/signs')
 		}
 	}
 }

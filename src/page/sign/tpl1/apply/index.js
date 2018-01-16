@@ -66,20 +66,39 @@ export default class Home extends React.Component {
 		// if(!Signer || !SignerMobile || SignerCompany || !SignerNumber){
 		// 	return;
 		// }
-		axios.post('http://192.168.0.103:1024/Api/V1/'+id+'/signs/signin',{
+		// http://192.168.0.103:1024/Api/V1/
+		var forms= {
 			SignID: this.state.params.SignID, 							//签到活动的id
 			Signer: Signer,												//签到人姓名
 			SignerMobile: SignerMobile,									//签到人电话
 			SignerGender: this.state.params.SignerGender,				//签到人性别 1.男，2.女
 			SignerCompany: SignerCompany,								//签到人公司名称
 			SignerNumber:SignerNumber									//与会人数
-		})
-		.then((res) =>{
-			console.log(res)
-		})
-		.catch((res) =>{
-			console.log(res)
-		});
+		};
+		// axios.post(Api.api_prefix+id+'/signs/signin',{
+		// 	SignID: this.state.params.SignID, 							//签到活动的id
+		// 	Signer: Signer,												//签到人姓名
+		// 	SignerMobile: SignerMobile,									//签到人电话
+		// 	SignerGender: this.state.params.SignerGender,				//签到人性别 1.男，2.女
+		// 	SignerCompany: SignerCompany,								//签到人公司名称
+		// 	SignerNumber:SignerNumber									//与会人数
+		// })
+		// .then((res) =>{
+		// 	console.log(res)
+		// })
+		// .catch((res) =>{
+		// 	console.log(res)
+		// });
+
+		Api.sign.tpl1.pushdata(id,forms)
+			.then((res) =>{
+				console.log(res)
+			})
+			.catch((res) =>{
+				console.log(res)
+			});
+
+			//console.log("aa")
 	}
 	render() {
 		return (
