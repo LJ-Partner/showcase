@@ -11,7 +11,7 @@ var category_name = name.split('/')[2];
 import Api from './api/index.js' 
 if(category_name){
     //company_id 公司id
-    //category_name 类别名字 微官网:website 分享名片:card
+    //category_name 类别名字 微官网:website 分享名片:card 邀请函: invitation
     //item_id  对应字段 ItemID 模板id 唯一值
     var _url;
     if(category_name == 'website'){ //微官网
@@ -100,6 +100,32 @@ if(category_name){
                 console.log(error)
             });    
         }        
+    }else if(category_name == 'invitation'){
+        if(company_id){
+            axios.get(Api.api_prefix+company_id)
+            .then((res) => {
+                if(res.data.code && res.data.code == 200){
+                    _url = '/:name_id/invitation';            
+                    if(res.data.content.website_tmp == 1){
+                        ReactDOM.render(
+                            <Router>
+                                <Switch>
+                                    <Route path={_url} component={type.invitation.tpl1.home()} />
+                                    <Route component={type.invitation.tpl1.error()} />
+                                </Switch>
+                            </Router>
+                            ,
+                            dest    
+                        )  
+                    }
+                }else{
+                    console.log('暂无数据')
+                }
+            })
+            .catch((error) =>{
+                console.log(error)
+            });      
+        }      
     }else{
         console.log('bbb')
     }    

@@ -6,9 +6,14 @@ module.exports = {
 			return  axios.post(Api.api_prefix+id+'/signs/signin',obj);
 		}
 	},
-	apply(id){
+	signData(id){
 		if(id){
 			return  axios.get(Api.api_prefix+id+'/signs')
+		}
+	},
+	apply(id,obj){
+		if(id){
+			return  axios.post(Api.api_prefix+id+'/signs',obj)
 		}
 	}
 }

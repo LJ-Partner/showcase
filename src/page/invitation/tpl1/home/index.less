@@ -16,6 +16,188 @@ body{
         max-width: 750px;
         margin: 0 auto;
     }
+    .hide{
+        display: none;
+    }
+    .invitation{
+        width: 100%;
+        //height: 100%;
+        background: url('../../../../images/invitation/tpl1/tpl1_invatation_bg.png') no-repeat;
+        background-size: 100% 100%;
+        color: #E5BC62;
+        img{
+            display: block;
+            max-width: 100%;
+        }
+        .page{
+            .page-title{
+                padding: 6.5% 0;
+                text-align: center;
+                font-size: 0.53rem;
+                line-height: 0.7rem;
+            }
+            .page-cnt{
+                padding: 0 8.2% 0 3.7%;
+                font-size: 0.37rem;
+                line-height: 0.53rem;
+                .name{
+                    display: block;
+                    margin: 0 0 2.8% 0;   
+                    font-weight: 900; 
+                }
+                .intro{
+                    width: 86.1%; 
+                    line-height: 0.53rem;   
+                }
+                .inscribe{
+                    padding: 0 10.1% 0 0;
+                    em,span{
+                        display: block;
+                        text-align: right;
+                    }
+                }
+                .guest-box{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    color: #fff;
+                    font-size: 0.4rem;
+                    background: rgba(47,47,36,0.5);
+                    border-radius: 8px;
+                    margin: 0 0 3.1% 0;
+                    padding: 0.9% 0;
+                    dt{
+                        width: 21.9%;  
+                        margin: 0 2.4%;  
+                        overflow: hidden;
+                        border-radius: 50%;
+                        border: 1px solid #E5BC62;
+                        span{
+                            height: 0;
+                            display: block;
+                            padding: 0 0 100%;
+                        }
+                    }
+                }
+                .schedule-w{
+                    position: relative;
+                    z-index: 1;
+                    .schedule{
+                        li{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            font-size: 0.37rem;
+                            line-height: 0.6rem;
+                            margin: 0 0 5px 0;
+                            span{
+                                flex: 0 0 24%;
+                                position: relative;
+                                z-index: 1;
+                                &:after{
+                                    content: '';
+                                    position: absolute;
+                                    width: 10px;
+                                    height: 10px;
+                                    border-radius: 5px;
+                                    background: #E5BC62;
+                                    right: -5px;
+                                    bottom: 5px;
+                                }
+                            }
+                            em{
+                                flex: 1 1 auto;
+                                margin: 0 0 0 4%;
+                            }
+                        }
+                    } 
+                    .space-line{
+                        content:'';
+                        position: absolute;
+                        bottom: 7px;
+                        width: 1px;
+                        background: #E5BC62;
+                        top: 7px;
+                        left: 24%;
+                    }   
+                }
+            }
+        }
+        .page1{
+            padding: 0.45rem 0 0 0;
+            box-sizing: border-box;
+            .logo{
+                width: 2.7rem;
+                margin: 0 0 0 0.37rem;
+                overflow: hidden;
+                span{
+                    height: 0;
+                    display: block;
+                    padding: 0 0 35%;
+                }
+            }
+            .slogan{
+                width: 61.6%;
+                margin: 2% auto 0;
+            }
+            .info{
+                text-align: center;
+                font-size: 1.17rem;
+                color: #fff;
+                margin: 2.6% 0 0 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                em{
+                    font-size: 0.64rem;
+                    color: #E5BC62; 
+                    line-height: 0.88rem;   
+                }
+                span{
+                    font-size: 0.53rem; 
+                    line-height: 0.75rem;   
+                }
+                b{
+                    font-weight: normal;
+                    font-size: 0.53rem;
+                    color: #E5BC62;
+                    margin: 3.9% 0 0 0;
+                }
+            }
+        }
+        .page6{
+            line-height: 0.5rem; 
+            .tips{
+                width: 98%;
+                margin: 0 auto 2.8%;
+            }
+            .ewm-box{
+                text-align: center;
+                margin: 0 0 6% 0;
+                dt{
+                    width: 35%; 
+                    margin: 0 auto 1.9%;
+                }
+            }
+            .attention-detail{
+                padding: 6.2% 0 10.3% 0;
+                p{
+                    margin: 0 0 1% 0;
+                }
+            }
+        }
+        .arrow{
+            width: 6%;
+            margin: 0 auto;
+            position: absolute;
+            bottom: 5.1%;
+            left: 47%;
+            span{
+                display: block;
+            }
+        }
+    }
 }
 
 

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.less';
 import Api from '../../../../api/index';
 import axios from 'axios';
+let forms;
 export default class Home extends React.Component {
 	constructor(props){
 		super(props);
@@ -10,36 +11,24 @@ export default class Home extends React.Component {
 			getCardData : {},
 			value:'',
 			checked : true,
-			params: {
-				SignID: '',					//签到活动ID
-				Signer: '',					//签到人姓名
-				SignerMobile: '',			//签到人电话	
-				SignerGender: '1',			//签到人性别 1.男，2.女
-				SignerCompany: '',			//签到人公司名称
-				SignerNumber: ''			//与会人数
-			}
+			SignerGender: '1',				//签到人性别 1.男，2.女
+			SignID: ''						//签到ID
 		}
 		this.handleChange = this.handleChange.bind(this);
 	}
 	handleChange(event) {
 		this.setState({
-			params:{
-				SignerGender: event.target.value	
-			}
+			SignerGender: event.target.value	
 		})
 	}
-	//是否签到
-	isSign(){
-		let _this = this;
-  		Api.sign.tpl1.apply(this.props.match.params.name_id)
+	//签到相关信息
+	signInfo(){
+  		Api.sign.tpl1.signData(this.props.match.params.name_id)
   		.then((res) =>{
-  			if(res.data.code && res.data.code == 200){
+  			if(res.data.code && res.data.code == 200){  
   				this.setState({
-  					params:{
-  						SignID: res.data.content.signs.ID
-  					}
+  					SignID: res.data.content.signs.ID
   				})
-  				console.log(this.state.params.SignID)
   			}else{
   				console.log(res.data.msg)
   			}
@@ -48,57 +37,51 @@ export default class Home extends React.Component {
   			console.log(res)
   		})
 	}
-	getCardInfo(){
-		
-	}
-	componentDidMount() {
-		this.getCardInfo();		
-		this.isSign();
+	componentDidMount() {	
+		this.signInfo();
 	}
 	toApply(e){
 		e.preventDefault();
-		var id = this.props.match.params.name_id;
-		var Signer = this.refs.Signer.value.trim();
-		var SignerMobile = this.refs.SignerMobile.value.trim();
-		var SignerCompany = this.refs.SignerCompany.value.trim();
-		var SignerNumber = this.refs.SignerNumber.value.trim();
-		var params = {};
-		// if(!Signer || !SignerMobile || SignerCompany || !SignerNumber){
-		// 	return;
-		// }
-		// http://192.168.0.103:1024/Api/V1/
-		var forms= {
-			SignID: this.state.params.SignID, 							//签到活动的id
-			Signer: Signer,												//签到人姓名
-			SignerMobile: SignerMobile,									//签到人电话
-			SignerGender: this.state.params.SignerGender,				//签到人性别 1.男，2.女
-			SignerCompany: SignerCompany,								//签到人公司名称
-			SignerNumber:SignerNumber									//与会人数
-		};
-		// axios.post(Api.api_prefix+id+'/signs/signin',{
-		// 	SignID: this.state.params.SignID, 							//签到活动的id
-		// 	Signer: Signer,												//签到人姓名
-		// 	SignerMobile: SignerMobile,									//签到人电话
-		// 	SignerGender: this.state.params.SignerGender,				//签到人性别 1.男，2.女
-		// 	SignerCompany: SignerCompany,								//签到人公司名称
-		// 	SignerNumber:SignerNumber									//与会人数
-		// })
-		// .then((res) =>{
-		// 	console.log(res)
-		// })
-		// .catch((res) =>{
-		// 	console.log(res)
-		// });
-
-		Api.sign.tpl1.pushdata(id,forms)
+		let id = this.props.match.params.name_id;
+		let Signer = this.refs.Signer.value.trim();
+		let SignerMobile = this.refs.SignerMobile.value.trim();
+		let SignerCompany = this.refs.SignerCompany.value.trim();
+		let SignerNumber = this.refs.SignerNumber.value.trim();
+		let telReg = !!SignerMobile.match(/^(13[0-9]|15[012356789]|17[0-9]|18[0-9]|14[57])[0-9]{8}$/);
+		forms= {
+				SignID: this.state.SignID, 									//签到活动的id
+				Signer: Signer,												//签到人姓名
+				SignerMobile: SignerMobile,									//签到人电话
+				SignerGender: this.state.SignerGender,						//签到人性别 1.男，2.女
+				SignerCompany: SignerCompany,								//签到人公司名称
+				SignerNumber:SignerNumber									//与会人数
+			};
+		if(Signer == "" || SignerMobile == "" || SignerCompany == "" || SignerNumber == ""){
+			alert('请把相关信息填写完整')
+			return false;
+		}else if(telReg == false){
+			alert('请输入正确的手机号');
+			return false;	
+		}else{
+			Api.sign.tpl1.pushdata(id,forms)
 			.then((res) =>{
-				console.log(res)
+				if(res.data.code && res.data.code == 200){
+					alert('报名成功');
+					//window.location.href = '/' + this.props.match.params.name_id + '/sign'
+				}else{
+					alert('您已经报过名了')
+					this.refs.Signer.value = '';
+					this.refs.SignerMobile.value = '';
+					this.refs.SignerCompany.value = '';
+					this.refs.SignerNumber.value = '';							
+					this.state.SignerGender = '1';	
+					//window.location.href = '/' + this.props.match.params.name_id + '/sign'
+				}
 			})
 			.catch((res) =>{
 				console.log(res)
 			});
-
-			//console.log("aa")
+		}
 	}
 	render() {
 		return (
@@ -123,13 +106,13 @@ export default class Home extends React.Component {
 						</div>
 						<div className="item-box">
 							<label>您的手机号</label>
-							<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" />
+							<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" maxLength="11" />
 						</div>
 						<div className="item-box">
 							<label>您的性别</label>
 							<div className="radio-box">
-								<input type="radio" id="sex_0"  value="1" name="sex" onChange={this.handleChange.bind(this)}  defaultChecked/> 男
-								<input type="radio" id="sex_1"  value="2" name="sex"  onChange={this.handleChange.bind(this)} /> 女
+								<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked/> 男
+								<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} /> 女
 							</div>
 						</div>
 						<div className="item-box">
