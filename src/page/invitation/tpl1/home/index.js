@@ -131,7 +131,7 @@ export default class Home extends React.Component {
 			    			<p className="tips">{_data.invitation.follow_us}</p>	
 			    			<dl className="ewm-box">
 			    				<dt>
-			    					<img src={_data.invitation.qr_code} />
+			    					<span><img src={_data.invitation.qr_code} /></span>
 			    				</dt>
 			    				<dd>{_data.invitation.qr_code_des}</dd>
 			    				<dd>更多精彩行业动态，敬请关注！</dd>
