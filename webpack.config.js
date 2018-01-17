@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HappyPack = require('happypack');
 var config = {
 	entry: {
 		app:[
@@ -24,27 +25,21 @@ var config = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /(node_modules|bower_components)/,
-				use:{
-					loader: 'babel-loader',
-					options:{
-						presets: ['es2015','es2016','react','stage-2'],
-						plugins: ['transform-runtime','transform-object-rest-spread','babel-polyfill']
-					}
-				}
+				use: ['happypack/loader?id=babel']
 			},
 			{
-		        test: /\.css$/,
-		        use: ExtractTextPlugin.extract({
-		        	use: ['css-loader',{
-		          		loader:'postcss-loader',
-		          		options:{
-		          			plugins:[
-		          				require('autoprefixer')()
-		          			]
-		          		}
-		          	}]
-		        })
-		    },
+				test: /\.css$/,
+				use: ExtractTextPlugin.extract({
+					use: ['css-loader', {
+						loader: 'postcss-loader',
+						options: {
+							plugins: [
+								require('autoprefixer')()
+							]
+						}
+					}]
+				})
+			},
 			{
 		        test: /\.less$/,
 		        use: ExtractTextPlugin.extract({
@@ -111,6 +106,24 @@ var config = {
 		]
 	},
 	plugins: [
+		new HappyPack({
+			// 用唯一的标识符 id 来代表当前的HappyPack 是用来处理一类特定的文件
+			id: 'babel',
+			// 如何处理 .js 文件，用法和 Loader配置中一样
+			threads: 4,
+			loaders:[
+				{
+					loader: 'babel-loader',
+					query: {
+						presets: ['es2015', 'es2016', 'react', 'stage-2'],
+						plugins: ['transform-runtime', 'transform-object-rest-spread', 'babel-polyfill']
+					}
+				}
+
+			]
+			
+		
+		}),
 		new AssetsPlugin({
             filename: 'demo.map.json',
             path: path.resolve(__dirname,'dist'),

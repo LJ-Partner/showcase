@@ -5,11 +5,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
-const HappyPack = require('happypack');
 var config = {
 	entry: {
 		app:[
+			'webpack-dev-server/client?http://localhost:3333',
+			'webpack/hot/only-dev-server',
 			'babel-polyfill',
 			path.resolve(__dirname,'./src/app.js')
 		]
@@ -17,14 +17,20 @@ var config = {
 	output: {
 		path: path.resolve(__dirname,'dist'),
 		filename: 'bundle.js',
-		publicPath: '/dist/'
+		publicPath: '/'
 	},
 	module:{
 		rules:[
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /(node_modules|bower_components)/,
-				use: ['happypack/loader?id=babel']
+				use:{
+					loader: 'babel-loader',
+					options:{
+						presets: ['es2015','es2016','react','stage-2'],
+						plugins: ['transform-runtime','transform-object-rest-spread','babel-polyfill']
+					}
+				}
 			},
 			{
 		        test: /\.css$/,
@@ -105,24 +111,6 @@ var config = {
 		]
 	},
 	plugins: [
-		new HappyPack({
-			// 用唯一的标识符 id 来代表当前的HappyPack 是用来处理一类特定的文件
-			id: 'babel',
-			// 如何处理 .js 文件，用法和 Loader配置中一样
-			threads: 4,
-			loaders: [
-				{
-					loader: 'babel-loader',
-					query: {
-						presets: ['es2015', 'es2016', 'react', 'stage-2'],
-						plugins: ['transform-runtime', 'transform-object-rest-spread', 'babel-polyfill']
-					}
-				}
-
-			]
-
-
-		}),
 		new AssetsPlugin({
             filename: 'demo.map.json',
             path: path.resolve(__dirname,'dist'),
@@ -141,45 +129,8 @@ var config = {
                 }
                 return JSON.stringify(assets);
             }
-		}),
-		new ParallelUglifyPlugin({
-			UglifyJSPlugin:{
-				sourceMap: false,
-				uglifyOptions:{
-					ie8: false,
-					mangle: {
-						reserved: ['$', 'exports', 'require']
-					},
-					compress: {
-						warnings: false,
-						drop_debugger: true,
-						drop_console: true
-					},
-					output: {
-						comments: false
-					},
-					warnings: false
-				}
-        	}		
-		}),
-		// new UglifyJSPlugin({
-        //     sourceMap: false,
-        //     uglifyOptions:{
-        //     	ie8: false,
-        //     	mangle: {
-        //         	reserved: ['$', 'exports', 'require']
-        //     	},
-        //     	 compress: {
-	    //             warnings: false,
-	    //             drop_debugger: true,
-	    //             drop_console: true
-        //     	},
-        //     	output: {
-        //         	comments: false
-        //     	},
-        //     	warnings: false
-        //     }
-        // }),
+        }),
+		
 		new webpack.HotModuleReplacementPlugin(),
 		new ExtractTextPlugin({
 			filename: 'css/[name].css'
@@ -192,7 +143,13 @@ var config = {
             hash: true // 为静态资源生成hash值
         }),
         new CleanWebpackPlugin([path.resolve(__dirname, 'dist')])
-	]
+	],
+	devServer: {
+        contentBase: path.join(__dirname),
+        port: 3333,
+        compress:true,
+        historyApiFallback:true
+    }
 }
 
 module.exports = config;
