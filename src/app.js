@@ -8,7 +8,7 @@ import axios from 'axios';
 var name = window.location.pathname;
 var company_id = name.split('/')[1];
 var category_name = name.split('/')[2];
-import Api from './api/index.js' 
+import Api from './api/index.js';
 if(category_name){
     //company_id 公司id
     //category_name 类别名字 微官网:website 分享名片:card 邀请函: invitation
@@ -32,7 +32,7 @@ if(category_name){
                                     <Route path={_url+'/about'} component={type.website.tpl1.about()} />
                                     <Route path={_url+'/concept'} component={type.website.tpl1.concept()} />
                                     <Route path={_url} component={type.website.tpl1.home()} />
-                                    <Route component={type.website.tpl1.error()} />
+                                    <Route component={type.error.error()} />
                                 </Switch>
                             </Router>
                             ,
@@ -44,7 +44,15 @@ if(category_name){
                 }
             })
             .catch((error) =>{
-                console.log(error)
+                ReactDOM.render(
+                    <Router>
+                        <Switch>
+                            <Route component={type.error.error()} />
+                        </Switch>
+                    </Router>
+                    ,
+                    dest    
+                )
             });    
         }
     }else if(category_name == 'card'){ //名片
@@ -58,7 +66,7 @@ if(category_name){
                             <Router>
                                 <Switch>
                                     <Route path={_url} component={type.card.tpl1.home()} />
-                                    <Route component={type.card.tpl1.error()} />
+                                    <Route component={type.error.error()} />
                                 </Switch>
                             </Router>
                             ,
@@ -70,7 +78,15 @@ if(category_name){
                 }
             })
             .catch((error) =>{
-                console.log(error)
+                ReactDOM.render(
+                    <Router>
+                        <Switch>
+                            <Route component={type.error.error()} />
+                        </Switch>
+                    </Router>
+                    ,
+                    dest    
+                )  
             });    
         }    
     }else if(category_name == 'sign'){ //签到
@@ -85,7 +101,7 @@ if(category_name){
                                 <Switch>
                                     <Route path={_url+'/apply'} component={type.sign.tpl1.apply()} />
                                     <Route path={_url} component={type.sign.tpl1.home()} />
-                                    <Route component={type.sign.tpl1.error()} />
+                                    <Route component={type.error.error()} />
                                 </Switch>
                             </Router>
                             ,
@@ -97,7 +113,15 @@ if(category_name){
                 }
             })
             .catch((error) =>{
-                console.log(error)
+                ReactDOM.render(
+                    <Router>
+                        <Switch>
+                            <Route component={type.error.error()} />
+                        </Switch>
+                    </Router>
+                    ,
+                    dest    
+                )  
             });    
         }        
     }else if(category_name == 'invitation'){
@@ -111,7 +135,7 @@ if(category_name){
                             <Router>
                                 <Switch>
                                     <Route path={_url} component={type.invitation.tpl1.home()} />
-                                    <Route component={type.invitation.tpl1.error()} />
+                                    <Route component={type.error.error()} />
                                 </Switch>
                             </Router>
                             ,
@@ -123,13 +147,29 @@ if(category_name){
                 }
             })
             .catch((error) =>{
-                console.log(error)
+                ReactDOM.render(
+                    <Router>
+                        <Switch>
+                            <Route component={type.error.error()} />
+                        </Switch>
+                    </Router>
+                    ,
+                    dest    
+                )  
             });      
         }      
     }else{
         console.log('bbb')
     }    
 }else{
-    console.log('404')
+    ReactDOM.render(
+        <Router>
+            <Switch>
+                <Route component={type.error.error()} />
+            </Switch>
+        </Router>
+        ,
+        dest    
+    )  
 }
 

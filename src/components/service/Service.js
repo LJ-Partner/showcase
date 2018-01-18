@@ -29,7 +29,9 @@ export default class Service extends Component {
                         {(this.props.information.list).slice(0,3).map((item,index) =>{
                             return  <div key={index} className="slide-box-item">
                                         <a href={this.props.name+'/news/detail/'+(item.ID)}>
-                                            <img src={item.Cover} />
+                                            <span>
+                                                <img src={item.Cover} />   
+                                            </span>
                                             <p>{item.Title}</p>    
                                         </a>
                                     </div>    

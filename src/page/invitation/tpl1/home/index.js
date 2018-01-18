@@ -1,7 +1,18 @@
+import { Carousel } from 'react-responsive-carousel';
+import Swiper  from 'react-id-swiper';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less';
+import Empty from '../../../../components/Empty/Empty';
 import Api from '../../../../api/index';
+let _data;
+const carouselConfig = {
+	autoPlay: true,
+	showArrows: false,
+    showStatus: false,
+    showThumbs: false,
+    infiniteLoop: true
+}
 export default class Home extends React.Component {
 	constructor(props){
 		super(props);
@@ -21,23 +32,28 @@ export default class Home extends React.Component {
   			console.log(error)
   		})
 	}
-	componentDidMount() {
-		this.getInfo();
-	}
-	render() {
-		let _data = this.state.getInvatationData;
-		console.log(_data.guest)
+	renderInfo(){
+		_data = this.state.getInvatationData;
+		const params = {
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+				clickable: true
+			},
+			paginationClickable: true,
+			direction: 'vertical'
+		}
 		if(Object.keys(_data).length > 0 && _data.constructor == Object){
 			return (
-			    <div className="invitation">
+			    <Swiper {...params}>
 			    	<div className="page page1">
-			    		<h1 className="logo">
-			    			<span>
-			    				<img src={_data.invitation.logo} />
+			    		<h1 className="logo bounceInUp">
+			    			<span >
+			    				<img src={_data.invitation.logo}  />
 			    			</span>
 			    		</h1>
 			    		<p className="slogan">
-			    			<img src={require('../../../../images/invitation/tpl1/tpl1_invatation_slogan.png')} />	
+			    			<img src={require('../../../../images/invitation/tpl1/tpl1_invatation_slogan.png')} className="fadeInDown"/>	
 			    		</p>
 			    		<div className="info">
 			    			<p>{_data.invitation.year}</p>	
@@ -53,7 +69,7 @@ export default class Home extends React.Component {
 			    		<h2 className="page-title">
 			    			【诚意邀请】	
 			    		</h2>
-			    		<div className="page-cnt">
+			    		<div className="page-cnt flipInX">
 			    			<span className="name">尊敬的先生/女士们:</span>
 			    			<p className="intro">{_data.invitation.inviting}</p>	
 			    			<p className="inscribe">
@@ -75,7 +91,18 @@ export default class Home extends React.Component {
 			    		</h2>
 			    		<div className="page-cnt">
 			    			<p className="intro">{_data.invitation.introduce}</p>	
-	
+							<div className="pic-box-w ">
+								<Carousel {...carouselConfig} className="zoomIn">
+			                        {(_data.invitation.img).map((item,index) =>{
+			                            return  <a className="pic-box" key={index}>
+													<span>
+														<img src={item} />	
+													</span>
+												</a> 
+			                        })}         
+			                    </Carousel>
+								
+							</div>
 			    		</div>
 			    		<div className="arrow">
 							<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
@@ -146,14 +173,25 @@ export default class Home extends React.Component {
 							<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
 						</div>	
 			    	</div>
-				</div>
+			    </Swiper>
 			);
 		}else{
 			return (
-				<div className="aa">暂无相关数据</div>
+				<div className="wrap">
+        			<Empty content = "内容为空" />
+        		</div>
 			)
 		}
-		
+	}
+	componentDidMount() {
+		this.getInfo();
+	}
+	render() {
+		return(
+			<div className="invitation">
+				{this.renderInfo()}	
+			</div>
+		)	
 	}
 }
 

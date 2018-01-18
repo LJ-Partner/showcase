@@ -1,8 +1,12 @@
 import React from 'react';
+import Toast from 'react-toast-mobile';
+import {T} from 'react-toast-mobile';
 import ReactDOM from 'react-dom';
 import './index.less';
-import Dialog from '../../../../components/Dialog/Dialog';
+import Loading from '../../../../components/Loading/Loading';
+import Empty from '../../../../components/Empty/Empty';
 import Api from '../../../../api/index';
+let storage = window.localStorage;
 export default class Home extends React.Component {
 	constructor(props){
 		super(props);
@@ -10,13 +14,8 @@ export default class Home extends React.Component {
 			show: 1,
 			SignID: '',
 			signText: '',
-			dialogConfig: {
-			    dialogShow: false,
-			    dialogCont: "",
-			    dialogIsauto: true,
-			    dialogLife: 3000,
-			    dialogIsclosebtn: false
-			}
+			loading: true,
+			emptyCnt: false
 		}
 
 	}
@@ -27,15 +26,26 @@ export default class Home extends React.Component {
   		.then((res) =>{
   			if(res.data.code && res.data.code == 200){
   				this.setState({
-  					SignID: res.data.content.signs.ID
+  					SignID: res.data.content.signs.ID,
+  					loading: false
   				})
   			}else{
-  				console.log(res.data.msg)
+  				_this.setState({
+  					emptyCnt: true,
+  					loading: false
+  				})
   			}
   		})
   		.catch((res) => {
   			console.log(res)
   		})
+	}
+	isSign(){
+		if(storage.getItem('details')){
+			this.state.show = 0;	
+		}else{
+			this.state.show = 1;
+		}
 	}
 	toSign(e){
 		e.preventDefault();
@@ -47,29 +57,18 @@ export default class Home extends React.Component {
 				SignerMobile: mobile										//签到人电话
 			};
 		if(mobile == ""){
-			//this.showDialog('手机号不能为空',true,2000,false); 
-			// this.setState({
-			// 	dialogConfig:{
-			// 		dialogShow: true,
-			// 		dialogCont: '手机号不能为空',
-			// 		dialogIsauto: true,
-			// 		dialogLife: 2000,
-			// 		dialogIsclosebtn: false
-			// 	}
-			// })
-			// console.log(this.state.dialogConfig)
-			//console.log('手机号不能为空');
-			alert('手机号不能为空');
-			
+			T.notify('手机号不能为空');
 		}else if( telReg == false){
-			alert('请填写正确的手机号');
+			T.notify('请填写正确的手机号');
 			return false;
 		}else {
 			Api.sign.tpl1.apply(id,forms)
 			.then((res) =>{
 				if(res.data.code && res.data.code == 200){ //200 未注册
-					alert('请先去注册')
-					window.location.href = '/' + this.props.match.params.name_id + '/sign/apply';
+					T.notify('请先去注册');
+					setTimeout(() =>{
+						window.location.href = '/' + this.props.match.params.name_id + '/sign/apply';	
+					},3000)
 				}else{										//400 已经签到过了
 					this.setState({
 						show: 2,
@@ -82,25 +81,8 @@ export default class Home extends React.Component {
 			});
 		}
 	}
-	showDialog (cont,isauto,life,isclosebtn) {
-		this.setState({
-			dialog:{
-				dialogShow: true,
-				dialogCont: cont,
-				dialogIsauto: isauto,
-				dialogLife: life,
-				dialogIsclosebtn: isclosebtn
-			}
-		})
-    }
-    closeDialog () {
-    	this.setState({
-    		dialogShow: false,
-			dialogCont: '',
-			dialogLife: 3000,	
-    	})
-    }
 	componentDidMount() {	
+		this.isSign();
 		this.signInfo();
 	}
 	result(){
@@ -126,25 +108,33 @@ export default class Home extends React.Component {
 		}
 	}
 	render() {
-		return (
-			<div className="sign">
-				<div className="sign-header">
-					<h1 className="logo">
-						<img src={require('../../../../images/sign/tpl1/sign_logo.png')} />
-					</h1>
-					<div className="slogan-w">
-						<p>2018年硅钢供需交流会议登记</p>
-						<img src={require('../../../../images/sign/tpl1/sign_slogan.png')} />
-					</div>	
-				</div>
-				<div className="sign-content">
-					<div className="sign-box">
-						{this.result()}
+		if(this.state.loading){
+            return (
+                <div className="wrap">
+                    <Loading /> 
+                </div>
+            )    
+        }else{
+        	return (
+				<div className="sign">
+					<div className="sign-header">
+						<h1 className="logo">
+							<img src={require('../../../../images/sign/tpl1/sign_logo.png')} />
+						</h1>
+						<div className="slogan-w">
+							<p>2018年硅钢供需交流会议登记</p>
+							<img src={require('../../../../images/sign/tpl1/sign_slogan.png')} />
+						</div>	
 					</div>
+					<div className="sign-content">
+						<div className="sign-box">
+							{this.result()}
+						</div>
+					</div>
+					<Toast />
 				</div>
-				<Dialog  dialog={this.state.dialogConfig} aa={this.state.dialogConfig.dialogShow}/>
-			</div>
-		)
+			)	
+        }
 	}
 }
 

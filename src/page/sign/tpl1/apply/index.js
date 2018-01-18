@@ -1,16 +1,18 @@
 import React from 'react';
+import Toast from 'react-toast-mobile';
+import {T} from 'react-toast-mobile';
 import ReactDOM from 'react-dom';
 import './index.less';
 import Api from '../../../../api/index';
 import axios from 'axios';
-let forms;
+let forms,storage = window.localStorage,details={};
 export default class Home extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
 			getCardData : {},
-			value:'',
-			checked : true,
+			maleChecked : true,
+			femaleChecked : false,
 			SignerGender: '1',				//签到人性别 1.男，2.女
 			SignID: ''						//签到ID
 		}
@@ -20,6 +22,13 @@ export default class Home extends React.Component {
 		this.setState({
 			SignerGender: event.target.value	
 		})
+	}
+	isSign(){
+		if(storage.getItem('details')){
+			if(JSON.parse(storage.getItem('details')).sign){ //已报名
+				window.location.href = '/' + this.props.match.params.name_id + '/sign'		
+			}	
+		}
 	}
 	//签到相关信息
 	signInfo(){
@@ -37,7 +46,8 @@ export default class Home extends React.Component {
   			console.log(res)
   		})
 	}
-	componentDidMount() {	
+	componentDidMount() {
+		this.isSign();
 		this.signInfo();
 	}
 	toApply(e){
@@ -57,25 +67,34 @@ export default class Home extends React.Component {
 				SignerNumber:SignerNumber									//与会人数
 			};
 		if(Signer == "" || SignerMobile == "" || SignerCompany == "" || SignerNumber == ""){
-			alert('请把相关信息填写完整')
+			T.notify('请把相关信息填写完整')
 			return false;
 		}else if(telReg == false){
-			alert('请输入正确的手机号');
+			T.notify('请输入正确的手机号');
 			return false;	
 		}else{
 			Api.sign.tpl1.pushdata(id,forms)
 			.then((res) =>{
 				if(res.data.code && res.data.code == 200){
-					alert('报名成功');
-					//window.location.href = '/' + this.props.match.params.name_id + '/sign'
+					T.notify('报名成功');
+					details = {'sign':'1','mobile':SignerMobile};
+					storage.setItem('details',JSON.stringify(details));
+					setTimeout(()=> {
+						window.location.href = '/' + this.props.match.params.name_id + '/sign'	
+					})
 				}else{
-					alert('您已经报过名了')
+					T.notify('您已经报过名了')
 					this.refs.Signer.value = '';
 					this.refs.SignerMobile.value = '';
 					this.refs.SignerCompany.value = '';
-					this.refs.SignerNumber.value = '';							
-					this.state.SignerGender = '1';	
-					//window.location.href = '/' + this.props.match.params.name_id + '/sign'
+					this.refs.SignerNumber.value = '';
+					this.setState({
+						femaleChecked: false,
+						maleChecked: true	
+					});	
+					setTimeout(() =>{
+						window.location.reload();
+					},3000)
 				}
 			})
 			.catch((res) =>{
@@ -111,8 +130,8 @@ export default class Home extends React.Component {
 						<div className="item-box">
 							<label>您的性别</label>
 							<div className="radio-box">
-								<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked/> 男
-								<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} /> 女
+								<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked={this.state.maleChecked} /> 男
+								<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} defaultChecked={this.state.femaleChecked} /> 女
 							</div>
 						</div>
 						<div className="item-box">
@@ -125,7 +144,8 @@ export default class Home extends React.Component {
 						</div>
 						<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
 					</form>
-				</div>	
+				</div>
+				<Toast />	
 			</div>
 		)
 	}
