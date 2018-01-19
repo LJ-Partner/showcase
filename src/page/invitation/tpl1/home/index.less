@@ -161,14 +161,13 @@ body{
                         }
                     } 
                     .space-line{
-                        content:'';
                         position: absolute;
                         bottom: 7px;
                         width: 1px;
                         background: #E5BC62;
-                        top: 7px;
+                        top: 9px;
                         left: 24%;
-                        opacity: 0.2;
+                        opacity: 1;
                     }   
                 }
             }
@@ -272,39 +271,26 @@ body{
             .fadeInDown{
                 animation:fadeInDown 1s forwards;   
             }
-            .bounceInUp{
-                animation: bounceInUp 0.5s forwards;
-            }
             .bounceInRight{
                 animation: bounceInRight 0.5s forwards;
             }
-            .info{
-                p{
-                    opacity: 1;
-                    transition: all 0.8s ease-in-out 1s;
-                }
-                em{
-                    opacity: 1;
-                    transition: all 0.8s ease-in-out 1.5s;
-                }
-                span{
-                    opacity: 1;
-                    transition: all 0.8s ease-in-out 2s;
-                }
-                b{
-                    opacity: 1;
-                    transition: all 0.8s ease-in-out 2.5s;
-                }
+            .bounceInUp{
+                animation: bounceInUp 1s ease 0.5s 1 normal both;
             }
-            .page-title{
-                opacity: 1;
-                transition: all .5s ease-in 0.5s;
+            .rotateIn{
+                animation: rotateIn 1s forwards;    
+            }
+            .fadeInUp{
+                animation: fadeInUp 1s forwards 0.5s;    
+            }
+            .fadeInDown{
+                animation: fadeInDown 1s forwards 0.5s;    
             }
             .flipInX{
                 animation: flipInX 1s linear 0.8s both;
             }
             .zoomIn{
-                animation:zoomIn  0.5s linear both;
+                animation:zoomIn  0.5s linear 1s 1 both;
             }
             .schedule{
                 li{
@@ -316,9 +302,49 @@ body{
                     }
                 }
             }
-            .space-line{
+            .guest-box{
+                &:nth-child(odd){
+                    animation: fadeInLeft 0.5s 0.5s linear both;
+                }
+                &:nth-child(even){
+                    animation: fadeInRight 0.5s 0.5s linear both;
+                }
+            }
+            .info{
+                p{
+                    opacity: 1;
+                    animation: fadeInDown 0.8s ease 1s 1 normal both;
+                }
+                em{
+                    opacity: 1;
+                    animation: fadeInDown 0.8s ease-in-out 1.3s 1 normal both;
+                }
+                span{
+                    opacity: 1;
+                    animation: fadeInDown 0.8s ease-in-out 1.6s 1 normal both;
+                }
+                b{
+                    opacity: 1;
+                    animation: fadeInDown 0.8s ease-in-out 1.9s 1 normal both;
+                }
+            }
+            .page-title{
                 opacity: 1;
-                animation: all 0.8s ease-in-out 2s;    
+                transition: all .5s ease-in 0.5s;
+            }
+            .page-cnt{
+                .name{
+                    animation:fadeInRight 1s ease 0.5s 1 normal both;
+                }
+                .intro{
+                    animation:fadeInRight 1s ease 1s 1 normal both;   
+                }
+                .inscribe{
+                    animation:fadeInLeft 1s ease 1.5s 1 normal both;       
+                }
+                .tips{
+                    animation:fadeInLeft 1s ease-in-out 0.5s 1 normal both;    
+                }
             }
         }
     }
@@ -463,5 +489,93 @@ body{
         transform: none
     }
 }
+@keyframes rotateIn {
+    0% {
+        transform-origin: center;
+        transform: rotate(-200deg);
+        opacity: 0
+    }
 
+    to {
+        transform-origin: center;
+        transform: none;
+        opacity: 1
+    }
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,100%,0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,-100%,0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+@keyframes bounceInLeft {
+    0%,60%,75%,90%,to {
+        animation-timing-function: cubic-bezier(.215,.61,.355,1)
+    }
+
+    0% {
+        opacity: 0;
+        transform: translate3d(-3000px,0,0)
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(25px,0,0)
+    }
+
+    75% {
+        transform: translate3d(-10px,0,0)
+    }
+
+    90% {
+        transform: translate3d(5px,0,0)
+    }
+
+    to {
+        transform: none
+    }
+}
+@keyframes bounceInRight {
+    0%,60%,75%,90%,to {
+        animation-timing-function: cubic-bezier(.215,.61,.355,1)
+    }
+
+    0% {
+        opacity: 0;
+        transform: translate3d(3000px,0,0)
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px,0,0)
+    }
+
+    75% {
+        transform: translate3d(10px,0,0)
+    }
+
+    90% {
+        transform: translate3d(-5px,0,0)
+    }
+
+    to {
+        transform: none
+    }
+}
 

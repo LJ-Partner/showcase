@@ -6,4 +6,4 @@ exports.website = website;
 exports.card = card;
 exports.sign = sign;
 exports.invitation = invitation;
-exports.api_prefix ="http://192.168.0.103:1024/Api/V1/";//http://localhost:2033/Api/V1/
+exports.api_prefix ="http://mm.51wctt.com/Api/V1/";//http://localhost:2033/Api/V1/
