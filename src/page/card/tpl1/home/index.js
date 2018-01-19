@@ -67,7 +67,7 @@ export default class Home extends React.Component {
 				    				<p>{data.Address}</p>
 				    			</div>	
 				    			<div className="item-box-pic">
-				    				<img src={require('../../../../images/contact/contact_ico_address.png')} />	
+				    				<img src={require('../../../../images/card/tpl1/contact_ico_address.png')} />	
 				    			</div>
 				    		</div>
 				    		<div className="item-box item-tel">
@@ -76,7 +76,7 @@ export default class Home extends React.Component {
 				    				<p>{data.Telephone}</p>
 				    			</div>	
 				    			<div className="item-box-pic">
-				    				<img src={require('../../../../images/contact/contact_ico_tel.png')} />	
+				    				<img src={require('../../../../images/card/tpl1/contact_ico_tel.png')} />	
 				    			</div>	
 				    		</div>
 				    		<div className="item-box item-web">
@@ -85,7 +85,7 @@ export default class Home extends React.Component {
 				    				<p>{data.Website}</p>
 				    			</div>	
 				    			<div className="item-box-pic">
-				    				<img src={require('../../../../images/contact/contact_ico_web.png')} />	
+				    				<img src={require('../../../../images/card/tpl1/contact_ico_web.png')} />	
 				    			</div>	
 				    		</div>
 				    	</div>			

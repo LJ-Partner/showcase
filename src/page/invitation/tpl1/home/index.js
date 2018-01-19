@@ -67,7 +67,7 @@ export default class Home extends React.Component {
 					return (
 					    <Swiper {...params}>
 					    	<div className="page page1">
-					    		<h1 className="logo bounceInUp">
+					    		<h1 className="logo">
 					    			<span >
 					    				<img src={_data.invitation.logo}  />
 					    			</span>

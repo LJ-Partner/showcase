@@ -32,7 +32,7 @@ export default class Custome extends React.Component{
 	                            <em>联系我们</em>
 	                            <p>
 	                                <span>CONTACT US</span>
-	                                <img src={require('../../images/contact_service_img.png')} />
+	                                <img src={require('../../images/website/tpl1/contact_service_img.png')} />
 	                            </p>
 	                        </h2>            
 	                    </div>

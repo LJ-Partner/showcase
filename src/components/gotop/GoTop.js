@@ -38,7 +38,7 @@ export default class GoTop extends React.Component{
         return(
             <div className={this.state.flag?"go-top hide":"go-top "} id="goTop" onClick={this.toTop.bind(this)}>
                 <a>
-                    <img src={require('../../images/blup.png')} />
+                    <img src={require('../../images/website/tpl1/blup.png')} />
                 </a>
             </div>    
         );
