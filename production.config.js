@@ -142,6 +142,11 @@ var config = {
                 return JSON.stringify(assets);
             }
 		}),
+		new webpack.DefinePlugin({
+			"process.env": {
+				NODE_ENV: JSON.stringify("production")
+			}
+		}),
 		new ParallelUglifyPlugin({
 			UglifyJSPlugin:{
 				sourceMap: false,

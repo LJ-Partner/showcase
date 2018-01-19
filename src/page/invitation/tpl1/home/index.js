@@ -242,25 +242,19 @@ export default class Home extends React.Component {
 	}
 	componentDidMount() {
 		this.getInfo();
-		document.getElementById('audio').play();
+		//document.getElementById('audio').play();
 		//针对微信ios播放
-		document.addEventListener('WeixinJSBridgeReady',function(){
-			WeixinJSBridge.invoke('getNetworkType',{},function(e){
-				document.getElementById('audio').play();
-			});
-		});
+		// document.addEventListener('WeixinJSBridgeReady',function(){
+		// 	WeixinJSBridge.invoke('getNetworkType',{},function(e){
+		// 		document.getElementById('audio').play();
+		// 	});
+		// });
 	}
 	render() {
 		return(
 			<div className="invitation">
 				{this.renderInfo()}	
-				<div className={this.state.stoped?'music stoped':'music'}>
-					<audio  className="audio" src="../../../../src/audio/audio.mp3" preload="auto" autoPlay="autoplay" id="audio" loop>		</audio>
-					<div className="control">
-						<div className="control-after" onClick={this.audioPlay.bind(this)}>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		)	
 	}
