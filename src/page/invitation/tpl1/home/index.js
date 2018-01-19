@@ -6,7 +6,7 @@ import './index.less';
 import Loading from '../../../../components/Loading/Loading';
 import Empty from '../../../../components/Empty/Empty';
 import Api from '../../../../api/index';
-let _data;
+let _data,palying=true;
 const carouselConfig = {
 	autoPlay: true,
 	showArrows: false,
@@ -20,7 +20,34 @@ export default class Home extends React.Component {
 		this.state = {
 			getInvatationData: {},
 			loading: true,
-			emptyCnt: false
+			emptyCnt: false,
+			stoped: false
+		}
+	}
+	//点击音乐播放
+	audioPlay(){
+		if(palying==true){
+			document.getElementById('audio').pause();
+			document.addEventListener('WeixinJSBridgeReady',function(){
+				WeixinJSBridge.invoke('getNetworkType',{},function(e){
+					document.getElementById('audio').pause();
+				});
+			});
+			palying=false;
+			this.setState({
+				stoped: true
+			});
+		}else if(palying==false){
+			document.getElementById('audio').play();
+			document.addEventListener('WeixinJSBridgeReady',function(){
+				WeixinJSBridge.invoke('getNetworkType',{},function(e){
+					document.getElementById('audio').play();
+				});
+			});
+			palying=true;
+			this.setState({
+				stoped: false
+			})
 		}
 	}
 	//获取信息
@@ -212,15 +239,28 @@ export default class Home extends React.Component {
         		)
         	}
         }
-		
 	}
 	componentDidMount() {
 		this.getInfo();
+		document.getElementById('audio').play();
+		//针对微信ios播放
+		document.addEventListener('WeixinJSBridgeReady',function(){
+			WeixinJSBridge.invoke('getNetworkType',{},function(e){
+				document.getElementById('audio').play();
+			});
+		});
 	}
 	render() {
 		return(
 			<div className="invitation">
 				{this.renderInfo()}	
+				<div className={this.state.stoped?'music stoped':'music'}>
+					<audio  className="audio" src="../../../../src/audio/audio.mp3" preload="auto" autoPlay="autoplay" id="audio" loop>		</audio>
+					<div className="control">
+						<div className="control-after" onClick={this.audioPlay.bind(this)}>
+						</div>
+					</div>
+				</div>
 			</div>
 		)	
 	}

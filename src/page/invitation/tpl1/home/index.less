@@ -372,6 +372,44 @@ body{
                 }
             }
         }
+        .music{
+            width: 1.5rem;
+            height: 1.5rem;
+            position: absolute;
+            right: .5rem;
+            top: .5rem;
+            z-index: 100;
+            .control{
+                width: 1.5rem;
+                height: 1.5rem;
+                background: url(//oss3.rabbitpre.com/rp2/apps/static/widget/music/music_c0fda01.gif) transparent no-repeat center center;
+                background-size: contain;
+                position: relative;
+                z-index: 1;
+                .control-after{
+                    content: '';
+                    width: 1rem;
+                    height: 1rem;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -.5rem;
+                    margin-left: -.5rem;
+                    background: url(//oss3.rabbitpre.com/rp2/apps/static/widget/music/music_off_8d94020.png) transparent no-repeat center center;
+                    background-size: 100% 100%;
+                    animation: rotate2d 1.2s linear infinite;
+                    z-index: -1;
+                }
+            }
+        }
+        .stoped{
+            .control{
+                background: none;
+                .control-after{
+                    animation: none;
+                }
+            }
+        }
     }
 }
 
@@ -602,5 +640,9 @@ body{
     to {
         transform: none
     }
+}
+@keyframes rotate2d {
+  0%   { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
 }
 
