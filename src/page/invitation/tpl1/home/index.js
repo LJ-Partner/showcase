@@ -44,6 +44,31 @@ export default class Home extends React.Component {
   			console.log(error)
   		})
 	}
+	//图片轮播
+	carouselShow(){	
+		let len = this.state.getInvatationData.invitation.img;
+		if(len && len.length > 1){
+			return (
+				<Carousel {...carouselConfig} className="zoomIn">
+                    {(this.state.getInvatationData.invitation.img).map((item,index) =>{
+                        return  <a className="pic-box" key={index}>
+									<span>
+										<img src={item} />	
+									</span>
+								</a> 
+                    })}         
+                </Carousel>	
+			)
+		}else{
+			return (
+				<a className="pic-box  zoomIn">
+					<span>
+						<img src={this.state.getInvatationData.invitation.img} />	
+					</span>
+				</a> 	
+			)
+		}
+	}
 	renderInfo(){
 		_data = this.state.getInvatationData;
 		const params = {
@@ -91,15 +116,7 @@ export default class Home extends React.Component {
 					    		</h2>
 					    		<div className="page-cnt">
 					    			<span className="name">尊敬的先生/女士们:</span>
-					    			<p className="intro">{_data.invitation.inviting}</p>	
-					    			<p className="inscribe">
-					    				<em>
-					    					旺材新媒体	
-					    				</em>
-					    				<span>
-					    					2017年1月12日	
-					    				</span>	
-					    			</p>	
+					    			<p className="intro">{_data.invitation.inviting}</p>
 					    		</div>
 					    		<div className="arrow">
 									<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
@@ -112,16 +129,7 @@ export default class Home extends React.Component {
 					    		<div className="page-cnt">
 					    			<p className="intro">{_data.invitation.introduce}</p>	
 									<div className="pic-box-w ">
-										<Carousel {...carouselConfig} className="zoomIn">
-					                        {(_data.invitation.img).map((item,index) =>{
-					                            return  <a className="pic-box" key={index}>
-															<span>
-																<img src={item} />	
-															</span>
-														</a> 
-					                        })}         
-					                    </Carousel>
-										
+										{this.carouselShow()}
 									</div>
 					    		</div>
 					    		<div className="arrow">
@@ -184,7 +192,7 @@ export default class Home extends React.Component {
 					    				<dd className="fadeInDown">更多精彩行业动态，敬请关注！</dd>
 					    			</dl>
 					    			<div className="attention-detail bounceInUp">
-					    				<p><span className="bounceInLeft">电话咨询：</span><em>{_data.invitation.phone}</em></p>
+					    				<p><span>电话咨询：</span><a href={'tel:'+_data.invitation.phone}>{_data.invitation.phone}</a></p>
 					    				<p><span>会议地址：</span><em>{_data.invitation.address}</em></p>
 					    				<p><span>会议交通：</span><em>{_data.invitation.traffic}</em></p>
 					    			</div>
