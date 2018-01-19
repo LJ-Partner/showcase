@@ -159,7 +159,15 @@ if(category_name){
             });      
         }      
     }else{
-        console.log('bbb')
+        ReactDOM.render(
+            <Router>
+                <Switch>
+                    <Route component={type.error.error()} />
+                </Switch>
+            </Router>
+            ,
+            dest    
+        )  
     }    
 }else{
     ReactDOM.render(
