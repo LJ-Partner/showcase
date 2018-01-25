@@ -242,19 +242,34 @@ export default class Home extends React.Component {
 	}
 	componentDidMount() {
 		this.getInfo();
-		//document.getElementById('audio').play();
-		//针对微信ios播放
-		// document.addEventListener('WeixinJSBridgeReady',function(){
-		// 	WeixinJSBridge.invoke('getNetworkType',{},function(e){
-		// 		document.getElementById('audio').play();
-		// 	});
-		// });
+		document.getElementById('audio').play();
+		//必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+		wx.config({
+			debug: false,
+			appId: '',
+			timestamp: 1,
+			nonceStr: '',
+			signature: '',
+			jsApiList: []
+		});
+		wx.ready(function() {
+			document.getElementById('audio').play()
+		});
+		document.addEventListener('YixinJSBridgeReady', function() {
+			play()
+		}, false);
 	}
 	render() {
 		return(
 			<div className="invitation">
 				{this.renderInfo()}	
-				
+				<div className={this.state.stoped?'music stoped':'music'}>
+					<audio  className="audio" src="../../../../src/audio/audio.mp3" preload="auto" autoPlay="autoplay" id="audio" loop></audio>
+					<div className="control">
+						<div className="control-after" onClick={this.audioPlay.bind(this)}>
+						</div>
+					</div>
+				</div>
 			</div>
 		)	
 	}
