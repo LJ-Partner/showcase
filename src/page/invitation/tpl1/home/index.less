@@ -196,6 +196,24 @@ body{
                     animation: bounce 1s infinite 1.5s;
                 }
             }
+            .door-left{
+                position: absolute;
+                z-index: 1;
+                width: 60%;
+                height: 100%;
+                background: rgba(47, 47, 36, 0.8);
+                left: 0;
+                top: 0;
+            }
+            .door-right{
+                position: absolute;
+                z-index: 1;
+                width: 60%;
+                height: 100%;
+                background: rgba(47, 47, 36, 0.8);   
+                right: 0;
+                top: 0; 
+            }
         }
         .page1{
             padding: 0.45rem 0 0 0;
@@ -253,10 +271,10 @@ body{
             }
             .ewm-box{
                 text-align: center;
-                margin: 0 0 6% 0;
+                margin: 6% 0;
                 dt{
                     width: 35%; 
-                    margin: 0 auto 1.9%;
+                    margin: 0 auto 4%;
                     box-sizing: border-box;
                     span{
                         height: 0;
@@ -270,7 +288,12 @@ body{
                 }
             }
             .attention-detail{
-                padding: 6.2% 0 10.3% 0;
+                    z-index: 2;
+                    position: absolute;
+                    box-sizing: border-box;
+                    left: 3.7%;
+                    right: 8.2%;
+                    bottom: 17%;
                 p{
                     margin: 0 0 1% 0;
                 }
@@ -289,6 +312,18 @@ body{
             .arrow{
                 opacity: 1;
                 transition: all 1s ease-in-out 1.5s;
+            }
+            .fadeOutLeft{
+                animation: fadeOutLeft 1s ease 0.2s 2 normal both;    
+            }
+            .fadeOutRight{
+                animation: fadeOutRight 1s ease 0.2s 2 normal both;    
+            }
+            .door-left{
+                z-index: -1;
+            }
+            .door-right{
+                z-index: -1;
             }
             .fadeInDown{
                 animation:fadeInDown 1s forwards;   
@@ -355,7 +390,7 @@ body{
             }
             .page-title{
                 opacity: 1;
-                transition: all .5s ease-in 0.5s;
+                transition: all  0.8s ease 1.5s;
             }
             .page-cnt{
                 .name{
@@ -646,3 +681,24 @@ body{
   100% { transform: rotate(0deg); }
 }
 
+@keyframes fadeOutRight {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(100%,0,0)
+    }
+}
+
+@keyframes fadeOutLeft {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(-100%,0,0)
+    }
+}

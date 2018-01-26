@@ -134,6 +134,7 @@ if(category_name){
                         ReactDOM.render(
                             <Router>
                                 <Switch>
+                                    <Route path={_url+'/demo'} component={type.invitation.tpl1.demo()} />
                                     <Route path={_url} component={type.invitation.tpl1.home()} />
                                     <Route component={type.error.error()} />
                                 </Switch>

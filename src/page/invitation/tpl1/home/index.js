@@ -105,7 +105,8 @@ export default class Home extends React.Component {
 				clickable: true
 			},
 			paginationClickable: true,
-			direction: 'vertical'
+			direction: 'vertical',
+			loop: true 
 		}
 		if(this.state.loading){
             return (
@@ -119,6 +120,8 @@ export default class Home extends React.Component {
 					return (
 					    <Swiper {...params}>
 					    	<div className="page page1">
+					    		<div className="door-left fadeOutRight"></div>
+					    		<div className="door-right fadeOutLeft"></div>
 					    		<h1 className="logo">
 					    			<span >
 					    				<img src={_data.invitation.logo}  />
@@ -138,6 +141,8 @@ export default class Home extends React.Component {
 								</div>
 					    	</div>
 					    	<div className="page page2">
+					    		<div className="door-left fadeOutRight"></div>
+					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
 					    			【诚意邀请】	
 					    		</h2>
@@ -150,6 +155,8 @@ export default class Home extends React.Component {
 								</div>			
 					    	</div>
 					    	<div className="page page3">
+					    		<div className="door-left fadeOutRight"></div>
+					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
 					    			【会议介绍】	
 					    		</h2>
@@ -164,6 +171,8 @@ export default class Home extends React.Component {
 								</div>	
 					    	</div>
 					    	<div className="page page4">
+					    		<div className="door-left fadeOutRight"></div>
+					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
 					    			【会议流程】	
 					    		</h2>
@@ -185,6 +194,8 @@ export default class Home extends React.Component {
 								</div>	
 					    	</div>
 					    	<div className="page page5">
+					    		<div className="door-left fadeOutRight"></div>
+					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
 					    			【特邀嘉宾】	
 					    		</h2>
@@ -206,6 +217,8 @@ export default class Home extends React.Component {
 								</div>	
 					    	</div>
 					    	<div className="page page6">
+					    		<div className="door-left fadeOutRight"></div>
+					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
 					    			【关注我们】	
 					    		</h2>
