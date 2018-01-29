@@ -136,6 +136,7 @@ export default class Home extends React.Component {
 								{this.result()}
 							</div>
 						</div>
+						<div className="sign-footer">aaa</div>
 						<Toast />
 					</div>
 				)		

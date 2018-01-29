@@ -162,7 +162,7 @@ export default class Home extends React.Component {
 								<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
 							</form>
 						</div>
-						<div className="sign-footer"></div>
+						<div className="apply-footer">底部</div>
 						<Toast />	
 					</div>
 				)	
