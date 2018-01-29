@@ -9,6 +9,7 @@ export default class Product extends Component {
             <div className="solve">
             	<div className="solve-header">
             		<h2>{this.props.product.title}</h2>
+            		<p>{this.props.product.des}</p>
             		<p></p>
             	</div>	
             	<ul className="solve-list">

@@ -22,7 +22,7 @@ export default class Service extends Component {
             <div className="service">
             	<div className="service-header">
             		<h2>{this.props.information.title}</h2>
-                    
+                    <p>{this.props.information.des}</p>
             	</div>	
                 <div className="service-con">
                     <Carousel {...carouselConfig} className="service-slide-box">

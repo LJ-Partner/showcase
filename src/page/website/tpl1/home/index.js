@@ -88,7 +88,7 @@ export default class Home extends React.Component {
 								},
 								{
 									"icon":"icon-linian",
-									"name":"寄语",
+									"name":"理念",
 									"english_name":"Hostlanguage",
 									"link":'/'+this.props.match.params.name_id + '/website/concept'
 								},
@@ -107,12 +107,12 @@ export default class Home extends React.Component {
 						},
 						product: {
 							title: '产品',
-							des:'亿铖达一直致力于安全环保型产品的研发，涵盖胶黏剂、锡膏、金属合金焊料、环保型助焊剂等',
+							des:'自主创新 . 探索高新技术 . 打造高品质产品',
 							list: this.state.seriesData
 						},
 						information: {
 							title:'资讯',
-							des:'株洲科能最新动态新闻，实时了解公司发展',
+							des:'最新公司新闻勇于开拓不断创新',
 							list: this.state.newsData
 						},
 						menuList:[
