@@ -12,7 +12,7 @@ export default class Intro extends React.Component{
                     <span>公司简介</span>
                 </h2>
                 <div className="about-cnt">
-                    {Parser(this.props.detail)}
+                    <p>{Parser(this.props.detail)}</p>
                 </div>
             </div>    
         );
