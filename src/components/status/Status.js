@@ -15,7 +15,7 @@ export default class Status extends Component {
                                         <a href={this.props.name+'/news/detail/'+item.ID}>
                                             <span><img src={item.Cover} /></span>  
                                             <div className="item-info">
-                                                <p>{item.Abstract}</p>    
+                                                <p>{item.Title}</p>    
                                                 
                                             </div>
                                         </a>   
@@ -31,7 +31,7 @@ export default class Status extends Component {
                                         <a href={this.props.name+'/news/detail/'+item.ID}>
                                             <span><img src={item.Cover} /></span>  
                                             <div className="item-info">
-                                                <p>{item.Abstract}</p>    
+                                                <p>{item.Title}</p>    
                                                 
                                             </div>
                                         </a>   
