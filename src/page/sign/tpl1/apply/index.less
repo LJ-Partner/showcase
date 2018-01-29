@@ -20,20 +20,21 @@ body{
     .apply{
         width: 100%;
         background: url(../../../../images/sign/tpl1/sign_apply_bg.png) no-repeat;
-        background-size: 100% 100%; 
+        background-size: 100% 115%; 
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        height: 100%;
         img{
             display: block;
             margin: 0 auto;
         }
         .apply-header{
+            height: 21%;
             .logo{
                 padding: 0.48rem 0 0.18rem 0;
                 img{
-                    width: 15%;
+                    width: 3.68rem;
                 }
             }
             .slogan-w{
@@ -47,8 +48,8 @@ body{
             }
         }
         .apply-content{
+            height: 68%;
             width: 82%;
-            margin: 1rem auto 5.2rem;
             color: #FFB900;
             font-size: 0.37rem;
             line-height: 0.6rem;
@@ -133,6 +134,9 @@ body{
                 }    
             }
         }
+        .sign-footer{
+            //height: 8%;
+        }
         .notive-wrap {
             position: fixed;
             left: 0;
@@ -149,6 +153,20 @@ body{
                 text-align: center
             }
         }
+    }
+    @media screen and (min-width:320px) and (max-width:375px){
+        .apply{
+            background-size: 100% 130%;
+            .apply-header{
+                height: 16%;
+            }    
+            .apply-content{
+                height: 80%;
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+           
     }
 }
 

@@ -13,7 +13,7 @@ export default class Home extends React.Component {
 		this.state = {
 			show: 1,
 			SignID: '',
-			signText: '',
+			signText: '签到成功',
 			loading: true,
 			emptyCnt: false,
 			data:''
@@ -90,7 +90,9 @@ export default class Home extends React.Component {
 	result(){
 		if(this.state.show == 1){
 			return (
+
 				<form>
+					<h2>嘉宾签到</h2>
 					<input type="text" placeholder="您的手机号" ref='mobile' maxLength="11" />
 					<button className="btn-sign-in" type="button" onClick={this.toSign.bind(this)}>签到</button>
 				</form>	
@@ -127,7 +129,6 @@ export default class Home extends React.Component {
 							</h1>
 							<div className="slogan-w">
 								<p>{_data.signs.Title}</p>
-								<img src={require('../../../../images/sign/tpl1/sign_slogan.png')} />
 							</div>	
 						</div>
 						<div className="sign-content">

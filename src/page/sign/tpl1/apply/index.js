@@ -129,40 +129,40 @@ export default class Home extends React.Component {
 							</h1>
 							<div className="slogan-w">
 								<p>{data.Title}</p>
-								<img src={require('../../../../images/sign/tpl1/sign_slogan.png')} />
 							</div>	
 						</div>
 						<div className="apply-content">
 							<p className="tips">
-								您好,欢迎您位临2018年硅钢供需交流会，请填写您的相关信息，我们将尽快安排会务人员与您取得联系，并未您安排会议的相关服务。	
+								请填写参会信息，我们将尽快与您取得联系并安排相关服务。	
 							</p>
 							<form className="form-box">
 								<div className="item-box">
-									<label>您的姓名</label>
+									<label>姓名</label>
 									<input type="text" className="inp" name="Signer" ref="Signer" />
 								</div>
 								<div className="item-box">
-									<label>您的手机号</label>
+									<label>手机号</label>
 									<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" maxLength="11" />
 								</div>
 								<div className="item-box">
-									<label>您的性别</label>
+									<label>性别</label>
 									<div className="radio-box">
 										<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked={this.state.maleChecked} /> 男
 										<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} defaultChecked={this.state.femaleChecked} /> 女
 									</div>
 								</div>
 								<div className="item-box">
-									<label>您的公司</label>
+									<label>公司名</label>
 									<input type="text" className="inp" name="SignerCompany" ref="SignerCompany" />
 								</div>
 								<div className="item-box">
-									<label>与会人数</label>
+									<label>参会人数</label>
 									<input type="text" className="inp" name="SignerNumber"  ref="SignerNumber" />
 								</div>
 								<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
 							</form>
 						</div>
+						<div className="sign-footer"></div>
 						<Toast />	
 					</div>
 				)	
