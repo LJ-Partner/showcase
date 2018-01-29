@@ -92,6 +92,12 @@ body{
                     .item-radio{
                         width: 2rem;
                         height: 0.7rem;
+                        line-height: 0.7rem;
+                        padding-left: 0.5rem;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                        background: #fff;
+                        color: #FFB900;
                         input{
                             display: block;
                             position: relative;
@@ -100,25 +106,13 @@ body{
                             -webkit-appearance: none;
                             width: 2rem;
                             height: 0.7rem;
-                            &:before{
-                                content: "男";
-                                display: block;
-                                width: 2rem;
-                                background: #fff;
-                                background-clip: padding-box;
-                                position: absolute;
-                                left: 0;
-                                top: 0;
-                                height: 0.7rem;
-                                border-radius: 8px;
-                                text-align: center;
-                                line-height: 0.7rem;
-                                color: #FFB900;
-                            }
-                            &&:checked:after{
-                                background: red;
-                            }
+                            opacity: 0;
                         }
+                    }
+                    .item-radio-yes{
+                        box-sizing: border-box;
+                        background: #FFB900 url(../../../../images/sign/tpl1/checked.png) no-repeat 70% center;
+                        color: #fff;
                     }
                 }
                 .btn-enter{

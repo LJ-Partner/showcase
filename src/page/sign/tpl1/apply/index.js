@@ -147,8 +147,14 @@ export default class Home extends React.Component {
 								<div className="item-box">
 									<label>性别</label>
 									<div className="radio-box">
-										<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked={this.state.maleChecked} /> 男
-										<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} defaultChecked={this.state.femaleChecked} /> 女
+										<label className={this.state.SignerGender == 1?"item-radio item-radio-yes":"item-radio"}>
+											男
+											<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked={this.state.maleChecked} /> 	
+										</label>
+										<label className={this.state.SignerGender == 2?"item-radio item-radio-yes":"item-radio"}>
+											女
+											<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} defaultChecked={this.state.femaleChecked} /> 
+										</label>
 									</div>
 								</div>
 								<div className="item-box">
