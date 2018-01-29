@@ -111,7 +111,7 @@ export default class Home extends React.Component {
 							list: this.state.seriesData
 						},
 						information: {
-							title:'资讯',
+							title:'新闻',
 							des:'最新公司新闻勇于开拓不断创新',
 							list: this.state.newsData
 						},

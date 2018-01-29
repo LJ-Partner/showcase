@@ -3,6 +3,8 @@ import Toast from 'react-toast-mobile';
 import {T} from 'react-toast-mobile';
 import ReactDOM from 'react-dom';
 import './index.less';
+import Loading from '../../../../components/Loading/Loading';
+import Empty from '../../../../components/Empty/Empty';
 import Api from '../../../../api/index';
 import axios from 'axios';
 let forms,storage = window.localStorage,details={};
@@ -14,7 +16,9 @@ export default class Home extends React.Component {
 			maleChecked : true,
 			femaleChecked : false,
 			SignerGender: '1',				//签到人性别 1.男，2.女
-			SignID: ''						//签到ID
+			SignID: '',						//签到ID
+			loading: true,
+			emptyCnt: false
 		}
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -36,10 +40,15 @@ export default class Home extends React.Component {
   		.then((res) =>{
   			if(res.data.code && res.data.code == 200){  
   				this.setState({
-  					SignID: res.data.content.signs.ID
+  					SignID: res.data.content.signs.ID,
+  					loading: false,
+  					getCardData: res.data.content.signs
   				})
   			}else{
-  				console.log(res.data.msg)
+  				_this.setState({
+  					emptyCnt: true,
+  					loading: false
+  				})
   			}
   		})
   		.catch((res) => {
@@ -103,51 +112,62 @@ export default class Home extends React.Component {
 		}
 	}
 	render() {
-		return (
-			<div className="apply">
-				<div className="apply-header">
-					<h1 className="logo">
-						<img src={require('../../../../images/sign/tpl1/sign_logo.png')} />
-					</h1>
-					<div className="slogan-w">
-						<p>2018年硅钢供需交流会议登记</p>
-						<img src={require('../../../../images/sign/tpl1/sign_slogan.png')} />
-					</div>	
-				</div>
-				<div className="apply-content">
-					<p className="tips">
-						您好,欢迎您位临2018年硅钢供需交流会，请填写您的相关信息，我们将尽快安排会务人员与您取得联系，并未您安排会议的相关服务。	
-					</p>
-					<form className="form-box">
-						<div className="item-box">
-							<label>您的姓名</label>
-							<input type="text" className="inp" name="Signer" ref="Signer" />
+		let data = this.state.getCardData;
+		if(this.state.loading){
+            return (
+                <div className="wrap">
+                    <Loading /> 
+                </div>
+            )    
+        }else{
+        	if(Object.keys(data).length > 0 && data.constructor == Object){
+        		return (
+					<div className="apply">
+						<div className="apply-header">
+							<h1 className="logo">
+								<img src={data.logo} />
+							</h1>
+							<div className="slogan-w">
+								<p>{data.Title}</p>
+								<img src={require('../../../../images/sign/tpl1/sign_slogan.png')} />
+							</div>	
 						</div>
-						<div className="item-box">
-							<label>您的手机号</label>
-							<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" maxLength="11" />
+						<div className="apply-content">
+							<p className="tips">
+								您好,欢迎您位临2018年硅钢供需交流会，请填写您的相关信息，我们将尽快安排会务人员与您取得联系，并未您安排会议的相关服务。	
+							</p>
+							<form className="form-box">
+								<div className="item-box">
+									<label>您的姓名</label>
+									<input type="text" className="inp" name="Signer" ref="Signer" />
+								</div>
+								<div className="item-box">
+									<label>您的手机号</label>
+									<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" maxLength="11" />
+								</div>
+								<div className="item-box">
+									<label>您的性别</label>
+									<div className="radio-box">
+										<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked={this.state.maleChecked} /> 男
+										<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} defaultChecked={this.state.femaleChecked} /> 女
+									</div>
+								</div>
+								<div className="item-box">
+									<label>您的公司</label>
+									<input type="text" className="inp" name="SignerCompany" ref="SignerCompany" />
+								</div>
+								<div className="item-box">
+									<label>与会人数</label>
+									<input type="text" className="inp" name="SignerNumber"  ref="SignerNumber" />
+								</div>
+								<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
+							</form>
 						</div>
-						<div className="item-box">
-							<label>您的性别</label>
-							<div className="radio-box">
-								<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked={this.state.maleChecked} /> 男
-								<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} defaultChecked={this.state.femaleChecked} /> 女
-							</div>
-						</div>
-						<div className="item-box">
-							<label>您的公司</label>
-							<input type="text" className="inp" name="SignerCompany" ref="SignerCompany" />
-						</div>
-						<div className="item-box">
-							<label>与会人数</label>
-							<input type="text" className="inp" name="SignerNumber"  ref="SignerNumber" />
-						</div>
-						<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
-					</form>
-				</div>
-				<Toast />	
-			</div>
-		)
+						<Toast />	
+					</div>
+				)	
+        	}	
+        }
 	}
 }
 

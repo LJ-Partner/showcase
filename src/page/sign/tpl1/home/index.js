@@ -15,7 +15,8 @@ export default class Home extends React.Component {
 			SignID: '',
 			signText: '',
 			loading: true,
-			emptyCnt: false
+			emptyCnt: false,
+			data:''
 		}
 
 	}
@@ -27,7 +28,8 @@ export default class Home extends React.Component {
   			if(res.data.code && res.data.code == 200){
   				this.setState({
   					SignID: res.data.content.signs.ID,
-  					loading: false
+  					loading: false,
+  					data: res.data.content
   				})
   			}else{
   				_this.setState({
@@ -108,6 +110,7 @@ export default class Home extends React.Component {
 		}
 	}
 	render() {
+		let _data = this.state.data;
 		if(this.state.loading){
             return (
                 <div className="wrap">
@@ -115,25 +118,27 @@ export default class Home extends React.Component {
                 </div>
             )    
         }else{
-        	return (
-				<div className="sign">
-					<div className="sign-header">
-						<h1 className="logo">
-							<img src={require('../../../../images/sign/tpl1/sign_logo.png')} />
-						</h1>
-						<div className="slogan-w">
-							<p>2018年硅钢供需交流会议登记</p>
-							<img src={require('../../../../images/sign/tpl1/sign_slogan.png')} />
-						</div>	
-					</div>
-					<div className="sign-content">
-						<div className="sign-box">
-							{this.result()}
+        	if(Object.keys(_data).length > 0 && _data.constructor == Object){
+        		return (
+					<div className="sign">
+						<div className="sign-header">
+							<h1 className="logo">
+								<img src={_data.signs.logo} />
+							</h1>
+							<div className="slogan-w">
+								<p>{_data.signs.Title}</p>
+								<img src={require('../../../../images/sign/tpl1/sign_slogan.png')} />
+							</div>	
 						</div>
+						<div className="sign-content">
+							<div className="sign-box">
+								{this.result()}
+							</div>
+						</div>
+						<Toast />
 					</div>
-					<Toast />
-				</div>
-			)	
+				)		
+        	}
         }
 	}
 }
