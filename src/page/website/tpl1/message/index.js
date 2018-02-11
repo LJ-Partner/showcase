@@ -59,10 +59,11 @@ export default class Message extends React.Component {
             Api.website.tpl1.addMessage(id,forms)
             .then((res) =>{
                 if(res.data.code && res.data.code == 200){
-                    T.notify('报名成功');
+                    T.notify('留言成功');
                     window.location.href = '/' + this.props.match.params.name_id + '/website/message'  
                 }else{
-                    T.notify('您已经报过名了')
+                    T.notify('留言失败');
+                    window.location.href = '/' + this.props.match.params.name_id + '/website/message'
                 }
             })
             .catch((res) =>{
