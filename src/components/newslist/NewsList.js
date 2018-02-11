@@ -3,7 +3,6 @@ import './NewsList.less'
 export default class Intro extends React.Component{
     constructor(props){
         super(props)
-        console.log(this.props)
     }
     render(){
         return(

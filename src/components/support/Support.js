@@ -5,7 +5,7 @@ export default class Tel extends React.Component{
         return(
         	<div className="support">
         		<i className="iconfont icon-LOGOtubiao"></i>
-        		<p>由旺材新媒体提供技术支持</p>	
+        		<a href="https://m.maicai360.cn">旺材头条</a>	
         	</div>     
         );
     }

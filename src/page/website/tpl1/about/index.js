@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from '../../../../components/Carousel/Carousel';
 import Intro from '../../../../components/Intro/Intro';
+import Support from '../../../../components/Support/Support';
 import Footer from '../../../../components/Footer/Footer';
 import Loading from '../../../../components/Loading/Loading';
 import Empty from '../../../../components/Empty/Empty';
@@ -60,10 +61,10 @@ export default class About extends React.Component {
                 if(Object.keys(data).length > 0 && data.constructor === Object){
                     return(
                         <div className="wrap w-about">
-                            
                             <div className="main">
                                 <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
                                 <Intro detail={data.introduce} />
+                                <Support />     
                             </div>
                             <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website" } />
                         </div>

@@ -128,7 +128,7 @@ export default class Home extends React.Component {
 					    			</span>
 					    		</h1>
 					    		<p className="slogan">
-					    			<img src={require('../../../../images/invitation/tpl1/tpl1_invatation_slogan.png')} className="zoomIn"/>	
+					    			<img src={'https://p.maicai360.cn/img/get/20180211/11711636539459132983986_png'} className="zoomIn"/>	
 					    		</p>
 					    		<div className="info">
 					    			<p>{_data.invitation.year}</p>	
@@ -137,7 +137,7 @@ export default class Home extends React.Component {
 					    			<b>{_data.invitation.time}</b>
 					    		</div>
 					    		<div className="arrow">
-									<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
+									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
 								</div>
 					    	</div>
 					    	<div className="page page2">
@@ -151,7 +151,7 @@ export default class Home extends React.Component {
 					    			<p className="intro">{_data.invitation.inviting}</p>
 					    		</div>
 					    		<div className="arrow">
-									<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
+									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
 								</div>			
 					    	</div>
 					    	<div className="page page3">
@@ -167,7 +167,7 @@ export default class Home extends React.Component {
 									</div>
 					    		</div>
 					    		<div className="arrow">
-									<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
+									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
 								</div>	
 					    	</div>
 					    	<div className="page page4">
@@ -190,7 +190,7 @@ export default class Home extends React.Component {
 					    			</div>
 					    		</div>
 					    		<div className="arrow">
-									<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
+									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
 								</div>	
 					    	</div>
 					    	<div className="page page5">
@@ -213,7 +213,7 @@ export default class Home extends React.Component {
 					    			})}	
 					    		</div>
 					    		<div className="arrow">
-									<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
+									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
 								</div>	
 					    	</div>
 					    	<div className="page page6">
@@ -238,7 +238,7 @@ export default class Home extends React.Component {
 					    			</div>
 					    		</div>
 					    		<div className="arrow">
-									<span className="bounce"><img src={require('../../../../images/invitation/tpl1/tpl1_invatation_ico_up.png')}  className="arrow_pic" /></span>	
+									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
 								</div>	
 					    	</div>
 					    </Swiper>

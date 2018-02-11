@@ -67,7 +67,7 @@ export default class Home extends React.Component {
 				    				<p>{data.Address}</p>
 				    			</div>	
 				    			<div className="item-box-pic">
-				    				<img src={require('../../../../images/card/tpl1/contact_ico_address.png')} />	
+				    				<img src={'https://p.maicai360.cn/img/get/20180211/60553636539458062852546_png'} />	
 				    			</div>
 				    		</div>
 				    		<div className="item-box item-tel">
@@ -76,7 +76,7 @@ export default class Home extends React.Component {
 				    				<p>{data.Telephone}</p>
 				    			</div>	
 				    			<div className="item-box-pic">
-				    				<img src={require('../../../../images/card/tpl1/contact_ico_tel.png')} />	
+				    				<img src={'https://p.maicai360.cn/img/get/20180211/04026636539458247283776_png'} />	
 				    			</div>	
 				    		</div>
 				    		<div className="item-box item-web">
@@ -85,7 +85,7 @@ export default class Home extends React.Component {
 				    				<p>{data.Website}</p>
 				    			</div>	
 				    			<div className="item-box-pic">
-				    				<img src={require('../../../../images/card/tpl1/contact_ico_web.png')} />	
+				    				<img src={'https://p.maicai360.cn/img/get/20180211/25521636539458441401911_png'} />	
 				    			</div>	
 				    		</div>
 				    	</div>			

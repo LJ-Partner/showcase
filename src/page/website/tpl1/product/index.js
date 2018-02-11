@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from '../../../../components/Carousel/Carousel';
 import ProductList from '../../../../components/ProductList/ProductList';
+import Support from '../../../../components/Support/Support';
 import Produce from '../../../../components/Produce/Produce';
 import MenuIcon from '../../../../components/MenuIcon/MenuIcon';
 import Footer from '../../../../components/Footer/Footer';
@@ -128,7 +129,8 @@ export default class Products extends React.Component {
                     return (
                             <div className="products">
                                 <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
-                                <ProductList list={_list} pullUpTitle={this.state.pullUpTitle} title={_title} id={this.props.match.params.name_id} name = {"/"+ this.props.match.params.name_id + "/website"}/>      
+                                <ProductList list={_list} pullUpTitle={this.state.pullUpTitle} title={_title} id={this.props.match.params.name_id} name = {"/"+ this.props.match.params.name_id + "/website"}/>  
+                                <Support />    
                             </div> 
                     )  
                 }

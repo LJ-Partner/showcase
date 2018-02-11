@@ -1,0 +1,89 @@
+.detail-line{
+	height: 0.64rem;	
+	background: #f2f2f2;
+}
+.join-detail{
+	color: #202020;
+	.job-des{
+		position: relative;
+		z-index: 1;
+		padding: ;
+		.job-des-tit{
+			position: absolute;
+			z-index: 5;
+			display: inline-block;
+			top: -8px;
+			right: 0.8rem;
+			em{
+				width: 0px;
+				height: 0px;
+				border-width: 8px 0 0 8px;
+				border-color: transparent transparent #4097ff #4097ff;
+				border-style: solid;
+				position: absolute;
+				z-index: 5;
+				top: 0;
+			}
+			p{
+				height: 0.8rem;
+				line-height: 0.8rem;
+				padding: 0 12px;
+				background: #4097ff;
+				color: #fff;
+			}
+			.arrow-left{
+				left:-8px;
+				border-width: 0 0 8px 8px;
+				border-color: transparent transparent #4097ff transparent;
+			}
+			.arrow-right{
+				right:-8px;
+			}
+		}	
+		.job-des-cnt{
+			padding: 0 0.46rem 0 0.46rem;
+			.tit{
+				line-height: 0.5rem;
+				border-bottom: 1px solid #f2f2f2;
+				padding: 0.6rem 0 0.2rem 0;
+				h2{
+					font-size: 0.5rem;
+					margin: 0.2rem 0;
+				}
+				.info{
+					display: flex;
+					font-size: 0.4rem;
+					justify-content: space-between;
+					dt{
+						width: 70%;
+						color: #717171;
+						em{
+							color: #ff4040;
+						}
+						span{
+							margin: 0 0.4rem;
+						}
+					}
+					dd{
+						color: #cacaca;
+					}
+				}
+			}
+			.des-item{
+				dt{
+					margin: 0.3rem 0;
+					font-size: 0.4rem;
+				}
+				dd{
+					font-size: 0.35rem;
+					line-height: 0.4rem;
+					pre{
+						white-space: pre-wrap;
+						word-wrap: break-word;
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

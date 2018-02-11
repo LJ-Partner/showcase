@@ -32,7 +32,7 @@ export default class Custome extends React.Component{
 	                            <em>联系我们</em>
 	                            <p>
 	                                <span>CONTACT US</span>
-	                                <img src={require('../../images/website/tpl1/contact_service_img.png')} />
+	                                <img src={'https://p.maicai360.cn/img/get/20180211/48243636539454645731133_png'} />
 	                            </p>
 	                        </h2>            
 	                    </div>
@@ -54,6 +54,9 @@ export default class Custome extends React.Component{
         		</div>
         		
 	        	<div className="custome-w">
+	        		<a href="/2/website/message" className="ico-message">
+	        			<i className="iconfont icon-kefu"></i>			
+	        		</a>
 	        		<p className="ico-contact" onClick={this.handleChange.bind(this)}>
 	        			<i className="iconfont icon-lianxiwomen"></i>			
 	        		</p>

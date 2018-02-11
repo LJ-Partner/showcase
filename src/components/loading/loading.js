@@ -7,7 +7,7 @@ export default class Loading extends React.Component{
     render(){
         return(
         	<div className="loading-w">
-        		<img src={require('./loading.gif')} />
+        		<img src={'https://p.maicai360.cn/img/get/20180211/18420636539452318555258_gif'} />
         	</div>     
         );
     }

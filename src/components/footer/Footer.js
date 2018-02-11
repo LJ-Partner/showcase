@@ -36,6 +36,12 @@ export default class DemoCarousel extends Component {
             				<p>资讯</p>
             			</a>
             		</li>
+                    <li>
+                        <a href={this.props.name+'/join'} className={this.props.flag == 'join'?'active':''}>
+                            <i className="iconfont icon-zhaopin"></i>
+                            <p>招聘</p>
+                        </a>
+                    </li>
             	</ul>	
             </footer>
         );

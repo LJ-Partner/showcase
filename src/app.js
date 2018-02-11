@@ -24,6 +24,9 @@ if(category_name){
                         ReactDOM.render(
                             <Router>
                                 <Switch>
+                                    <Route path={_url+'/message'} component={type.website.tpl1.message()} />
+                                    <Route path={_url+'/join/detail/:job_id'} component={type.website.tpl1.joinDetail()} />
+                                    <Route path={_url+'/join'} component={type.website.tpl1.join()} />
                                     <Route path={_url+'/news/detail/:news_id'} component={type.website.tpl1.newsDetail()} />
                                     <Route path={_url+'/news'} component={type.website.tpl1.news()} />
                                     <Route path={_url+'/products/:series_id/detail/:product_id'} component={type.website.tpl1.productDetail()} />

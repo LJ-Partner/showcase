@@ -38,5 +38,20 @@ module.exports = {
 	},
 	newsDetail(id,news_id){
 		return  axios.get(Api.api_prefix+id+'/website/news/new/'+news_id);	
+	},
+	jobs(id,page){
+		if(id){
+			return  axios.get(Api.api_prefix+id+'/website/jobs/'+page);
+		}	
+	},
+	jobsDetail(id,job_id){
+		if(id){
+			return  axios.get(Api.api_prefix+id+'/website/jobs/job/'+job_id);
+		}	
+	},
+	addMessage(id,obj){
+		if(id){
+			return  axios.post(Api.api_prefix+id+'/website/Message/Add/',obj);
+		}
 	}
 }

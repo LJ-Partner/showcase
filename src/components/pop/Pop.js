@@ -31,7 +31,7 @@ export default class Pop extends React.Component{
         return(
             <div className="pop-w">
             	<div className={this.state.popShow?"pop":"pop hide"}>
-            		<img className="pop-server-img" src={require('../../images/website/tpl1/server.png')} />
+            		<img className="pop-server-img" src={'https://p.maicai360.cn/img/get/20180211/11267636539468452255005_png'} />
             		<div className="pop-cnt">
             			<p>{this.props.popData.title}</p>	
             			<div className="btn-group">

@@ -1,38 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from '../../../../components/Carousel/Carousel';
-import NewsList from '../../../../components/NewsList/NewsList';
-import MenuIcon from '../../../../components/MenuIcon/MenuIcon';
 import Support from '../../../../components/Support/Support';
+import JoinList from '../../../../components/JoinList/JoinList';
+import MenuIcon from '../../../../components/MenuIcon/MenuIcon';
+import PullUp from '../../../../components/pullup/Pullup';
 import Footer from '../../../../components/Footer/Footer';
 import Loading from '../../../../components/Loading/Loading';
 import Empty from '../../../../components/Empty/Empty';
-import PullUp from '../../../../components/pullup/Pullup';
 import Api from '../../../../api/index';
-const IndexHeadCarousel = {
+const JoinConfigCarousel = {
 	autoPlay: true,
 	showArrows: false,
     showStatus: false,
     showThumbs: false,
     infiniteLoop: true
 }
-const flag = 'news';
+const flag = 'join';
 var page = 1;
 var isMore =true;//判断是否有更多数据 
 var isfinish=true;//isfinish判断每次数据是否加载完成，完成了才可进行下一次加载
-export default class Products extends React.Component {
+export default class Join extends React.Component {
 	static propTypes={
         flag:PropTypes.string
     }
     constructor(props) {
         super(props);
         this.state = {
-        	newsData: {},
+        	jobData : {},
             loading: true,
             emptyCnt: false,
             page: page,
-            list: [],
-            pullUpTitle: '没有更多数据了哦'
+            list :[],
+            pullUpTitle: '没有更多数据了哦',
+            data:{
+                banners:['https://p.maicai360.cn/img/get/20180129/36502636528314931782964_png','https://p.maicai360.cn/img/get/20180129/36502636528314931782964_png']
+            }
         }
     }
     handleScroll(e){
@@ -44,30 +47,30 @@ export default class Products extends React.Component {
                 isfinish = false;
                 this.state.page++;
                 this.setState({pullUpTitle: '玩命加载中...'});
-                this.getNewsList(this.state.page);
+                this.getJobList(this.state.page);
             }     
         }
     }
-    getNewsList(page){
+    getJobList(page){
         let _this = this;
-        Api.website.tpl1.news(this.props.match.params.name_id,page)
+        Api.website.tpl1.jobs(this.props.match.params.name_id,page)
         .then((res)=>{
             if(res.data.code && res.data.code == 200){
-                if(res.data.content.news && res.data.content.news.length > 0){
+                if(res.data.content.jobs && res.data.content.jobs.length > 0){
                     if(page == 1){
-                        this.setState({list: res.data.content.news})
+                        this.setState({list: res.data.content.jobs})
                     }else{
-                        this.setState({list: this.state.list.concat(res.data.content.news)})    
+                        this.setState({list: this.state.list.concat(res.data.content.jobs)})    
                     }
-                    _this.setState({ 
-                        newsData: res.data.content,
-                        loading: false 
-                    });
-                    isfinish = true; 
                 }else{
                     isMore=false;
-                    this.setState({pullUpTitle: '没有更多数据了哦'});
+                    this.setState({pullUpTitle: '没有更多数据了哦'});    
                 }
+                _this.setState({ 
+                    jobData: res.data.content,
+                    loading: false 
+                });
+                isfinish = true;
             }else{
                 _this.setState({ 
                     emptyCnt: true,
@@ -76,53 +79,49 @@ export default class Products extends React.Component {
             }
         }).catch((res) =>{
             console.log(res)
-        });
+        }); 
     }
     componentDidMount(){
-    	this.getNewsList(page);
+        this.getJobList(page);
     }
     renderDataList(){
-        var data = this.state.newsData;
-        var _list = this.state.list;
-        var _data = {};
+        let data = this.state.jobData;
+        let _list =  this.state.list;
+        let _title = this.state.title;
         if(this.state.loading){
             return (
                 <div className="wrap">
                     <Loading /> 
-                </div>
-            )  
+                </div>    
+            )
         }else{
             if(!this.state.emptyCnt){
                 if(Object.keys(data).length > 0 && data.constructor === Object){
-                    _data = {
-                        banner: data.banners,
-                        list: data.news     
-                    }
                     return (
-                        <div>
-                            <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
-                            <NewsList  newsList={_list} name={"/"+ this.props.match.params.name_id + "/website"} /> 
-                            <PullUp content={this.state.pullUpTitle} />   
-                            <Support />
-                        </div>
-                    );  
-                }    
+                            <div className="products">
+                                <Carousel config={JoinConfigCarousel} bannerList={data.banners}/>
+                                <JoinList list={_list} pullUpTitle={this.state.pullUpTitle} id={this.props.match.params.name_id} name = {"/"+ this.props.match.params.name_id + "/website"} />  
+                            </div> 
+                    )  
+                }
             }else{
                 return (
-                    <Empty content="暂无相关数据" />
-                )    
+                    <Empty content = "暂无相关数据" />
+                )
             }
         }    
     }
     render() {
-        return (
-            <div className="wrap w-news">
-                <div className="main" onScroll={this.handleScroll.bind(this)} ref="bodyBox" >
+        return(
+            <div className="wrap w-join">
+                <div className="main" onScroll={this.handleScroll.bind(this)} ref="bodyBox">
                     {this.renderDataList()}
+                    <PullUp content={this.state.pullUpTitle}   /> 
+                    <Support />   
                 </div>
                 <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website" } />
             </div>
-        )    	
+        )    
 	}
 }
 

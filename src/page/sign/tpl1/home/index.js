@@ -102,7 +102,7 @@ export default class Home extends React.Component {
 				<div className="sign-result">
 					<div className="tips">
 						<em>
-							<img src={require('../../../../images/sign/tpl1/ico_sign_success.png')} />
+							<img src={'https://p.maicai360.cn/img/get/20180211/71460636539462703584605_png'} />
 						</em>
 						<span>{this.state.signText}</span>
 					</div>
