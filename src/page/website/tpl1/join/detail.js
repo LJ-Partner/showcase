@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import GoTop from '../../../../components/GoTop/GoTop';
 import Carousel from '../../../../components/Carousel/Carousel';
 import JoinDetail from '../../../../components/JoinDetail/JoinDetail';
+import Support from '../../../../components/Support/Support';
 import MenuIcon from '../../../../components/MenuIcon/MenuIcon';
 import Footer from '../../../../components/Footer/Footer';
 import Loading from '../../../../components/Loading/Loading';
@@ -66,9 +67,12 @@ export default class proDetail extends React.Component {
                     return (
                         <div className="wrap">
                             <div className="main">
-                                <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
-                                <div className="detail-line"></div>
-                                <JoinDetail JoinDetailData={data.job} />  
+                                <div className="main-cnt">
+                                    <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
+                                    <div className="detail-line"></div>
+                                    <JoinDetail JoinDetailData={data.job} />  
+                                </div>
+                                <Support />
                             </div>
                             <Footer name={"/"+ this.props.match.params.name_id + "/website" } />
                         </div>

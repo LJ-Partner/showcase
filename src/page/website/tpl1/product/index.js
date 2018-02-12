@@ -128,8 +128,10 @@ export default class Products extends React.Component {
                 if(Object.keys(data).length > 0 && data.constructor === Object){
                     return (
                             <div className="products">
-                                <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
-                                <ProductList list={_list} pullUpTitle={this.state.pullUpTitle} title={_title} id={this.props.match.params.name_id} name = {"/"+ this.props.match.params.name_id + "/website"}/>  
+                                <div className="main-cnt">
+                                    <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
+                                    <ProductList list={_list} pullUpTitle={this.state.pullUpTitle} title={_title} id={this.props.match.params.name_id} name = {"/"+ this.props.match.params.name_id + "/website"}/>  
+                                </div>
                                 <Support />    
                             </div> 
                     )  

@@ -100,9 +100,11 @@ export default class Products extends React.Component {
                     }
                     return (
                         <div>
-                            <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
-                            <NewsList  newsList={_list} name={"/"+ this.props.match.params.name_id + "/website"} /> 
-                            <PullUp content={this.state.pullUpTitle} />   
+                            <div className="main-cnt">
+                                <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
+                                <NewsList  newsList={_list} name={"/"+ this.props.match.params.name_id + "/website"} /> 
+                                <PullUp content={this.state.pullUpTitle} />
+                            </div>
                             <Support />
                         </div>
                     );  

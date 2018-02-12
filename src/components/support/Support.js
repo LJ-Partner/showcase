@@ -3,10 +3,12 @@ import './Support.less';
 export default class Tel extends React.Component{
     render(){
         return(
-        	<div className="support">
-        		<i className="iconfont icon-LOGOtubiao"></i>
-        		<a href="https://m.maicai360.cn">旺材头条</a>	
-        	</div>     
+        	<a href="https://m.maicai360.cn" className="support">
+        		<span className="bounceInUp">
+        			<i className="iconfont  icon-LOGOtubiao"></i>	
+        		</span>
+        		<em>旺材技术支持</em>	
+        	</a>     
         );
     }
 }

@@ -2,6 +2,7 @@ import './index.less';
 import React from 'react';
 import Carousel from '../../../../components/Carousel/Carousel';
 import ConceptDetail from '../../../../components/ConceptDetail/ConceptDetail';
+import Support from '../../../../components/Support/Support';
 import MenuIcon from '../../../../components/MenuIcon/MenuIcon';
 import Footer from '../../../../components/Footer/Footer';
 import Loading from '../../../../components/Loading/Loading';
@@ -71,8 +72,11 @@ export default class Concept extends React.Component {
         			return (
 						<div className="wrap">
 					    	<div className="main philosophy-w">
-					    		<Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
-					    		<ConceptDetail detail={_data.datail} />	
+                                <div className="main-cnt">
+					    		    <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
+					    		    <ConceptDetail detail={_data.datail} />	
+                                </div>
+                                <Support />
 					    	</div>	
 					    	<Footer name={"/"+ this.props.match.params.name_id + "/website/" + this.props.match.params.item_id} />	
 						</div>

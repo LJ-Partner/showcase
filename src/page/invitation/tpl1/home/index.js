@@ -241,6 +241,27 @@ export default class Home extends React.Component {
 									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
 								</div>	
 					    	</div>
+					    	<div className="page page7">
+					    		<div className="door-left fadeOutRight"></div>
+					    		<div className="door-right fadeOutLeft"></div>
+					    		<div className="page-ad">
+						    		<a href="https://m.maicai360.cn" className="zoomIn">
+						    			<h2>
+							    			<span>
+							    				<img src={'https://p.maicai360.cn/img/get/20180212/43163636540289276172776_png'} />		
+							    			</span>
+						    			</h2>
+						    			<p>
+						    				<span>因为关注</span> <span>所以专业</span>
+						    			</p>	
+						    			<em>Shanghai Link-in Electronic Business Co., Ltd.</em>
+						    			<b>旺材提供技术支持</b>
+						    		</a>
+						    	</div>
+					    		<div className="arrow">
+									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
+								</div>	
+					    	</div>
 					    </Swiper>
 					);
 				}

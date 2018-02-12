@@ -99,8 +99,12 @@ export default class Join extends React.Component {
                 if(Object.keys(data).length > 0 && data.constructor === Object){
                     return (
                             <div className="products">
-                                <Carousel config={JoinConfigCarousel} bannerList={data.banners}/>
-                                <JoinList list={_list} pullUpTitle={this.state.pullUpTitle} id={this.props.match.params.name_id} name = {"/"+ this.props.match.params.name_id + "/website"} />  
+                                <div className="main-cnt">
+                                    <Carousel config={JoinConfigCarousel} bannerList={data.banners}/>
+                                    <JoinList list={_list} pullUpTitle={this.state.pullUpTitle} id={this.props.match.params.name_id} name = {"/"+ this.props.match.params.name_id + "/website"} />  
+                                    <PullUp content={this.state.pullUpTitle}   /> 
+                                </div>
+                                <Support />
                             </div> 
                     )  
                 }
@@ -116,8 +120,6 @@ export default class Join extends React.Component {
             <div className="wrap w-join">
                 <div className="main" onScroll={this.handleScroll.bind(this)} ref="bodyBox">
                     {this.renderDataList()}
-                    <PullUp content={this.state.pullUpTitle}   /> 
-                    <Support />   
                 </div>
                 <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website" } />
             </div>

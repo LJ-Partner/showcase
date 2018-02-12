@@ -62,8 +62,10 @@ export default class About extends React.Component {
                     return(
                         <div className="wrap w-about">
                             <div className="main">
-                                <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
-                                <Intro detail={data.introduce} />
+                                <div className="main-cnt">
+                                    <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
+                                    <Intro detail={data.introduce} />   
+                                </div>
                                 <Support />     
                             </div>
                             <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website" } />

@@ -147,11 +147,13 @@ export default class Home extends React.Component {
 					return (
 						<div className="wrap">
 							<div className="main home" >
-								<Carousel config={IndexHeadCarousel} bannerList={_data.banner}/>
-								<Product info={_data.info} name={this.props.match.params.name_id} />
-								<Solve product = {_data.product} name={"/" + this.props.match.params.name_id + "/website"} />
-								<Service information = {_data.information} name={"/" + this.props.match.params.name_id + "/website"} />
-								<Status message={_data.information} name={"/" + this.props.match.params.name_id + "/website"} />
+								<div className="main-cnt">
+									<Carousel config={IndexHeadCarousel} bannerList={_data.banner}/>
+									<Product info={_data.info} name={this.props.match.params.name_id} />
+									<Solve product = {_data.product} name={"/" + this.props.match.params.name_id + "/website"} />
+									<Service information = {_data.information} name={"/" + this.props.match.params.name_id + "/website"} />
+									<Status message={_data.information} name={"/" + this.props.match.params.name_id + "/website"} />	
+								</div>
 								<Support />		
 							</div>
 							<Footer flag={flag} name={'/' + this.props.match.params.name_id+'/website'} />	

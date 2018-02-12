@@ -58,7 +58,7 @@ export default class Custome extends React.Component{
 	        			<i className="iconfont icon-kefu"></i>			
 	        		</a>
 	        		<p className="ico-contact" onClick={this.handleChange.bind(this)}>
-	        			<i className="iconfont icon-lianxiwomen"></i>			
+	        			<i className="iconfont icon-toupiao-guize"></i>			
 	        		</p>
 	        		<a href={"tel:"+this.props.customeData.tel}>
 	        			<i className="iconfont icon-hdianhua"></i>			

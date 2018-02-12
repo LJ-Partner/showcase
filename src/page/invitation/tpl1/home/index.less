@@ -186,7 +186,7 @@ body{
                 width: 6%;
                 margin: 0 auto;
                 position: absolute;
-                bottom: 5.1%;
+                bottom: 70px;
                 left: 47%;
                 opacity: 0;
                 span{
@@ -194,6 +194,16 @@ body{
                 }
                 .bounce{
                     animation: bounce 1s infinite 1.5s;
+                }
+            }
+            .support{
+                background: none;
+                opacity: 0;
+                i{
+                    color: #E5BC62;
+                }
+                a{
+                    color: #fff;
                 }
             }
             .door-left{
@@ -302,6 +312,54 @@ body{
                 }
             }
         }
+        .page7{
+            .page-ad{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                color: #fff;
+                height: 60%;
+                a{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    h2{
+                        width: 20%;
+                        margin: 0 auto 2.1%;
+                        span{
+                            height: 0;
+                            display: block;
+                            padding: 0 0 100%;                        
+                            img{
+                                display: block;
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                    p{
+                        font-size: 0.5rem;
+                        color: #E5BC62;
+                        line-height: 0.88rem;
+                        width: 100%;
+                        text-align: center;
+                        span{
+                            padding: 0 1.9% 0 0;
+                            &:first-child{
+                                color: #fff;
+                                border-right: 1px solid #fff;
+                            }
+                        }
+                    }
+                    em{
+                        margin: 0 0 1.4% 0;
+                    }    
+                }
+            }
+        }
         .swiper-container{
             width: 100%;
             height: 100%;
@@ -312,6 +370,10 @@ body{
             .arrow{
                 opacity: 1;
                 transition: all 1s ease-in-out 1.5s;
+            }
+            .support{
+                opacity: 1;
+                transition: all 1s ease-in-out 2s;
             }
             .fadeOutLeft{
                 animation: fadeOutLeft 1s ease 0.2s 2 normal both;    
@@ -446,6 +508,7 @@ body{
             }
         }
     }
+
 }
 
 @keyframes fadeInDown {
