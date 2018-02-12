@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Parser from 'html-react-parser';
+import ReactHtmlParser from 'html-react-parser';
 import './NewsDetail.less';
 export default class NewsDetail extends React.Component{
     constructor(props) {
@@ -12,7 +12,7 @@ export default class NewsDetail extends React.Component{
                     <h3>{this.props.newsDetailData.title}</h3>
                 </div>
                 <div className="detail-cnt">
-                    {this.props.newsDetailData.content}    
+                    {ReactHtmlParser(this.props.newsDetailData.content)}
                 </div>  
             </div>
         );

@@ -28,7 +28,7 @@ export default class Message extends React.Component {
             loading: true,
             emptyCnt: false,
             data:{
-                banners:['https://p.maicai360.cn/img/get/20180129/36502636528314931782964_png','https://p.maicai360.cn/img/get/20180129/36502636528314931782964_png']
+                banners:['https://p.maicai360.cn/img/get/20180129/36502636528314931782964_png','https://p.maicai360.cn/img/get/20180129/78110636528315032233128_png','https://p.maicai360.cn/img/get/20180129/58523636528315072509232_png']
             }
         }
     }
@@ -49,7 +49,7 @@ export default class Message extends React.Component {
             title: title,
             message: message
         }
-        if(mobile == "" || name == "" || title == ""){
+        if(mobile == "" || name == "" || title == "" || message == ""){
             T.notify('请把相关信息填写完整')
             return false;
         }else if(telReg == false){
@@ -60,12 +60,12 @@ export default class Message extends React.Component {
             .then((res) =>{
                 if(res.data.code && res.data.code == 200){
                     T.notify('留言成功');
-                    forms = {
-                        mobile: '',
-                        name: '',
-                        title: '',
-                        message: ''
-                    }
+                    setTimeout(() =>{
+                        this.refs.mobile.value = '';
+                        this.refs.name.value = '';
+                        this.refs.title.value = '';
+                        this.refs.message.value = '';    
+                    },2000)
                     //window.location.href = '/' + this.props.match.params.name_id + '/website/message'  
                 }else{
                     T.notify('留言失败');
@@ -104,7 +104,7 @@ export default class Message extends React.Component {
                                         <input type="text" ref="name" name="name" />
                                     </div>
                                     <div className="form-box-item">
-                                        <label>手机号<sup>*</sup></label>
+                                        <label>手机<sup>*</sup></label>
                                         <input type="text" ref="mobile" name="mobile" maxLength="11"/>
                                     </div>
                                     <div className="form-box-item">
@@ -112,7 +112,7 @@ export default class Message extends React.Component {
                                         <input type="text" ref="title" name="title" />
                                     </div>
                                     <div className="form-box-item">
-                                        <label>内容</label>
+                                        <label>内容<sup>*</sup></label>
                                         <textarea  rows="6" ref="message" name="message"></textarea>
                                     </div>
                                     <div className="form-box-item">
