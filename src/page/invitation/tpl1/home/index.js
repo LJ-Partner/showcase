@@ -248,14 +248,9 @@ export default class Home extends React.Component {
 						    		<a href="https://m.maicai360.cn" className="zoomIn">
 						    			<h2>
 							    			<span>
-							    				<img src={'https://p.maicai360.cn/img/get/20180212/43163636540289276172776_png'} />		
+							    				<img src={'https://p.maicai360.cn/img/get/20180212/86422636540429781017378_png'} />		
 							    			</span>
 						    			</h2>
-						    			<p>
-						    				<span>因为关注</span> <span>所以专业</span>
-						    			</p>	
-						    			<em>Shanghai Link-in Electronic Business Co., Ltd.</em>
-						    			<b>旺材提供技术支持</b>
 						    		</a>
 						    	</div>
 					    		<div className="arrow">
