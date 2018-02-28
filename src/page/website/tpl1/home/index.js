@@ -76,7 +76,7 @@ export default class Home extends React.Component {
         	if(!this.state.emptyCnt){
         		if(Object.keys(data).length > 0 && data.constructor === Object){
 					_data = {
-						banner: [data.Banner1,data.Banner2,data.Banner2],
+						banner: [data.Banner1,data.Banner2,data.Banner3],
 						info: {
 							title:data.Subtitle1,
 							des: data.Subtitle2,
