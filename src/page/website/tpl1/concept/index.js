@@ -72,11 +72,13 @@ export default class Concept extends React.Component {
         			return (
 						<div className="wrap">
 					    	<div className="main philosophy-w">
-                                <div className="main-cnt">
-					    		    <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
-					    		    <ConceptDetail detail={_data.datail} />	
+                                <div className="main-cnt-w">
+                                    <div className="main-cnt">
+    					    		    <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
+    					    		    <ConceptDetail detail={_data.datail} />	
+                                    </div>
+                                    <Support />
                                 </div>
-                                <Support />
 					    	</div>	
 					    	<Footer name={"/"+ this.props.match.params.name_id + "/website/" + this.props.match.params.item_id} />	
 						</div>

@@ -1,0 +1,135 @@
+html,body{
+	height: 100%;
+	width: 100%;
+	background: #f1f2f5;
+}
+body{
+	position: relative;
+	z-index: 1;
+}
+#root{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    @media screen and (min-width:750px){
+        max-width: 750px;
+        margin: 0 auto;
+    }
+    .video-list-w{
+        background: #151923;
+        padding: 0 5%;
+        min-height: 100%;
+        color: #F0962A;
+        -webkit-overflow-scrolling: touch;
+        img{
+            max-width: 100%;
+        }
+        .logo-w{
+            text-align: right;
+            .logo{
+                display: inline-block;
+                padding: 0.53rem 0; 
+                width: 2.5rem;
+                span{
+                    height: 0;
+                    display: block;
+                    padding:0 0 26%;
+                }
+            }    
+        }
+        .title{
+            border-top: 4px solid #F0962A;
+            border-bottom: 2px solid #F0962A;
+            p{
+                font-family: PingFangSC-Medium;
+                font-size: 0.48rem;
+                color: #F0962A;
+                padding: 0.32rem 0;
+            }
+        }
+        .video-list{
+            padding: 0.8rem 0 0 0;
+            .list-item{
+                padding: 0 0 0.8rem 0;
+                .item-video{
+                    display: block;
+                    position: relative;
+                    z-index: 1;
+                    margin: 0 0 0.38rem 0;
+                    span{
+                        display: block;
+                        height: 0;
+                        padding: 0 0 57%;
+                        overflow: hidden;
+                    }
+                    i{
+                        position: absolute;
+                        left: 50%;
+                        margin: -0.43rem 0 0 -0.48rem;
+                        width:0.96rem;
+                        top: 50%;
+                        height: 0.86rem;
+                        text-align: center;
+                        line-height: 0.86rem;
+                        color: #fff;
+                        font-size: 38px;
+                    }
+                }
+                .item-detail{
+                    border-top: 2px solid #F0962A;
+                    font-family: MicrosoftYaHei-Bold;
+                    color: #F0962A;
+                    h1{
+                        font-size: 0.56rem;
+                        padding: 6px 0;
+                        color: #F0962A;
+                    } 
+                    h2{
+                        font-size: 0.43rem;
+                        padding: 7px 0;
+                        color: #F0962A;
+                    }  
+                    .advantage{
+                        margin: 0.2rem 0 0 0;
+                        font-size: 0.35rem;
+                        h3{
+                            margin: 0 0 0.32rem 0;
+                        }
+                        .advantage-cnt{
+                            p{
+                                line-height: 22px;
+                                color: #F0962A;
+                                &:before{
+                                    content: '';
+                                    width: 8px;
+                                    height: 8px;
+                                    background: #F0962A;
+                                    position: relative;
+                                    border-radius: 100%;
+                                    display: inline-block;
+                                    margin-right: 10px;
+                                    z-index: 1;
+                                }
+                            }
+                        }
+                    } 
+                }
+            }
+        }
+        .support{
+            background: #151923;
+            color: #F0962A;
+            span{
+                i{
+                    color: #F0962A;        
+                }
+            }
+            em{
+                color: #F0962A;    
+            }
+        }
+    }
+}
+
+

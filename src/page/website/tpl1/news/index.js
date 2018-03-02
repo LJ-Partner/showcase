@@ -99,7 +99,7 @@ export default class Products extends React.Component {
                         list: data.news     
                     }
                     return (
-                        <div>
+                        <div className="main-cnt-w">
                             <div className="main-cnt">
                                 <Carousel config={IndexHeadCarousel} bannerList={_data.banner} />
                                 <NewsList  newsList={_list} name={"/"+ this.props.match.params.name_id + "/website"} /> 

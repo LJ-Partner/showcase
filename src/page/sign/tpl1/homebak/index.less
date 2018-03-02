@@ -1,0 +1,138 @@
+html,body{
+	height: 100%;
+	width: 100%;
+	background: #f1f2f5;
+}
+body{
+	position: relative;
+	z-index: 1;
+}
+#root{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    @media screen and (min-width:750px){
+        max-width: 750px;
+        margin: 0 auto;
+    }
+    .sign{
+        width: 100%;
+        height: 100%;
+        background: #2D384B;
+        //background: url('https://p.maicai360.cn/img/get/20180211/32738636539462427818387_png') no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+        .sign-header{
+            height:37%;
+            .logo{
+                padding: 0.48rem 0 0.18rem 0;
+                img{
+                    width: 3.68rem;
+                }
+            }
+            .slogan-w{
+                text-align: center;
+                color: #fcb700;
+                font-size: 0.5rem;
+                margin: 0 0 1.7rem 0;
+                img{
+                    width: 60%;
+                }
+            }
+        }
+        .sign-content{
+            width: 82%;
+            margin: 0 auto;
+            background-size: 100% 100%;
+            height: 32%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .sign-box{
+                width: 66%;
+                margin: 0 auto;
+                form{
+                    padding: 0 0 1rem 0;
+                    h2{
+                        text-align: center;
+                        color: #fcb700;
+                        font-size: 0.5rem; 
+                        margin: 0 0 0.56rem;  
+                    }
+                    input{
+                        background: #fff;
+                        border: 1px solid #FFB900;
+                        box-shadow: 0 2px 4px 0 #000;
+                        border-radius: 8px;
+                        padding: 5px 6px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        margin: 0 0 0.56rem;
+                        font-size: 0.35rem;
+                        line-height: normal;
+                    }  
+                    .btn-sign-in{
+                        display: block;
+                        border: none;
+                        background: #FFB900;
+                        border-radius: 25px;
+                        width: 100%;
+                        padding: 5px 6px;
+                        color: #fff;
+                        font-size: 0.4rem;
+                    }  
+                }
+                .sign-result{
+                    color: #FFC52C;
+                    font-size: 0.38rem;
+                    line-height: 0.5rem;
+                    .tips{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0.54rem 0;
+                        em{
+                            img{
+                                width: 1.5rem;
+                            }
+                        }
+                        span{
+                            font-size: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        .sign-footer{
+            flex-grow: 1;   
+            opacity: 0;
+        }
+        .notive-wrap {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .notice {
+                padding: 10px 30px;
+                background: rgba(0,0,0,.85);
+                border-radius: 4px;
+                color: #fff;
+                text-align: center
+            }
+        }
+    }
+}
+
+

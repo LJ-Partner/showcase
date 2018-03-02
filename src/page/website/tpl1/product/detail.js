@@ -64,11 +64,13 @@ export default class proDetail extends React.Component {
                     return (
                         <div className="wrap">
                             <div className="main">
-                                <div className="main-cnt">
-                                    <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>    
-                                    <ProductsDetail detailData={data.product[0]} />
+                                <div className="main-cnt-w">
+                                    <div className="main-cnt">
+                                        <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>    
+                                        <ProductsDetail detailData={data.product[0]} />
+                                    </div>
+                                    <Support />
                                 </div>
-                                <Support />
                             </div>
                             <Footer name={"/"+ this.props.match.params.name_id + "/website" } />
                         </div>

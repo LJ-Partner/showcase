@@ -88,42 +88,44 @@ export default class Message extends React.Component {
         return(
             <div className="wrap w-message">
                 <div className="main">
-                    <div className="main-cnt">
-                        <Carousel config={JoinConfigCarousel} bannerList={this.state.data.banners}/>
-                        <div className="message-line"></div>
-                        <div className="message-box">
-                            <div className="message-box-tit">
-                                <em className="arrow-left"></em>
-                                <p>留言咨询</p>
-                                <em className="arrow-right"></em>
+                    <div className="main-cnt-w">
+                        <div className="main-cnt">
+                            <Carousel config={JoinConfigCarousel} bannerList={this.state.data.banners}/>
+                            <div className="message-line"></div>
+                            <div className="message-box">
+                                <div className="message-box-tit">
+                                    <em className="arrow-left"></em>
+                                    <p>留言咨询</p>
+                                    <em className="arrow-right"></em>
+                                </div>
+                                <div className="message-box-cnt">
+                                    <form className="form-box">
+                                        <div className="form-box-item">
+                                            <label>姓名<sup>*</sup></label>
+                                            <input type="text" ref="name" name="name" />
+                                        </div>
+                                        <div className="form-box-item">
+                                            <label>手机<sup>*</sup></label>
+                                            <input type="text" ref="mobile" name="mobile" maxLength="11"/>
+                                        </div>
+                                        <div className="form-box-item">
+                                            <label>标题<sup>*</sup></label>
+                                            <input type="text" ref="title" name="title" />
+                                        </div>
+                                        <div className="form-box-item">
+                                            <label>内容<sup>*</sup></label>
+                                            <textarea  rows="6" ref="message" name="message"></textarea>
+                                        </div>
+                                        <div className="form-box-item">
+                                            <button type="button" className="btn-submit" onClick={this.toSubmit.bind(this)} >提交</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <Toast />
                             </div>
-                            <div className="message-box-cnt">
-                                <form className="form-box">
-                                    <div className="form-box-item">
-                                        <label>姓名<sup>*</sup></label>
-                                        <input type="text" ref="name" name="name" />
-                                    </div>
-                                    <div className="form-box-item">
-                                        <label>手机<sup>*</sup></label>
-                                        <input type="text" ref="mobile" name="mobile" maxLength="11"/>
-                                    </div>
-                                    <div className="form-box-item">
-                                        <label>标题<sup>*</sup></label>
-                                        <input type="text" ref="title" name="title" />
-                                    </div>
-                                    <div className="form-box-item">
-                                        <label>内容<sup>*</sup></label>
-                                        <textarea  rows="6" ref="message" name="message"></textarea>
-                                    </div>
-                                    <div className="form-box-item">
-                                        <button type="button" className="btn-submit" onClick={this.toSubmit.bind(this)} >提交</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <Toast />
                         </div>
+                        <Support />
                     </div>
-                    <Support />
                 </div>
                 <Footer  name={"/"+ this.props.match.params.name_id + "/website" } />
             </div>

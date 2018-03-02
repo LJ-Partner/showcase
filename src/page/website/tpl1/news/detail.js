@@ -73,11 +73,13 @@ export default class Detail extends React.Component {
                     return (
                         <div className="wrap">
                             <div className="main">
-                                <div className="main-cnt">
-                                    <Carousel config={IndexHeadCarousel} bannerList = {_data.banners} />  
-                                    <NewsDetail newsDetailData={_data.detail} />   
+                                <div className="main-cnt-w">
+                                    <div className="main-cnt">
+                                        <Carousel config={IndexHeadCarousel} bannerList = {_data.banners} />  
+                                        <NewsDetail newsDetailData={_data.detail} />   
+                                    </div>
+                                    <Support /> 
                                 </div>
-                                <Support /> 
                             </div>
                             <Footer flag = {flag} name={"/"+ this.props.match.params.name_id + "/website" } />
                         </div>

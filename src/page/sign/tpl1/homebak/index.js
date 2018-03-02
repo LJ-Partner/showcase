@@ -11,13 +11,12 @@ export default class Home extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			show: 1,								//是否显示
-			SignID: '',								//signId
-			signText: '签到成功',					//签到文本
-			loading: true,							//loading动画
-			emptyCnt: false,						//空内容
-			data:'',								//数据
-			payStatus:0 							//付款状态
+			show: 1,
+			SignID: '',
+			signText: '签到成功',
+			loading: true,
+			emptyCnt: false,
+			data:''
 		}
 
 	}
@@ -72,12 +71,11 @@ export default class Home extends React.Component {
 					setTimeout(() =>{
 						window.location.href = '/' + this.props.match.params.name_id + '/sign/apply';	
 					},3000)
-				}else{		
+				}else{										//400 已经签到过了
 					this.setState({
 						show: 2,
-						signText: '您已经签到过了',
-						payStatus: 1
-					});	
+						signText: '您已经签到过了'
+					})	
 				}
 			})
 			.catch((res) =>{
@@ -92,56 +90,23 @@ export default class Home extends React.Component {
 	result(){
 		if(this.state.show == 1){
 			return (
-				<div className="cnt-info">
-					<p className="slogan-w">
-						<span>
-							<img src={'https://p.maicai360.cn/img/get/20180228/01078636554316701178258_png'} />	
-						</span>
-					</p>
-					<div className="tips">
-						<span>
-							<em>2</em>
-							<em>0</em>
-							<em>1</em>
-							<em>8</em>
-						</span>
-						<p>硅钢供需交流会</p>
-					</div>
-					<form className="form-box">
-						<input type="text" placeholder="您的手机号" ref='mobile' maxLength="11" />
-						<button className="btn-sign-in" onClick={this.toSign.bind(this)} type="button">签到</button>
-					</form>
-				</div>	
+
+				<form>
+					<h2>嘉宾签到</h2>
+					<input type="text" placeholder="您的手机号" ref='mobile' maxLength="11" />
+					<button className="btn-sign-in" type="button" onClick={this.toSign.bind(this)}>签到</button>
+				</form>	
 			)
 		}else{
 			return (
-				<div className="cnt-result">
+				<div className="sign-result">
 					<div className="tips">
-						<span>
-							<em>2</em>
-							<em>0</em>
-							<em>1</em>
-							<em>8</em>
-						</span>
-						<p>硅钢供需交流会</p>
-					</div>	
-					<div className="result-suc">
-						<div className="suc-txt">
-							<p className="suc-num">
-								<em>66</em>号
-							</p>
-							<p>
-								<em>签到成功！</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
-							</p>	
-						</div>
-						<div className="already">
-							<p>
-								<em>您已填写！</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
-							</p>	
-							<p>联系电话 : 17612142416</p>
-						</div>
-						<button className="btn-home">返回首页</button>
+						<em>
+							<img src={'https://p.maicai360.cn/img/get/20180211/71460636539462703584605_png'} />
+						</em>
+						<span>{this.state.signText}</span>
 					</div>
+					<p>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！</p>
 				</div>
 			)	
 		}
@@ -158,14 +123,20 @@ export default class Home extends React.Component {
         	if(Object.keys(_data).length > 0 && _data.constructor == Object){
         		return (
 					<div className="sign">
-						<div className="sign-main">
+						<div className="sign-header">
 							<h1 className="logo">
-								<img src={'https://p.maicai360.cn/img/get/20180228/33732636554315967666336_png'} />
+								<img src={_data.signs.logo} />
 							</h1>
-							<div className="main-cnt">
+							<div className="slogan-w">
+								<p>{_data.signs.Title}</p>
+							</div>	
+						</div>
+						<div className="sign-content">
+							<div className="sign-box">
 								{this.result()}
 							</div>
 						</div>
+						<div className="sign-footer">aaa</div>
 						<Toast />
 					</div>
 				)		

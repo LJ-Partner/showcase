@@ -92,6 +92,40 @@ if(category_name){
                 )  
             });    
         }    
+    }else if(category_name == 'single'){ //名片
+        if(company_id){
+            axios.get(Api.api_prefix+company_id)
+            .then((res) => {
+                if(res.data.code && res.data.code == 200){
+                    _url = '/:name_id/single';           
+                    if(res.data.content.website_tmp == 1){
+                        ReactDOM.render(
+                            <Router>
+                                <Switch>
+                                    <Route path={_url+'/video'} component={type.single.video.home()} />
+                                    <Route component={type.error.error()} />
+                                </Switch>
+                            </Router>
+                            ,
+                            dest    
+                        )  
+                    }
+                }else{
+                    console.log('暂无数据')
+                }
+            })
+            .catch((error) =>{
+                ReactDOM.render(
+                    <Router>
+                        <Switch>
+                            <Route component={type.error.error()} />
+                        </Switch>
+                    </Router>
+                    ,
+                    dest    
+                )  
+            });    
+        }    
     }else if(category_name == 'sign'){ //签到
         if(company_id){
             axios.get(Api.api_prefix+company_id)

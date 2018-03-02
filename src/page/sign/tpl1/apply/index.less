@@ -19,149 +19,184 @@ body{
     }
     .apply{
         width: 100%;
-        background: url('https://p.maicai360.cn/img/get/20180211/54174636539463189580410_png') no-repeat;
-        background-size: 100% 115%; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
+        background: url('https://p.maicai360.cn/img/get/20180228/84114636554386962962215_png') no-repeat;
+        background-size: 100% 100%; 
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        min-height: 100%;
         img{
             display: block;
-            margin: 0 auto;
+            max-width: 100%;
         }
-        .apply-header{
-            height: 21%;
+        .apply-main{
+            padding: 3.2% 5.6% 1.87rem 5.6%;
+            width: 100%;
+            box-sizing: border-box;
             .logo{
-                padding: 0.48rem 0 0.18rem 0;
+                margin: 1rem 0 0.59rem 1.02rem;
                 img{
-                    width: 3.68rem;
+                    width: 2.37rem;
                 }
             }
-            .slogan-w{
-                text-align: center;
-                color: #fcb700;
-                font-size: 0.6rem;
-                font-weight: 900;
-                img{
-                    width: 60%;
+            .main-cnt{
+                .hide{
+                    display: none;
                 }
-            }
-        }
-        .apply-content{
-            height: 68%;
-            width: 82%;
-            color: #FFB900;
-            font-size: 0.37rem;
-            line-height: 0.6rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            .tips{
-                padding: 0 0.75rem;
-            }
-            .form-box{
-                padding: 0 1.33rem;
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-                .item-box{
-                    margin: 0 0 5px 0;
-                    label{
-                        color: #fff;
-                        display: block;
-                        margin: 0 0 5px 0;
-                    } 
-                    .inp{
-                        background: #fff;
-                        border: 1px solid #FFB900;
-                        box-shadow: 0 2px 4px 0 #000;
-                        border-radius: 8px;
-                        padding: 5px 6px;
-                        box-sizing: border-box;
-                        width: 100%;
-                        font-size: 0.35rem;
-                        line-height: normal;
-                    }   
-                } 
-                .radio-box{
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: space-between;
-                    .item-radio{
-                        width: 2rem;
-                        height: 0.7rem;
-                        line-height: 0.7rem;
-                        padding-left: 0.5rem;
-                        box-sizing: border-box;
-                        border-radius: 5px;
-                        background: #fff;
-                        color: #FFB900;
-                        input{
-                            display: block;
+                .tips{
+                    text-align: center;
+                    color: #fff;
+                    font-size: 16px;
+                    margin: 0 0 1rem 0;
+                    span{
+                        font-size: 1.18rem;
+                        line-height: 1.4rem;
+                        letter-spacing: 0.1rem;
+                        font-family: Helvetica-Bold;
+                        em{
                             position: relative;
-                            overflow: visible;
-                            border: 0;
-                            -webkit-appearance: none;
-                            width: 2rem;
-                            height: 0.7rem;
-                            opacity: 0;
+                            z-index: 1;
+                            &:nth-child(2){
+                                top: 3px;
+                                font-size: 1rem;
+                            }
+                            &:nth-child(3){
+                                top: -3px;
+                                font-size: 1rem;
+                            }
                         }
                     }
-                    .item-radio-yes{
+                }
+                .cnt-info{
+                    .txt{
+                        font-family: PingFangSC-Medium;
+                        font-size: 0.43rem;
+                        color: #FFF;
+                        text-shadow: 0 2px 4px #000;
+                        line-height: 0.54rem;
+                        width: 70%;
+                        margin: 0 auto 0.8rem;
+                    }
+                    .form-box{
+                        padding: 0 1.33rem;
+                        display: block;
+                        width: 100%;
                         box-sizing: border-box;
-                        background: #FFB900 url('https://p.maicai360.cn/img/get/20180211/23466636539463409186668_png') no-repeat 70% center;
-                        color: #fff;
+                        .item-box{
+                            margin: 0 0 5px 0;
+                            label{
+                                color: #fff;
+                                display: block;
+                                margin: 0 0 5px 0;
+                            } 
+                            .inp{
+                                background: #fff;
+                                border: 1px solid #FFB900;
+                                box-shadow: 0 2px 4px 0 #000;
+                                border-radius: 3px;
+                                padding: 5px 6px;
+                                box-sizing: border-box;
+                                width: 100%;
+                                font-size: 0.35rem;
+                                line-height: normal;
+                            }   
+                        } 
+                        .radio-box{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            .item-radio{
+                                width: 2rem;
+                                height: 0.7rem;
+                                line-height: 0.7rem;
+                                padding-left: 0.5rem;
+                                box-sizing: border-box;
+                                border-radius: 5px;
+                                background: #fff;
+                                color: #FFB900;
+                                input{
+                                    display: block;
+                                    position: relative;
+                                    overflow: visible;
+                                    border: 0;
+                                    -webkit-appearance: none;
+                                    width: 2rem;
+                                    height: 0.7rem;
+                                    opacity: 0;
+                                }
+                            }
+                            .item-radio-yes{
+                                box-sizing: border-box;
+                                background: #FFB900 url('https://p.maicai360.cn/img/get/20180211/23466636539463409186668_png') no-repeat 70% center;
+                                color: #fff;
+                            }
+                        }
+                        .btn-enter{
+                            display: block;
+                            border: none;
+                            background: #FFB900;
+                            border-radius: 25px;
+                            width: 100%;
+                            padding: 5px 6px;
+                            color: #fff;
+                            font-size: 0.4rem;
+                            margin: 0.37rem 0 0 0;
+                        }    
+                    }    
+                }
+                .cnt-result{
+                    .result-suc{
+                        min-height: 6.4rem;
+                        .suc-num{
+                            font-size: 0.64rem;
+                            text-align: center;   
+                            color: #fff;
+                            margin: 0 0 0.24rem 0;
+                            em{
+                                font-size: 2rem;
+                                color: #FFB900;   
+                                font-family: Georgia-Italic;  
+                            }
+                        }   
+                        .suc-txt{
+                            p{
+                                font-family: PingFangSC-Medium;
+                                font-size: 0.43rem;
+                                color: #fff;
+                                text-shadow: 0 2px 4px #000;
+                                width: 70%;
+                                margin: 0 auto 1rem;
+                                line-height: 0.58rem;
+                                em{
+                                    color: #FFB900;
+                                }    
+                            }
+                            .already{
+                                p{
+                                    margin: 0 auto 0.75rem;
+                                }
+                            }
+                        } 
+                        .btn-home{
+                            width: 5.3rem;
+                            margin: 0 auto;
+                            background: #FFB900;
+                            border-radius: 100px;
+                            border: none;
+                            display: block;
+                            padding: 3px 6px;
+                            color: #fff;
+                            font-family: PingFangSC-Medium;
+                            font-size: 0.48rem;
+                        }
                     }
                 }
-                .btn-enter{
-                    display: block;
-                    border: none;
-                    background: #FFB900;
-                    border-radius: 25px;
-                    width: 100%;
-                    padding: 5px 6px;
-                    color: #fff;
-                    font-size: 0.4rem;
-                    margin: 0.37rem 0 0 0;
-                }    
-            }
-        }
-        .apply-footer{
-            flex-grow: 1;
-            opacity: 0;
-        }
-        .notive-wrap {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .notice {
-                padding: 10px 30px;
-                background: rgba(0,0,0,.85);
-                border-radius: 4px;
-                color: #fff;
-                text-align: center
             }
         }
     }
     @media screen and (min-width:320px) and (max-width:375px){
-        .apply{
-            background-size: 100% 130%;
-            .apply-header{
-                height: 16%;
-            }    
-            .apply-content{
-                height: 80%;
-                align-items: center;
-                justify-content: flex-end;
-            }
-        }
-           
+        
     }
 }
 

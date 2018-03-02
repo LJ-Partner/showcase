@@ -1,0 +1,168 @@
+html,body{
+	height: 100%;
+	width: 100%;
+	background: #f1f2f5;
+}
+body{
+	position: relative;
+	z-index: 1;
+}
+#root{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: scroll;
+    @media screen and (min-width:750px){
+        max-width: 750px;
+        margin: 0 auto;
+    }
+    .apply{
+        width: 100%;
+        background: url('https://p.maicai360.cn/img/get/20180211/54174636539463189580410_png') no-repeat;
+        background-size: 100% 115%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+        .apply-header{
+            height: 21%;
+            .logo{
+                padding: 0.48rem 0 0.18rem 0;
+                img{
+                    width: 3.68rem;
+                }
+            }
+            .slogan-w{
+                text-align: center;
+                color: #fcb700;
+                font-size: 0.6rem;
+                font-weight: 900;
+                img{
+                    width: 60%;
+                }
+            }
+        }
+        .apply-content{
+            height: 68%;
+            width: 82%;
+            color: #FFB900;
+            font-size: 0.37rem;
+            line-height: 0.6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .tips{
+                padding: 0 0.75rem;
+            }
+            .form-box{
+                padding: 0 1.33rem;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                .item-box{
+                    margin: 0 0 5px 0;
+                    label{
+                        color: #fff;
+                        display: block;
+                        margin: 0 0 5px 0;
+                    } 
+                    .inp{
+                        background: #fff;
+                        border: 1px solid #FFB900;
+                        box-shadow: 0 2px 4px 0 #000;
+                        border-radius: 8px;
+                        padding: 5px 6px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        font-size: 0.35rem;
+                        line-height: normal;
+                    }   
+                } 
+                .radio-box{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    .item-radio{
+                        width: 2rem;
+                        height: 0.7rem;
+                        line-height: 0.7rem;
+                        padding-left: 0.5rem;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                        background: #fff;
+                        color: #FFB900;
+                        input{
+                            display: block;
+                            position: relative;
+                            overflow: visible;
+                            border: 0;
+                            -webkit-appearance: none;
+                            width: 2rem;
+                            height: 0.7rem;
+                            opacity: 0;
+                        }
+                    }
+                    .item-radio-yes{
+                        box-sizing: border-box;
+                        background: #FFB900 url('https://p.maicai360.cn/img/get/20180211/23466636539463409186668_png') no-repeat 70% center;
+                        color: #fff;
+                    }
+                }
+                .btn-enter{
+                    display: block;
+                    border: none;
+                    background: #FFB900;
+                    border-radius: 25px;
+                    width: 100%;
+                    padding: 5px 6px;
+                    color: #fff;
+                    font-size: 0.4rem;
+                    margin: 0.37rem 0 0 0;
+                }    
+            }
+        }
+        .apply-footer{
+            flex-grow: 1;
+            opacity: 0;
+        }
+        .notive-wrap {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .notice {
+                padding: 10px 30px;
+                background: rgba(0,0,0,.85);
+                border-radius: 4px;
+                color: #fff;
+                text-align: center
+            }
+        }
+    }
+    @media screen and (min-width:320px) and (max-width:375px){
+        .apply{
+            background-size: 100% 130%;
+            .apply-header{
+                height: 16%;
+            }    
+            .apply-content{
+                height: 80%;
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+           
+    }
+}
+
+

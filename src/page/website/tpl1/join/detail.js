@@ -67,12 +67,14 @@ export default class proDetail extends React.Component {
                     return (
                         <div className="wrap">
                             <div className="main">
-                                <div className="main-cnt">
-                                    <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
-                                    <div className="detail-line"></div>
-                                    <JoinDetail JoinDetailData={data.job} />  
+                                <div className="main-cnt-w">
+                                    <div className="main-cnt">
+                                        <Carousel config={IndexHeadCarousel} bannerList={data.banners}/>
+                                        <div className="detail-line"></div>
+                                        <JoinDetail JoinDetailData={data.job} />  
+                                    </div>
+                                    <Support />
                                 </div>
-                                <Support />
                             </div>
                             <Footer name={"/"+ this.props.match.params.name_id + "/website" } />
                         </div>

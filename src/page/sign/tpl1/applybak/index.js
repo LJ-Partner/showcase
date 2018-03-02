@@ -123,67 +123,53 @@ export default class Home extends React.Component {
         	if(Object.keys(data).length > 0 && data.constructor == Object){
         		return (
 					<div className="apply">
-						<div className="apply-main">
+						<div className="apply-header">
 							<h1 className="logo">
-								<img src={'https://p.maicai360.cn/img/get/20180228/33732636554315967666336_png'} />
+								<img src={data.logo} />
 							</h1>
-							<div className="main-cnt">
-								<div className="tips">
-									<span>
-										<em>2</em>
-										<em>0</em>
-										<em>1</em>
-										<em>8</em>
-									</span>
-									<p>硅钢供需交流会</p>
+							<div className="slogan-w">
+								<p>{data.Title}</p>
+							</div>	
+						</div>
+						<div className="apply-content">
+							<p className="tips">
+								请填写参会信息，我们将尽快与您取得联系并安排相关服务。	
+							</p>
+							<form className="form-box">
+								<div className="item-box">
+									<label>姓名</label>
+									<input type="text" className="inp" name="Signer" ref="Signer" />
 								</div>
-								<div className="cnt-info hide">
-									<p className="txt">
-										您好，欢迎您位临2018年硅钢供需交流会，请填写您的相关信息，我们将尽快安排会务人员与您取得联系，并为您安排会议的相关服务。
-									</p>
-									<form className="form-box">
-										<div className="item-box">
-											<label>您的姓名</label>
-											<input type="text" className="inp" name="Signer" ref="Signer" />
-										</div>
-										<div className="item-box">
-											<label>您的职位</label>
-											<input type="text" className="inp" name="Signer" ref="Signer" />
-										</div>
-										<div className="item-box">
-											<label>手机号</label>
-											<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" maxLength="11" />
-										</div>
-										<div className="item-box">
-											<label>您的公司</label>
-											<input type="text" className="inp" name="SignerCompany" ref="SignerCompany" />
-										</div>
-										<div className="item-box">
-											<label>主营产品</label>
-											<input type="text" className="inp" name="SignerNumber"  ref="SignerNumber" />
-										</div>
-										<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
-									</form>	
+								<div className="item-box">
+									<label>手机号</label>
+									<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" maxLength="11" />
 								</div>
-								<div className="cnt-result">
-									<div className="result-suc">
-										<div className="suc-txt">
-											<p className="hide">
-												<em>签到成功！</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
-											</p>
-											<div className="already">
-												<p>
-													<em>您已填写！</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
-												</p>	
-												<p>联系电话 : 17612142416</p>
-											</div>
-										</div>
-										<button className="btn-home">返回首页</button>
+								<div className="item-box">
+									<label>性别</label>
+									<div className="radio-box">
+										<label className={this.state.SignerGender == 1?"item-radio item-radio-yes":"item-radio"}>
+											男
+											<input type="radio" id="sex_1"  value="1" name="sex" onChange={this.handleChange}  defaultChecked={this.state.maleChecked} /> 	
+										</label>
+										<label className={this.state.SignerGender == 2?"item-radio item-radio-yes":"item-radio"}>
+											女
+											<input type="radio" id="sex_2"   value="2" name="sex"  onChange={this.handleChange} defaultChecked={this.state.femaleChecked} /> 
+										</label>
 									</div>
 								</div>
-							</div>
-						</div>	
-						<Toast />
+								<div className="item-box">
+									<label>公司名</label>
+									<input type="text" className="inp" name="SignerCompany" ref="SignerCompany" />
+								</div>
+								<div className="item-box">
+									<label>参会人数</label>
+									<input type="text" className="inp" name="SignerNumber"  ref="SignerNumber" />
+								</div>
+								<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
+							</form>
+						</div>
+						<div className="apply-footer">底部</div>
+						<Toast />	
 					</div>
 				)	
         	}	
