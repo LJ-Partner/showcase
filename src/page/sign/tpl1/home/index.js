@@ -89,6 +89,29 @@ export default class Home extends React.Component {
 		//this.isSign();
 		this.signInfo();
 	}
+	sucDetail(){
+		if(this.state.payStatus == 2){
+			return(
+				<div className="suc-txt">
+					<p className="suc-num">
+						<em>66</em>号
+					</p>
+					<p>
+						<em>签到成功！</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
+					</p>	
+				</div>
+			)
+		}else{
+			return(
+				<div className="already">
+					<p>
+						<em>您已填写！</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
+					</p>	
+					<p>联系电话 : 17612142416</p>
+				</div>
+			)	
+		}
+	}
 	result(){
 		if(this.state.show == 1){
 			return (
@@ -126,24 +149,11 @@ export default class Home extends React.Component {
 						<p>硅钢供需交流会</p>
 					</div>	
 					<div className="result-suc">
-						<div className="suc-txt">
-							<p className="suc-num">
-								<em>66</em>号
-							</p>
-							<p>
-								<em>签到成功！</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
-							</p>	
-						</div>
-						<div className="already">
-							<p>
-								<em>您已填写！</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
-							</p>	
-							<p>联系电话 : 17612142416</p>
-						</div>
-						<button className="btn-home">返回首页</button>
+						{this.sucDetail()}
+						<a href={'/'+this.props.match.params.name_id + '/sign'} className="btn-home">返回首页</a>
 					</div>
-				</div>
-			)	
+				</div>		
+			)
 		}
 	}
 	render() {

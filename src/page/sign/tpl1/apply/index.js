@@ -12,6 +12,7 @@ export default class Home extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			show:false ,						//是否显示
 			getCardData : {},
 			maleChecked : true,
 			femaleChecked : false,
@@ -34,6 +35,59 @@ export default class Home extends React.Component {
 			}	
 		}
 	}
+	result(){
+		if(this.state.show){
+			return(
+				<div className="cnt-info">
+					<p className="txt">
+						您好，欢迎您位临2018年硅钢供需交流会，请填写您的相关信息，我们将尽快安排会务人员与您取得联系，并为您安排会议的相关服务。
+					</p>
+					<form className="form-box">
+						<div className="item-box">
+							<label>您的姓名</label>
+							<input type="text" className="inp" name="Signer" ref="Signer" />
+						</div>
+						<div className="item-box">
+							<label>您的职位</label>
+							<input type="text" className="inp" name="Signer" ref="Signer" />
+						</div>
+						<div className="item-box">
+							<label>手机号</label>
+							<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" maxLength="11" />
+						</div>
+						<div className="item-box">
+							<label>您的公司</label>
+							<input type="text" className="inp" name="SignerCompany" ref="SignerCompany" />
+						</div>
+						<div className="item-box">
+							<label>主营产品</label>
+							<input type="text" className="inp" name="SignerNumber"  ref="SignerNumber" />
+						</div>
+						<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
+					</form>	
+				</div>
+			)
+		}else{
+			return(
+				<div className="cnt-result">
+					<div className="result-suc">
+						<div className="suc-txt">
+							<p className="hide">
+								<em>签到成功！</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
+							</p>
+							<div className="already">
+								<p>
+									<em>您已填写！</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
+								</p>	
+								<p>联系电话 : 17612142416</p>
+							</div>
+						</div>
+						<button className="btn-home">返回首页</button>
+					</div>
+				</div>
+			)
+		}
+	}
 	//签到相关信息
 	signInfo(){
   		Api.sign.tpl1.signData(this.props.match.params.name_id)
@@ -42,7 +96,8 @@ export default class Home extends React.Component {
   				this.setState({
   					SignID: res.data.content.signs.ID,
   					loading: false,
-  					getCardData: res.data.content.signs
+  					getCardData: res.data.content.signs,
+  					show: true
   				})
   			}else{
   				_this.setState({
@@ -56,7 +111,7 @@ export default class Home extends React.Component {
   		})
 	}
 	componentDidMount() {
-		this.isSign();
+		//this.isSign();
 		this.signInfo();
 	}
 	toApply(e){
@@ -137,50 +192,7 @@ export default class Home extends React.Component {
 									</span>
 									<p>硅钢供需交流会</p>
 								</div>
-								<div className="cnt-info hide">
-									<p className="txt">
-										您好，欢迎您位临2018年硅钢供需交流会，请填写您的相关信息，我们将尽快安排会务人员与您取得联系，并为您安排会议的相关服务。
-									</p>
-									<form className="form-box">
-										<div className="item-box">
-											<label>您的姓名</label>
-											<input type="text" className="inp" name="Signer" ref="Signer" />
-										</div>
-										<div className="item-box">
-											<label>您的职位</label>
-											<input type="text" className="inp" name="Signer" ref="Signer" />
-										</div>
-										<div className="item-box">
-											<label>手机号</label>
-											<input type="text" className="inp" name="SignerMobile" ref="SignerMobile" maxLength="11" />
-										</div>
-										<div className="item-box">
-											<label>您的公司</label>
-											<input type="text" className="inp" name="SignerCompany" ref="SignerCompany" />
-										</div>
-										<div className="item-box">
-											<label>主营产品</label>
-											<input type="text" className="inp" name="SignerNumber"  ref="SignerNumber" />
-										</div>
-										<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
-									</form>	
-								</div>
-								<div className="cnt-result">
-									<div className="result-suc">
-										<div className="suc-txt">
-											<p className="hide">
-												<em>签到成功！</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
-											</p>
-											<div className="already">
-												<p>
-													<em>您已填写！</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
-												</p>	
-												<p>联系电话 : 17612142416</p>
-											</div>
-										</div>
-										<button className="btn-home">返回首页</button>
-									</div>
-								</div>
+								{this.result()}
 							</div>
 						</div>	
 						<Toast />

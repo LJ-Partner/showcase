@@ -117,6 +117,7 @@ export default class Home extends React.Component {
         }else{
         	if(!this.state.emptyCnt){
         		if(Object.keys(_data).length > 0 && _data.constructor == Object){
+        			let imgShow = _data.invitation.ending_qr_code;
 					return (
 					    <Swiper {...params}>
 					    	<div className="page page1">
@@ -252,6 +253,17 @@ export default class Home extends React.Component {
 							    			</span>
 						    			</h2>
 						    		</a>
+
+						    		<div className="img-w zoomIn">
+						    		{
+						    			imgShow?(
+							    			<span>
+								    			<img src={_data.invitation.ending_qr_code} />
+								    		</span>
+								    		):('')
+							    	}
+							    		
+						    		</div>
 						    	</div>
 					    		<div className="arrow">
 									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
