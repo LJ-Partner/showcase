@@ -137,7 +137,7 @@ if(category_name){
                             <Router>
                                 <Switch>
                                     <Route path={_url+'/apply'} component={type.sign.tpl1.apply()} />
-                                    <Route path={_url} component={type.sign.tpl1.home()} />
+                                    <Route path={_url+'/:sign_id'} component={type.sign.tpl1.home()} />
                                     <Route component={type.error.error()} />
                                 </Switch>
                             </Router>

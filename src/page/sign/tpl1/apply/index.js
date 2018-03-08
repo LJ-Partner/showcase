@@ -112,7 +112,7 @@ export default class Home extends React.Component {
 	}
 	componentDidMount() {
 		//this.isSign();
-		this.signInfo();
+		//this.signInfo();
 	}
 	toApply(e){
 		e.preventDefault();

@@ -11,7 +11,7 @@ export default class Home extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			show: 1,								//是否显示
+			show: true,								//是否显示
 			SignID: '',								//signId
 			signText: '签到成功',					//签到文本
 			loading: true,							//loading动画
@@ -24,7 +24,7 @@ export default class Home extends React.Component {
 	//签到相关信息
 	signInfo(){
 		let _this = this;
-  		Api.sign.tpl1.signData(this.props.match.params.name_id)
+  		Api.sign.tpl1.signData(this.props.match.params.name_id,this.props.match.params.sign_id)
   		.then((res) =>{
   			if(res.data.code && res.data.code == 200){
   				this.setState({
@@ -59,6 +59,7 @@ export default class Home extends React.Component {
 				SignID: this.state.SignID, 									//签到活动的id
 				SignerMobile: mobile										//签到人电话
 			};
+			console.log(forms)
 		if(mobile == ""){
 			T.notify('手机号不能为空');
 		}else if( telReg == false){
@@ -122,13 +123,7 @@ export default class Home extends React.Component {
 						</span>
 					</p>
 					<div className="tips">
-						<span>
-							<em>2</em>
-							<em>0</em>
-							<em>1</em>
-							<em>8</em>
-						</span>
-						<p>硅钢供需交流会</p>
+						<p></p>
 					</div>
 					<form className="form-box">
 						<input type="text" placeholder="您的手机号" ref='mobile' maxLength="11" />
@@ -140,12 +135,6 @@ export default class Home extends React.Component {
 			return (
 				<div className="cnt-result">
 					<div className="tips">
-						<span>
-							<em>2</em>
-							<em>0</em>
-							<em>1</em>
-							<em>8</em>
-						</span>
 						<p>硅钢供需交流会</p>
 					</div>	
 					<div className="result-suc">
@@ -170,10 +159,34 @@ export default class Home extends React.Component {
 					<div className="sign">
 						<div className="sign-main">
 							<h1 className="logo">
-								<img src={'https://p.maicai360.cn/img/get/20180228/33732636554315967666336_png'} />
+								<img src={_data.signs.logo} />
 							</h1>
 							<div className="main-cnt">
-								{this.result()}
+								{this.state.show?(
+													<div className="cnt-info">
+														<p className="slogan-w">
+															<span>
+																<img src={'https://p.maicai360.cn/img/get/20180228/01078636554316701178258_png'} />	
+															</span>
+														</p>
+														<div className="tips">
+															<p>{_data.signs.Title}</p>
+														</div>
+														<form className="form-box">
+															<input type="text" placeholder="您的手机号" ref='mobile' maxLength="11" />
+															<button className="btn-sign-in" onClick={this.toSign.bind(this)} type="button">签到</button>
+														</form>
+													</div>):
+													(<div className="cnt-result">
+													<div className="tips">
+														<p>{_data.signs.Title}</p>
+													</div>	
+													<div className="result-suc">
+														{this.sucDetail()}
+														<a href={'/'+this.props.match.params.name_id + '/sign'} className="btn-home">返回首页</a>
+													</div>
+													</div>)
+								}
 							</div>
 						</div>
 						<Toast />
