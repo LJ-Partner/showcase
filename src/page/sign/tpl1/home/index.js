@@ -17,7 +17,8 @@ export default class Home extends React.Component {
 			loading: true,							//loading动画
 			emptyCnt: false,						//空内容
 			data:'',								//数据
-			payStatus:0 							//付款状态
+			numStatus:false, 						//编号状态
+			signNum: 0								//签到编号
 		}
 
 	}
@@ -68,17 +69,26 @@ export default class Home extends React.Component {
 		}else {
 			Api.sign.tpl1.apply(id,forms)
 			.then((res) =>{
-				if(res.data.code && res.data.code == 200){ //200 未注册
+				if(res.data.code && res.data.code == 200){ 				//200 未注册
 					T.notify('请先去注册');
 					setTimeout(() =>{
-						window.location.href = '/' + this.props.match.params.name_id + '/sign/apply';	
+						window.location.href = '/' + this.props.match.params.name_id + '/sign/'+this.props.match.params.sign_id+'/apply';	
 					},3000)
-				}else{		
+				}else if(res.data.code && res.data.code == 301){		//301  有编号
 					this.setState({
-						show: 2,
-						signText: '您已经签到过了',
-						payStatus: 1
+						show: false,
+						signText: '签到成功！',
+						numStatus: true,
+						signNum: res.data.content.sign_code
 					});	
+				}else if(res.data.code && res.data.code == 302){		//302  无编号
+					this.setState({
+						show: false,
+						signText: '您已填写！',
+						numStatus: false
+					});	
+				}else{													//500  出错
+					T.notify(res.data.msg);			
 				}
 			})
 			.catch((res) =>{
@@ -90,25 +100,26 @@ export default class Home extends React.Component {
 		//this.isSign();
 		this.signInfo();
 	}
-	sucDetail(){
-		if(this.state.payStatus == 2){
+	sucDetail(tel,title){
+		if(this.state.numStatus){
 			return(
 				<div className="suc-txt">
 					<p className="suc-num">
-						<em>66</em>号
+						<em>{this.state.signNum}</em>号
 					</p>
 					<p>
-						<em>签到成功！</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
-					</p>	
+						<em>{this.state.signText}</em>感谢您位临{title}，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
+					</p>
+					{tel?(<p>联系电话 : {tel}</p>):('')}		
 				</div>
 			)
 		}else{
 			return(
 				<div className="already">
 					<p>
-						<em>您已填写！</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
-					</p>	
-					<p>联系电话 : 17612142416</p>
+						<em>{this.state.signText}</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
+					</p>
+					{tel?(<p>联系电话 : {tel}</p>):('')}	
 				</div>
 			)	
 		}
@@ -139,7 +150,7 @@ export default class Home extends React.Component {
 					</div>	
 					<div className="result-suc">
 						{this.sucDetail()}
-						<a href={'/'+this.props.match.params.name_id + '/sign'} className="btn-home">返回首页</a>
+						<a href={'/'+this.props.match.params.name_id + '/sign/'+this.props.match.params.sign_id} className="btn-home">返回首页</a>
 					</div>
 				</div>		
 			)
@@ -182,8 +193,8 @@ export default class Home extends React.Component {
 														<p>{_data.signs.Title}</p>
 													</div>	
 													<div className="result-suc">
-														{this.sucDetail()}
-														<a href={'/'+this.props.match.params.name_id + '/sign'} className="btn-home">返回首页</a>
+														{this.sucDetail(_data.signs.Phone,_data.signs.Title)}
+														<a href={'/'+this.props.match.params.name_id + '/sign/'+this.props.match.params.sign_id} className="btn-home">返回首页</a>
 													</div>
 													</div>)
 								}

@@ -131,13 +131,13 @@ if(category_name){
             axios.get(Api.api_prefix+company_id)
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
-                    _url = '/:name_id/sign';           
+                    _url = '/:name_id/sign/:sign_id';           
                     if(res.data.content.website_tmp == 1){
                         ReactDOM.render(
                             <Router>
                                 <Switch>
                                     <Route path={_url+'/apply'} component={type.sign.tpl1.apply()} />
-                                    <Route path={_url+'/:sign_id'} component={type.sign.tpl1.home()} />
+                                    <Route path={_url} component={type.sign.tpl1.home()} />
                                     <Route component={type.error.error()} />
                                 </Switch>
                             </Router>

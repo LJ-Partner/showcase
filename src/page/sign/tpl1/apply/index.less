@@ -19,22 +19,28 @@ body{
     }
     .apply{
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 100%;
         background: url('https://p.maicai360.cn/img/get/20180228/84114636554386962962215_png') no-repeat;
         background-size: 100% 100%; 
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        min-height: 100%;
         img{
             display: block;
             max-width: 100%;
         }
         .apply-main{
-            padding: 3.2% 5.6% 1.87rem 5.6%;
+            @media screen and (min-width:320px) and (max-width:375px){
+                padding: 3.2% 5.6% 0.8rem 5.6%;    
+            }
+            padding: 3.2% 5.6% 0 5.6%;
             width: 100%;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
             .logo{
-                margin: 1rem 0 0.59rem 1.02rem;
+                margin: 1rem 0 0.72rem 1.02rem;
                 img{
                     width: 2.37rem;
                 }
@@ -43,11 +49,17 @@ body{
                 .hide{
                     display: none;
                 }
+                .title{
+                    text-align: center;
+                    color: #fff;
+                    font-size: 0.43rem;
+                    margin: 0 0 0.8rem 0;    
+                }
                 .tips{
                     text-align: center;
                     color: #fff;
-                    font-size: 16px;
-                    margin: 0 0 1rem 0;
+                    font-size: 0.43rem;
+                    margin: 0 0 2rem 0;
                     span{
                         font-size: 1.18rem;
                         line-height: 1.4rem;
@@ -70,12 +82,13 @@ body{
                 .cnt-info{
                     .txt{
                         font-family: PingFangSC-Medium;
-                        font-size: 0.43rem;
+                        font-size: 0.37rem;
                         color: #FFF;
                         text-shadow: 0 2px 4px #000;
                         line-height: 0.54rem;
                         width: 70%;
-                        margin: 0 auto 0.8rem;
+                        margin: 0 auto 0.64rem;
+                        text-align: justify;
                     }
                     .form-box{
                         padding: 0 1.33rem;
@@ -88,6 +101,7 @@ body{
                                 color: #fff;
                                 display: block;
                                 margin: 0 0 5px 0;
+                                font-size: 0.37rem;
                             } 
                             .inp{
                                 background: #fff;
@@ -148,6 +162,11 @@ body{
                 .cnt-result{
                     .result-suc{
                         min-height: 6.4rem;
+                        margin: 1.07rem 0 0 0;
+                        display: flex;
+                        flex-direction: column;
+                        flex: 1 1 auto;
+                        justify-content: center;
                         .suc-num{
                             font-size: 0.64rem;
                             text-align: center;   
@@ -162,7 +181,7 @@ body{
                         .suc-txt{
                             p{
                                 font-family: PingFangSC-Medium;
-                                font-size: 0.43rem;
+                                font-size: 0.38rem;
                                 color: #fff;
                                 text-shadow: 0 2px 4px #000;
                                 width: 70%;
@@ -176,6 +195,17 @@ body{
                                 p{
                                     margin: 0 auto 0.75rem;
                                 }
+                                .suc-num{
+                                    font-size: 0.64rem;
+                                    text-align: center;   
+                                    color: #fff;
+                                    margin: 0 auto 0.24rem;
+                                    em{
+                                        font-size: 2rem;
+                                        color: #FFB900;   
+                                        font-family: Georgia-Italic;  
+                                    }
+                                }
                             }
                         } 
                         .btn-home{
@@ -185,18 +215,32 @@ body{
                             border-radius: 100px;
                             border: none;
                             display: block;
-                            padding: 3px 6px;
+                            padding: 6px;
                             color: #fff;
                             font-family: PingFangSC-Medium;
                             font-size: 0.48rem;
+                            text-align: center;
                         }
                     }
                 }
             }
         }
-    }
-    @media screen and (min-width:320px) and (max-width:375px){
-        
+        .notive-wrap {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .notice {
+                padding: 10px 30px;
+                background: rgba(0,0,0,.85);
+                border-radius: 4px;
+                color: #fff;
+                text-align: center
+            }
+        }
     }
 }
 

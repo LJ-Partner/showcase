@@ -15,11 +15,14 @@ export default class Home extends React.Component {
 			show:false ,						//是否显示
 			getCardData : {},
 			maleChecked : true,
+			applyText:'报名成功！',				//文本
 			femaleChecked : false,
-			SignerGender: '1',				//签到人性别 1.男，2.女
-			SignID: '',						//签到ID
+			SignerGender: '1',					//签到人性别 1.男，2.女
+			SignID: '',							//签到ID
 			loading: true,
-			emptyCnt: false
+			emptyCnt: false,
+			codeNum: 0,							//编号
+			numStatus: false					//是否有编号	
 		}
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -35,7 +38,7 @@ export default class Home extends React.Component {
 			}	
 		}
 	}
-	result(){
+	result(tel){
 		if(this.state.show){
 			return(
 				<div className="cnt-info">
@@ -49,7 +52,7 @@ export default class Home extends React.Component {
 						</div>
 						<div className="item-box">
 							<label>您的职位</label>
-							<input type="text" className="inp" name="Signer" ref="Signer" />
+							<input type="text" className="inp" name="Position" ref="Position" />
 						</div>
 						<div className="item-box">
 							<label>手机号</label>
@@ -61,7 +64,7 @@ export default class Home extends React.Component {
 						</div>
 						<div className="item-box">
 							<label>主营产品</label>
-							<input type="text" className="inp" name="SignerNumber"  ref="SignerNumber" />
+							<input type="text" className="inp" name="Product"  ref="Product" />
 						</div>
 						<button type="button" className="btn-enter" onClick={this.toApply.bind(this)}>确定</button>
 					</form>	
@@ -72,17 +75,19 @@ export default class Home extends React.Component {
 				<div className="cnt-result">
 					<div className="result-suc">
 						<div className="suc-txt">
-							<p className="hide">
-								<em>签到成功！</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
-							</p>
 							<div className="already">
+								{
+									this.state.codeNum?(<p className="suc-num"><em>{this.state.codeNum}</em>号</p>):('')
+								}
 								<p>
-									<em>您已填写！</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
+									<em>{this.state.applyText}</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，进行线下支付，完成会议流程！
 								</p>	
-								<p>联系电话 : 17612142416</p>
+								{
+									this.state.numStatus?(''):((<p>联系电话 : {tel}</p>:('')))
+								}
 							</div>
 						</div>
-						<button className="btn-home">返回首页</button>
+						<a href={'/'+this.props.match.params.name_id + '/sign/'+this.props.match.params.sign_id} className="btn-home">返回首页</a>
 					</div>
 				</div>
 			)
@@ -90,7 +95,7 @@ export default class Home extends React.Component {
 	}
 	//签到相关信息
 	signInfo(){
-  		Api.sign.tpl1.signData(this.props.match.params.name_id)
+  		Api.sign.tpl1.signData(this.props.match.params.name_id,this.props.match.params.sign_id)
   		.then((res) =>{
   			if(res.data.code && res.data.code == 200){  
   				this.setState({
@@ -107,30 +112,31 @@ export default class Home extends React.Component {
   			}
   		})
   		.catch((res) => {
-  			console.log(res)
+  			T.notify(res.data.msg);
   		})
 	}
 	componentDidMount() {
 		//this.isSign();
-		//this.signInfo();
+		this.signInfo();
 	}
 	toApply(e){
 		e.preventDefault();
 		let id = this.props.match.params.name_id;
 		let Signer = this.refs.Signer.value.trim();
+		let Position = this.refs.Position.value.trim();
 		let SignerMobile = this.refs.SignerMobile.value.trim();
 		let SignerCompany = this.refs.SignerCompany.value.trim();
-		let SignerNumber = this.refs.SignerNumber.value.trim();
-		let telReg = !!SignerMobile.match(/^(13[0-9]|15[012356789]|17[0-9]|18[0-9]|14[57])[0-9]{8}$/);
+		let Product = this.refs.Product.value.trim();
+		let telReg = !!SignerMobile.match(/^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])[0-9]{8}$/);
 		forms= {
 				SignID: this.state.SignID, 									//签到活动的id
 				Signer: Signer,												//签到人姓名
+				Position: Position,											//签到人职位
 				SignerMobile: SignerMobile,									//签到人电话
-				SignerGender: this.state.SignerGender,						//签到人性别 1.男，2.女
 				SignerCompany: SignerCompany,								//签到人公司名称
-				SignerNumber:SignerNumber									//与会人数
+				Product: Product											//主营产品
 			};
-		if(Signer == "" || SignerMobile == "" || SignerCompany == "" || SignerNumber == ""){
+		if(Signer == "" || Position == "" || SignerMobile == "" || SignerCompany == "" || Product == ""){
 			T.notify('请把相关信息填写完整')
 			return false;
 		}else if(telReg == false){
@@ -139,30 +145,31 @@ export default class Home extends React.Component {
 		}else{
 			Api.sign.tpl1.pushdata(id,forms)
 			.then((res) =>{
-				if(res.data.code && res.data.code == 200){
-					T.notify('报名成功');
-					details = {'sign':'1','mobile':SignerMobile};
-					storage.setItem('details',JSON.stringify(details));
-					setTimeout(()=> {
-						window.location.href = '/' + this.props.match.params.name_id + '/sign'	
-					})
-				}else{
-					T.notify('您已经报过名了')
-					this.refs.Signer.value = '';
-					this.refs.SignerMobile.value = '';
-					this.refs.SignerCompany.value = '';
-					this.refs.SignerNumber.value = '';
-					this.setState({
-						femaleChecked: false,
-						maleChecked: true	
-					});	
-					setTimeout(() =>{
-						window.location.reload();
-					},3000)
+				if(res.data.code){
+	  				if(res.data.code == 200){								//200报名成功,没编号	
+	  					this.setState({
+		  					numStatus: false,
+		  					applyText: '报名成功！'
+		  				})
+	  				}else if(res.data.code == 301){							//已经签到过了,有编号
+	  					this.setState({
+		  					numStatus: true,
+		  					applyText: '您已经签到过了！',
+		  					codeNum: res.data.content.sign_code
+		  				})
+	  				}else if(res.data.code == 302){							//联系现场工作人员
+	  					this.setState({
+		  					numStatus: false,
+		  					applyText: '您已经填写过了！'
+		  				})
+	  				}
+	  				this.setState({
+	  					show: false
+	  				})	
 				}
 			})
 			.catch((res) =>{
-				console.log(res)
+				T.notify(res.data.msg);
 			});
 		}
 	}
@@ -180,19 +187,13 @@ export default class Home extends React.Component {
 					<div className="apply">
 						<div className="apply-main">
 							<h1 className="logo">
-								<img src={'https://p.maicai360.cn/img/get/20180228/33732636554315967666336_png'} />
+								<img src={data.logo} />
 							</h1>
 							<div className="main-cnt">
-								<div className="tips">
-									<span>
-										<em>2</em>
-										<em>0</em>
-										<em>1</em>
-										<em>8</em>
-									</span>
-									<p>硅钢供需交流会</p>
+								<div className="title">
+									<p>{data.Title}</p>
 								</div>
-								{this.result()}
+								{this.result(data.Phone)}
 							</div>
 						</div>	
 						<Toast />
