@@ -81,10 +81,11 @@ export default class Home extends React.Component {
 									this.state.codeNum?(<p className="suc-num"><em>{this.state.codeNum}</em>号</p>):('')
 								}
 								<p>
-									<em>{this.state.applyText}</em>{data.Attach_text}
+									<em>{this.state.applyText}</em>
+									{this.state.codeNum?(data.Attach_text):(data.Failed_text)}
 								</p>	
 								{
-									this.state.numStatus?(''):((<p>联系电话 : {data.Phone}</p>:('')))
+									this.state.numStatus?(''):((<p>联系电话 : <a href={'tel:'+data.Phone}>{data.Phone}</a></p>:('')))
 								}
 							</div>
 						</div>
@@ -151,7 +152,7 @@ export default class Home extends React.Component {
 	  				if(res.data.code == 200){								//200报名成功,没编号	
 	  					this.setState({
 		  					numStatus: false,
-		  					applyText: '报名成功！'
+		  					applyText: '您已填写！'
 		  				})
 	  				}else if(res.data.code == 301){							//已经签到过了,有编号
 	  					this.setState({
@@ -162,7 +163,7 @@ export default class Home extends React.Component {
 	  				}else if(res.data.code == 302){							//联系现场工作人员
 	  					this.setState({
 		  					numStatus: false,
-		  					applyText: '您已经填写过了！'
+		  					applyText: '您已填写！'
 		  				})
 	  				}
 	  				this.setState({

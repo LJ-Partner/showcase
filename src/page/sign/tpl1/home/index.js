@@ -73,7 +73,7 @@ export default class Home extends React.Component {
 					T.notify('请先去注册');
 					setTimeout(() =>{
 						window.location.href = '/' + this.props.match.params.name_id + '/sign/'+this.props.match.params.sign_id+'/apply';	
-					},3000)
+					},100)
 				}else if(res.data.code && res.data.code == 301){		//301  有编号
 					this.setState({
 						show: false,
@@ -110,16 +110,16 @@ export default class Home extends React.Component {
 					<p>
 						<em>{this.state.signText}</em>{data.signs.Attach_text}
 					</p>
-					{data.signs.Phone?(<p>联系电话 : {data.signs.Phone}</p>):('')}		
+					{data.signs.Phone?(<p>联系电话 : <a href={'tel:'+data.signs.Phone}>{data.signs.Phone}</a></p>):('')}		
 				</div>
 			)
 		}else{
 			return(
 				<div className="already">
 					<p>
-						<em>{this.state.signText}</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
+						<em>{this.state.signText}</em>{data.signs.Failed_text}
 					</p>
-					{data.signs.Phone?(<p>联系电话 : {data.signs.Phone}</p>):('')}		
+					{data.signs.Phone?(<p>联系电话 : <a href={'tel:'+data.signs.Phone}>{data.signs.Phone}</a></p>):('')}		
 				</div>
 			)	
 		}
