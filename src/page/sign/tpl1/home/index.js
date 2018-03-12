@@ -100,7 +100,7 @@ export default class Home extends React.Component {
 		//this.isSign();
 		this.signInfo();
 	}
-	sucDetail(tel,title){
+	sucDetail(data){
 		if(this.state.numStatus){
 			return(
 				<div className="suc-txt">
@@ -108,9 +108,9 @@ export default class Home extends React.Component {
 						<em>{this.state.signNum}</em>号
 					</p>
 					<p>
-						<em>{this.state.signText}</em>感谢您位临{title}，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
+						<em>{this.state.signText}</em>{data.signs.Attach_text}
 					</p>
-					{tel?(<p>联系电话 : {tel}</p>):('')}		
+					{data.signs.Phone?(<p>联系电话 : {data.signs.Phone}</p>):('')}		
 				</div>
 			)
 		}else{
@@ -119,7 +119,7 @@ export default class Home extends React.Component {
 					<p>
 						<em>{this.state.signText}</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
 					</p>
-					{tel?(<p>联系电话 : {tel}</p>):('')}	
+					{data.signs.Phone?(<p>联系电话 : {data.signs.Phone}</p>):('')}		
 				</div>
 			)	
 		}
@@ -193,7 +193,7 @@ export default class Home extends React.Component {
 														<p>{_data.signs.Title}</p>
 													</div>	
 													<div className="result-suc">
-														{this.sucDetail(_data.signs.Phone,_data.signs.Title)}
+														{this.sucDetail(_data)}
 														<a href={'/'+this.props.match.params.name_id + '/sign/'+this.props.match.params.sign_id} className="btn-home">返回首页</a>
 													</div>
 													</div>)
