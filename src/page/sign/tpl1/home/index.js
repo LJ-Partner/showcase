@@ -55,7 +55,7 @@ export default class Home extends React.Component {
 		e.preventDefault();
 		let id = this.props.match.params.name_id;
 		let mobile = this.refs.mobile.value.trim();
-		let telReg = !!mobile.match(/^(13[0-9]|15[012356789]|17[0-9]|18[0-9]|14[57])[0-9]{8}$/);
+		let telReg = !!mobile.match(/^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])[0-9]{8}$/);
 		let forms= {
 				SignID: this.state.SignID, 									//签到活动的id
 				SignerMobile: mobile										//签到人电话
