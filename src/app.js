@@ -9,6 +9,15 @@ var name = window.location.pathname;
 var company_id = name.split('/')[1];
 var category_name = name.split('/')[2];
 import Api from './api/index.js';
+
+var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?3c974069eb858490ad7abef80621aef1";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+
 if(category_name){
     //company_id 公司id
     //category_name 类别名字 微官网:website 分享名片:card 邀请函: invitation
