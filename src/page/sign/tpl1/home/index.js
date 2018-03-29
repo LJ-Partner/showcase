@@ -55,7 +55,7 @@ export default class Home extends React.Component {
 		e.preventDefault();
 		let id = this.props.match.params.name_id;
 		let mobile = this.refs.mobile.value.trim();
-		let telReg = !!mobile.match(/^(13[0-9]|15[012356789]|17[0-9]|18[0-9]|14[57])[0-9]{8}$/);
+		let telReg = !!mobile.match(/^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])[0-9]{8}$/);
 		let forms= {
 				SignID: this.state.SignID, 									//签到活动的id
 				SignerMobile: mobile										//签到人电话
@@ -73,7 +73,7 @@ export default class Home extends React.Component {
 					T.notify('请先去注册');
 					setTimeout(() =>{
 						window.location.href = '/' + this.props.match.params.name_id + '/sign/'+this.props.match.params.sign_id+'/apply';	
-					},3000)
+					},100)
 				}else if(res.data.code && res.data.code == 301){		//301  有编号
 					this.setState({
 						show: false,
@@ -100,7 +100,7 @@ export default class Home extends React.Component {
 		//this.isSign();
 		this.signInfo();
 	}
-	sucDetail(tel,title){
+	sucDetail(data){
 		if(this.state.numStatus){
 			return(
 				<div className="suc-txt">
@@ -108,18 +108,18 @@ export default class Home extends React.Component {
 						<em>{this.state.signNum}</em>号
 					</p>
 					<p>
-						<em>{this.state.signText}</em>感谢您位临{title}，请与工作人员联系，我们会安排会务事宜，感谢您的支持！
+						<em>{this.state.signText}</em>{data.signs.Attach_text}
 					</p>
-					{tel?(<p>联系电话 : {tel}</p>):('')}		
+					{data.signs.Phone?(<p>联系电话 : <a href={'tel:'+data.signs.Phone}>{data.signs.Phone}</a></p>):('')}		
 				</div>
 			)
 		}else{
 			return(
 				<div className="already">
 					<p>
-						<em>{this.state.signText}</em>请尽快与会场工作人员联系，进行线下支付，完成会议流程！如已完成支付，请与现场工作人员联系取得编号。如有问题可向工作人员咨询！
+						<em>{this.state.signText}</em>{data.signs.Failed_text}
 					</p>
-					{tel?(<p>联系电话 : {tel}</p>):('')}	
+					{data.signs.Phone?(<p>联系电话 : <a href={'tel:'+data.signs.Phone}>{data.signs.Phone}</a></p>):('')}		
 				</div>
 			)	
 		}
@@ -193,7 +193,7 @@ export default class Home extends React.Component {
 														<p>{_data.signs.Title}</p>
 													</div>	
 													<div className="result-suc">
-														{this.sucDetail(_data.signs.Phone,_data.signs.Title)}
+														{this.sucDetail(_data)}
 														<a href={'/'+this.props.match.params.name_id + '/sign/'+this.props.match.params.sign_id} className="btn-home">返回首页</a>
 													</div>
 													</div>)

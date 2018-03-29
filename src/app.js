@@ -112,6 +112,7 @@ if(category_name){
                             <Router>
                                 <Switch>
                                     <Route path={_url+'/video'} component={type.single.video.home()} />
+                                    <Route path={_url+'/picture'} component={type.single.picture.home()} />
                                     <Route component={type.error.error()} />
                                 </Switch>
                             </Router>

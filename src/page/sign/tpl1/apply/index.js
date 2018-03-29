@@ -22,7 +22,8 @@ export default class Home extends React.Component {
 			loading: true,
 			emptyCnt: false,
 			codeNum: 0,							//编号
-			numStatus: false					//是否有编号	
+			numStatus: false,					//是否有编号
+			Abstract: ''						//文本描述	
 		}
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -38,12 +39,12 @@ export default class Home extends React.Component {
 			}	
 		}
 	}
-	result(tel){
+	result(data){
 		if(this.state.show){
 			return(
 				<div className="cnt-info">
 					<p className="txt">
-						您好，欢迎您位临2018年硅钢供需交流会，请填写您的相关信息，我们将尽快安排会务人员与您取得联系，并为您安排会议的相关服务。
+						{data.Abstract}
 					</p>
 					<form className="form-box">
 						<div className="item-box">
@@ -80,10 +81,11 @@ export default class Home extends React.Component {
 									this.state.codeNum?(<p className="suc-num"><em>{this.state.codeNum}</em>号</p>):('')
 								}
 								<p>
-									<em>{this.state.applyText}</em>感谢您位临2018年硅钢供需交流会，请与工作人员联系，进行线下支付，完成会议流程！
+									<em>{this.state.applyText}</em>
+									{this.state.codeNum?(data.Attach_text):(data.Failed_text)}
 								</p>	
 								{
-									this.state.numStatus?(''):((<p>联系电话 : {tel}</p>:('')))
+									this.state.numStatus?(''):((<p>联系电话 : <a href={'tel:'+data.Phone}>{data.Phone}</a></p>:('')))
 								}
 							</div>
 						</div>
@@ -102,7 +104,8 @@ export default class Home extends React.Component {
   					SignID: res.data.content.signs.ID,
   					loading: false,
   					getCardData: res.data.content.signs,
-  					show: true
+  					show: true,
+  					Abstract: res.data.content.signs.Abstract
   				})
   			}else{
   				_this.setState({
@@ -149,7 +152,7 @@ export default class Home extends React.Component {
 	  				if(res.data.code == 200){								//200报名成功,没编号	
 	  					this.setState({
 		  					numStatus: false,
-		  					applyText: '报名成功！'
+		  					applyText: '您已填写！'
 		  				})
 	  				}else if(res.data.code == 301){							//已经签到过了,有编号
 	  					this.setState({
@@ -160,7 +163,7 @@ export default class Home extends React.Component {
 	  				}else if(res.data.code == 302){							//联系现场工作人员
 	  					this.setState({
 		  					numStatus: false,
-		  					applyText: '您已经填写过了！'
+		  					applyText: '您已填写！'
 		  				})
 	  				}
 	  				this.setState({
@@ -193,7 +196,7 @@ export default class Home extends React.Component {
 								<div className="title">
 									<p>{data.Title}</p>
 								</div>
-								{this.result(data.Phone)}
+								{this.result(data)}
 							</div>
 						</div>	
 						<Toast />
