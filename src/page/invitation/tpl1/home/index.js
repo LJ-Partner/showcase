@@ -2,6 +2,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Swiper  from 'react-id-swiper';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Parser from 'html-react-parser';
 import './index.less';
 import Loading from '../../../../components/Loading/Loading';
 import Empty from '../../../../components/Empty/Empty';
@@ -145,11 +146,11 @@ export default class Home extends React.Component {
 					    		<div className="door-left fadeOutRight"></div>
 					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
-					    			【诚意邀请】	
+					    			{_data.invitation.inviting_title}	
 					    		</h2>
 					    		<div className="page-cnt">
 					    			<span className="name">尊敬的先生/女士们:</span>
-					    			<p className="intro">{_data.invitation.inviting}</p>
+					    			<div className="intro">{Parser(_data.invitation.inviting)}</div>
 					    		</div>
 					    		<div className="arrow">
 									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
@@ -159,11 +160,11 @@ export default class Home extends React.Component {
 					    		<div className="door-left fadeOutRight"></div>
 					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
-					    			【会议介绍】	
+					    			{_data.invitation.introduce_title}	
 					    		</h2>
 					    		<div className="page-cnt">
-					    			<p className="intro">{_data.invitation.introduce}</p>	
-									<div className="pic-box-w ">
+					    			<div className="intro">{Parser(_data.invitation.introduce)}</div>	
+									<div className="pic-box-w">
 										{this.carouselShow()}
 									</div>
 					    		</div>
@@ -175,7 +176,7 @@ export default class Home extends React.Component {
 					    		<div className="door-left fadeOutRight"></div>
 					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
-					    			【会议流程】	
+					    			{_data.invitation.process_title}	
 					    		</h2>
 					    		<div className="page-cnt">
 					    			<div className="schedule-w">
@@ -198,7 +199,7 @@ export default class Home extends React.Component {
 					    		<div className="door-left fadeOutRight"></div>
 					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
-					    			【特邀嘉宾】	
+					    			{_data.invitation.guest_title}	
 					    		</h2>
 					    		<div className="page-cnt">
 					    			{_data.guest.map((item,index) =>{
@@ -209,6 +210,11 @@ export default class Home extends React.Component {
 								    				<dd>
 								    					<p>{item.guest_name}</p>
 								    					<p>{item.guest_des}</p>
+								    					{
+											    			item.sub_title?(
+												    			<p>{item.sub_title}</p>
+													    		):('')
+												    	}
 								    				</dd>
 								    			</dl>
 					    			})}	
@@ -221,10 +227,10 @@ export default class Home extends React.Component {
 					    		<div className="door-left fadeOutRight"></div>
 					    		<div className="door-right fadeOutLeft"></div>
 					    		<h2 className="page-title">
-					    			【关注我们】	
+					    			{_data.invitation.follow_us_title}	
 					    		</h2>
 					    		<div className="page-cnt">
-					    			<p className="tips">{_data.invitation.follow_us}</p>	
+					    			<div className="tips">{Parser(_data.invitation.follow_us)}</div>	
 					    			<dl className="ewm-box">
 					    				<dt className="rotateIn">
 					    					<span ><img src={_data.invitation.qr_code} /></span>
