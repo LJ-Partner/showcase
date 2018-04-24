@@ -172,57 +172,65 @@ export default class Home extends React.Component {
 									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
 								</div>	
 					    	</div>
-					    	<div className="page page4">
-					    		<div className="door-left fadeOutRight"></div>
-					    		<div className="door-right fadeOutLeft"></div>
-					    		<h2 className="page-title">
-					    			{_data.invitation.process_title}	
-					    		</h2>
-					    		<div className="page-cnt">
-					    			<div className="schedule-w">
-					    				<ul className="schedule">
-					    					{_data.process.map((item,index) => {
-					    						return  <li key={index}>
-									    					<span>{item.pointof_time}</span>
-									    					<em>{item.pointof_content}</em>
-									    				</li>
-					    					})}
-						    			</ul>
-						    			<div className="space-line bounceInUp"></div>	
-					    			</div>
-					    		</div>
-					    		<div className="arrow">
-									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
-								</div>	
-					    	</div>
-					    	<div className="page page5">
-					    		<div className="door-left fadeOutRight"></div>
-					    		<div className="door-right fadeOutLeft"></div>
-					    		<h2 className="page-title">
-					    			{_data.invitation.guest_title}	
-					    		</h2>
-					    		<div className="page-cnt">
-					    			{_data.guest.map((item,index) =>{
-					    				return  <dl key={index} className="guest-box">
-								    				<dt>
-								    					<span><img src={item.picture_url} /></span>	
-								    				</dt>
-								    				<dd>
-								    					<p>{item.guest_name}</p>
-								    					<p>{item.guest_des}</p>
-								    					{
-											    			item.sub_title?(
-												    			<p>{item.sub_title}</p>
-													    		):('')
-												    	}
-								    				</dd>
-								    			</dl>
-					    			})}	
-					    		</div>
-					    		<div className="arrow">
-									<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
-								</div>	
-					    	</div>
+					    	{
+				    			_data.process && _data.process.length > 0?(
+					    			<div className="page page4">
+							    		<div className="door-left fadeOutRight"></div>
+							    		<div className="door-right fadeOutLeft"></div>
+							    		<h2 className="page-title">
+							    			{_data.invitation.process_title}	
+							    		</h2>
+							    		<div className="page-cnt">
+							    			<div className="schedule-w">
+							    				<ul className="schedule">
+							    					{_data.process.map((item,index) => {
+							    						return  <li key={index}>
+											    					<span>{item.pointof_time}</span>
+											    					<em>{item.pointof_content}</em>
+											    				</li>
+							    					})}
+								    			</ul>
+								    			<div className="space-line bounceInUp"></div>	
+							    			</div>
+							    		</div>
+							    		<div className="arrow">
+											<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
+										</div>	
+							    	</div>	
+						    	):('')
+					    	}
+					    	{
+				    			_data.guest && _data.guest.length > 0?(
+					    			<div className="page page5">
+							    		<div className="door-left fadeOutRight"></div>
+								    		<div className="door-right fadeOutLeft"></div>
+								    		<h2 className="page-title">
+								    			{_data.invitation.guest_title}	
+								    		</h2>
+								    		<div className="page-cnt">
+								    			{_data.guest.map((item,index) =>{
+								    				return  <dl key={index} className="guest-box">
+											    				<dt>
+											    					<span><img src={item.picture_url} /></span>	
+											    				</dt>
+											    				<dd>
+											    					<p>{item.guest_name}</p>
+											    					<p>{item.guest_des}</p>
+											    					{
+														    			item.sub_title?(
+															    			<p>{item.sub_title}</p>
+																    		):('')
+															    	}
+											    				</dd>
+											    			</dl>
+								    			})}	
+								    		</div>
+							    		<div className="arrow">
+											<span className="bounce"><img src={'https://p.maicai360.cn/img/get/20180211/46421636539459293438176_png'}  className="arrow_pic" /></span>	
+										</div>	
+								    </div>
+						    	):('')
+					    	}
 					    	<div className="page page6">
 					    		<div className="door-left fadeOutRight"></div>
 					    		<div className="door-right fadeOutLeft"></div>
