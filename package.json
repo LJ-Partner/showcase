@@ -42,7 +42,7 @@
   },
   "scripts": {
     "start": "webpack -w",
-    "dev": "webpack-dev-server --hot --inline",
+    "dev": "webpack-dev-server --hot --inline --open",
     "release": "webpack --config production.config.js"
   },
   "devDependencies": {}

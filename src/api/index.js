@@ -8,4 +8,4 @@ exports.card = card;
 exports.sign = sign;
 exports.single = single;
 exports.invitation = invitation;
-exports.api_prefix ="http://mm.51wctt.com/Api/V1/";//http://localhost:2033/Api/V1/
+exports.api_prefix = "http://mm.51wctt.com/Api/V1/";//http://localhost:2033/Api/V1/

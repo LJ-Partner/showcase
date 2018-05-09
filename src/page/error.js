@@ -8,7 +8,7 @@ export default class Unfind extends React.Component {
     }
     render() {
         return (
-            <div className="wrap">
+            <div className="wrap error">
                 <Unright />
             </div>
         )

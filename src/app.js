@@ -29,7 +29,7 @@ if(category_name){
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
                     _url = '/:name_id/website';
-                    if(res.data.content.website_tmp == 1){
+                    if (res.data.content.website_tmp == 1 && res.data.content.allowed_website==1){
                         ReactDOM.render(
                             <Router>
                                 <Switch>
@@ -50,8 +50,18 @@ if(category_name){
                             ,
                             dest    
                         )  
+                    } else {
+                        ReactDOM.render(
+                            <Router>
+                                <Switch>
+                                    <Route component={type.error.notfound()} />
+                                </Switch>
+                            </Router>
+                            ,
+                            dest
+                        )
                     }
-                }else{
+                } else {
                     console.log('暂无数据')
                 }
             })
@@ -73,7 +83,7 @@ if(category_name){
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
                     _url = '/:name_id/card';           
-                    if(res.data.content.website_tmp == 1){
+                    if (res.data.content.card_tmp == 1 && res.data.content.allowed_card == 1){
                         ReactDOM.render(
                             <Router>
                                 <Switch>
@@ -84,8 +94,18 @@ if(category_name){
                             ,
                             dest    
                         )  
+                    } else {
+                        ReactDOM.render(
+                            <Router>
+                                <Switch>
+                                    <Route component={type.error.notfound()} />
+                                </Switch>
+                            </Router>
+                            ,
+                            dest
+                        )
                     }
-                }else{
+                } else{
                     console.log('暂无数据')
                 }
             })
@@ -120,7 +140,17 @@ if(category_name){
                             dest    
                         )  
                     }
-                }else{
+                } else if (res.data.code && res.data.code == 403) {
+                    ReactDOM.render(
+                        <Router>
+                            <Switch>
+                                <Route component={type.error.notfound()} />
+                            </Switch>
+                        </Router>
+                        ,
+                        dest
+                    )
+                } else{
                     console.log('暂无数据')
                 }
             })
@@ -142,7 +172,7 @@ if(category_name){
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
                     _url = '/:name_id/sign/:sign_id';           
-                    if(res.data.content.website_tmp == 1){
+                    if (res.data.content.signer_tmp == 1 && res.data.content.allowed_sign==1){
                         ReactDOM.render(
                             <Router>
                                 <Switch>
@@ -154,8 +184,19 @@ if(category_name){
                             ,
                             dest    
                         )  
+                    } else {
+                        console.log("sign:1231")
+                        ReactDOM.render(
+                            <Router>
+                                <Switch>
+                                    <Route component={type.error.notfound()} />
+                                </Switch>
+                            </Router>
+                            ,
+                            dest
+                        )
                     }
-                }else{
+                } else{
                     console.log('暂无数据')
                 }
             })
@@ -177,7 +218,7 @@ if(category_name){
             .then((res) => {
                 if(res.data.code && res.data.code == 200){
                     _url = '/:name_id/invitation';            
-                    if(res.data.content.website_tmp == 1){
+                    if (res.data.content.invite_temp == 1 && res.data.content.allowed_invitation==1){
                         ReactDOM.render(
                             <Router>
                                 <Switch>
@@ -189,8 +230,18 @@ if(category_name){
                             ,
                             dest    
                         )  
+                    } else {
+                        ReactDOM.render(
+                            <Router>
+                                <Switch>
+                                    <Route component={type.error.notfound()} />
+                                </Switch>
+                            </Router>
+                            ,
+                            dest
+                        )
                     }
-                }else{
+                } else{
                     console.log('暂无数据')
                 }
             })
